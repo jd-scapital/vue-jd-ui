@@ -21,9 +21,9 @@ then
   npm version $VERSION --message "[release] $VERSION"
   if [[ $VERSION =~ "beta" ]]
   then
-    npm publish --tag beta
+    npm publish --tag beta --allow-same-version
   else
-    npm publish
+    npm publish --allow-same-version
   fi
   cd ../..
 
@@ -41,8 +41,8 @@ then
 
   if [[ $VERSION =~ "beta" ]]
   then
-    npm publish --tag beta
+    npm publish --tag beta --allow-same-version
   else
-    npm publish
+    npm publish --allow-same-version
   fi
 fi
