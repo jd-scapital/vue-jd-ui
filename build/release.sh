@@ -18,19 +18,19 @@ then
   # publish theme
   echo "Releasing theme-chalk $VERSION ..."
   cd packages/theme-chalk
-  npm version $VERSION --message "[release] $VERSION"
+  npm version $VERSION --message "[release] $VERSION" --allow-same-version
   if [[ $VERSION =~ "beta" ]]
   then
-    npm publish --tag beta --allow-same-version
+    npm publish --tag beta
   else
-    npm publish --allow-same-version
+    npm publish
   fi
   cd ../..
 
   # commit
   git add -A
   git commit -m "[build] $VERSION"
-  npm version $VERSION --message "[release] $VERSION"
+  npm version $VERSION --message "[release] $VERSION" --allow-same-version
 
   # publish
   git push origin master
@@ -41,8 +41,8 @@ then
 
   if [[ $VERSION =~ "beta" ]]
   then
-    npm publish --tag beta --allow-same-version
+    npm publish --tag beta
   else
-    npm publish --allow-same-version
+    npm publish
   fi
 fi
