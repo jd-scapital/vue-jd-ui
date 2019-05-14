@@ -14,7 +14,7 @@
  * @description 小的验证码组件
  * @createTime 2019年04月08日14:44:09
  */
-import { INPUT_TYPE_VERIFY_CODE_SPARE_TIME } from 'jd-ui/src/utils/constant'
+import { INPUT_TYPE_VERIFY_CODE_SPARE_TIME } from 'vue-jd-ui/src/utils/constant'
 
 export default {
   name: 'JdVerifyCodeSmall',

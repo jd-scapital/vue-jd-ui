@@ -33,7 +33,7 @@
  * @prop { Boolean } open 是否默认展开
  * @prop { String } title 标题（当 type 为 title 时）
  */
-import CollapseTransition from 'jd-ui/src/transitions/collapse-transition'
+import CollapseTransition from 'vue-jd-ui/src/transitions/collapse-transition'
 
 export default {
   name: 'JdCollapse',

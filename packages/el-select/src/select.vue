@@ -133,22 +133,22 @@
 </template>
 
 <script type="text/babel">
-import Emitter from 'jd-ui/src/mixins/emitter'
-import Focus from 'jd-ui/src/mixins/focus'
-import Locale from 'jd-ui/src/mixins/locale'
-import ElInput from 'jd-ui/packages/el-input'
+import Emitter from 'vue-jd-ui/src/mixins/emitter'
+import Focus from 'vue-jd-ui/src/mixins/focus'
+import Locale from 'vue-jd-ui/src/mixins/locale'
+import ElInput from 'vue-jd-ui/packages/el-input'
 import ElSelectMenu from './select-dropdown.vue'
 import ElOption from './option.vue'
-import ElTag from 'jd-ui/packages/el-tag'
-import ElScrollbar from 'jd-ui/packages/el-scrollbar'
+import ElTag from 'vue-jd-ui/packages/el-tag'
+import ElScrollbar from 'vue-jd-ui/packages/el-scrollbar'
 import { debounce } from 'throttle-debounce'
-import Clickoutside from 'jd-ui/src/utils/clickoutside'
-import { addResizeListener, removeResizeListener } from 'jd-ui/src/utils/resize-event'
-import { t } from 'jd-ui/src/locale'
-import scrollIntoView from 'jd-ui/src/utils/scroll-into-view'
-import { valueEquals, isIE, isEdge, getValueByPath } from 'jd-ui/src/utils/util'
+import Clickoutside from 'vue-jd-ui/src/utils/clickoutside'
+import { addResizeListener, removeResizeListener } from 'vue-jd-ui/src/utils/resize-event'
+import { t } from 'vue-jd-ui/src/locale'
+import scrollIntoView from 'vue-jd-ui/src/utils/scroll-into-view'
+import { valueEquals, isIE, isEdge, getValueByPath } from 'vue-jd-ui/src/utils/util'
 import NavigationMixin from './navigation-mixin'
-import { isKorean } from 'jd-ui/src/utils/shared'
+import { isKorean } from 'vue-jd-ui/src/utils/shared'
 
 export default {
   mixins: [Emitter, Locale, Focus('reference'), NavigationMixin],

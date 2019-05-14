@@ -31,7 +31,7 @@ import TableTodo from '../packages/table-todo/index.js'
 import VerifyCode from '../packages/verify-code/index.js'
 import VerifyCodeSmall from '../packages/verify-code-small/index.js'
 
-import CollapseTransition from 'jd-ui/src/transitions/collapse-transition'
+import CollapseTransition from 'vue-jd-ui/src/transitions/collapse-transition'
 
 const components = [
   Alter,

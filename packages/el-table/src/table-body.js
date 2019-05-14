@@ -1,7 +1,7 @@
 import { getCell, getColumnByCell, getRowIdentity } from './util'
-import { getStyle, hasClass, removeClass, addClass } from 'jd-ui/src/utils/dom'
-import ElCheckbox from 'jd-ui/packages/el-checkbox'
-import ElTooltip from 'jd-ui/packages/el-tooltip'
+import { getStyle, hasClass, removeClass, addClass } from 'vue-jd-ui/src/utils/dom'
+import ElCheckbox from 'vue-jd-ui/packages/el-checkbox'
+import ElTooltip from 'vue-jd-ui/packages/el-tooltip'
 import { debounce } from 'throttle-debounce'
 import LayoutObserver from './layout-observer'
 

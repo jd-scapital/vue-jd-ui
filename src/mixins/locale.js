@@ -1,4 +1,4 @@
-import { t } from 'jd-ui/src/locale'
+import { t } from 'vue-jd-ui/src/locale'
 
 export default {
   methods: {

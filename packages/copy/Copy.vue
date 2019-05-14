@@ -22,7 +22,7 @@
  * @slot 要复制的内容
  */
 import Clipboard from 'clipboard'
-import ElMessage from 'jd-ui/packages/el-message'
+import ElMessage from 'vue-jd-ui/packages/el-message'
 
 export default {
   name: 'JdCopy',

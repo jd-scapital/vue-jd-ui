@@ -1,5 +1,5 @@
 <script>
-import Emitter from 'jd-ui/src/mixins/emitter'
+import Emitter from 'vue-jd-ui/src/mixins/emitter'
 
 export default {
   name: 'ElCheckboxGroup',

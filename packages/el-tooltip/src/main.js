@@ -1,7 +1,7 @@
-import Popper from 'jd-ui/src/utils/vue-popper'
+import Popper from 'vue-jd-ui/src/utils/vue-popper'
 import { debounce } from 'throttle-debounce'
-import { addClass, removeClass, on, off } from 'jd-ui/src/utils/dom'
-import { generateId } from 'jd-ui/src/utils/util'
+import { addClass, removeClass, on, off } from 'vue-jd-ui/src/utils/dom'
+import { generateId } from 'vue-jd-ui/src/utils/util'
 import Vue from 'vue'
 
 export default {

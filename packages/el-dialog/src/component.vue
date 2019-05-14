@@ -35,9 +35,9 @@
 </template>
 
 <script>
-import Popup from 'jd-ui/src/utils/popup'
-import Migrating from 'jd-ui/src/mixins/migrating'
-import emitter from 'jd-ui/src/mixins/emitter'
+import Popup from 'vue-jd-ui/src/utils/popup'
+import Migrating from 'vue-jd-ui/src/mixins/migrating'
+import emitter from 'vue-jd-ui/src/mixins/emitter'
 
 export default {
   name: 'ElDialog',

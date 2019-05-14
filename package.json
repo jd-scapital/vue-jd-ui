@@ -2,7 +2,7 @@
   "name": "vue-jd-ui",
   "version": "1.0.0-beta.0",
   "description": "invest/cas/ai-bank's common component",
-  "main": "lib/jd-ui.common.js",
+  "main": "lib/vue-jd-ui.common.js",
   "files": [
     "lib",
     "src",
@@ -21,7 +21,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "http://git.office.scapital.com/front/jd-ui"
+    "url": "http://git.office.scapital.com/front/vue-jd-ui"
   },
   "keywords": [
     "jd-ui",

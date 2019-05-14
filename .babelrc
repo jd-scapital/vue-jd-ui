@@ -31,9 +31,9 @@
       ],
       "plugins": [
         ["module-resolver", {
-          "root": ["jd-ui"],
+          "root": ["vue-jd-ui"],
           "alias": {
-            "jd-ui/src": "jd-ui/lib"
+            "vue-jd-ui/src": "vue-jd-ui/lib"
           }
         }]
       ]

@@ -44,8 +44,8 @@
  * @event double-handle 双击 触发 （type为input）
  * @event change-handle input值改变时触发
  */
-import { numberToChinese } from 'jd-ui/src/utils/tools'
-import { BUTTON_SUBMIT } from 'jd-ui/src/utils/constant'
+import { numberToChinese } from 'vue-jd-ui/src/utils/tools'
+import { BUTTON_SUBMIT } from 'vue-jd-ui/src/utils/constant'
 export default {
   name: 'JdInput',
   props: {

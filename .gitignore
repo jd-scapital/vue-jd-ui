@@ -10,7 +10,7 @@ yarn-error.log.*
 lib
 .idea
 .vscode
-examples/jd-ui
+examples/vue-jd-ui
 examples/pages/en-US
 examples/pages/zh-CN
 examples/pages/es

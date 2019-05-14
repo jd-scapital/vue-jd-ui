@@ -12,7 +12,7 @@ module.exports = {
   output: {
     path: path.resolve(process.cwd(), './lib'),
     publicPath: '/dist/',
-    filename: 'jd-ui.common.js',
+    filename: 'vue-jd-ui.common.js',
     chunkFilename: '[id].js',
     libraryExport: 'default',
     library: 'JDUI',

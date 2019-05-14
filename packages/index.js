@@ -34,9 +34,9 @@ import EchartsHome from './echarts/Home'
 import EchartsMatch from './echarts/Match'
 import EchartsTab from './echarts/Tab'
 
-import CollapseTransition from 'jd-ui/lib/transitions/collapse-transition'
-import locale from 'jd-ui/lib/locale'
-import zhLocale from 'jd-ui/lib/locale/lang/zh-CN'
+import CollapseTransition from 'vue-jd-ui/lib/transitions/collapse-transition'
+import locale from 'vue-jd-ui/lib/locale'
+import zhLocale from 'vue-jd-ui/lib/locale/lang/zh-CN'
 zhLocale.el.pagination.goto = '跳至 '
 
 const components = [

@@ -38,8 +38,8 @@
  * @template slot:warn 自定义提示
  * @function reset 重置（外部ref引用）
  */
-import { PUSH_TXT, PUSH_VOICE } from 'jd-ui/src/utils/constant'
-import ElMessage from 'jd-ui/packages/el-message'
+import { PUSH_TXT, PUSH_VOICE } from 'vue-jd-ui/src/utils/constant'
+import ElMessage from 'vue-jd-ui/packages/el-message'
 
 export default {
   name: 'JdVerifyCode',

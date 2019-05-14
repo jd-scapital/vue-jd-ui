@@ -1,4 +1,4 @@
-import scrollbarWidth from 'jd-ui/src/utils/scrollbar-width'
+import scrollbarWidth from 'vue-jd-ui/src/utils/scrollbar-width'
 import Vue from 'vue'
 
 class TableLayout {

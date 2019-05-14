@@ -1,4 +1,4 @@
-import defaultLang from 'jd-ui/src/locale/lang/zh-CN'
+import defaultLang from 'vue-jd-ui/src/locale/lang/zh-CN'
 import Vue from 'vue'
 import deepmerge from 'deepmerge'
 import Format from './format'

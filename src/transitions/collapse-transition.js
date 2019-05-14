@@ -1,4 +1,4 @@
-import { addClass, removeClass } from 'jd-ui/src/utils/dom'
+import { addClass, removeClass } from 'vue-jd-ui/src/utils/dom'
 
 class Transition {
   beforeEnter(el) {

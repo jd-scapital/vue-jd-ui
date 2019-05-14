@@ -45,7 +45,7 @@ import elTable from '../el-table'
 import elTableColumn from '../el-table-column'
 import ExpandTable from '../table-expand'
 import JdButton from '../button'
-import { timeFormat } from 'jd-ui/src/utils/tools'
+import { timeFormat } from 'vue-jd-ui/src/utils/tools'
 
 export default {
   name: 'JdTodoTable',

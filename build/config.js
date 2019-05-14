@@ -10,21 +10,21 @@ var transitionList = fs.readdirSync(path.resolve(__dirname, '../src/transitions'
 var externals = {}
 
 Object.keys(Components).forEach(function(key) {
-  externals[`jd-ui/packages/${key}`] = `jd-ui/lib/${key}`
+  externals[`vue-jd-ui/packages/${key}`] = `vue-jd-ui/lib/${key}`
 })
 
-externals['jd-ui/src/locale'] = 'jd-ui/lib/locale'
+externals['vue-jd-ui/src/locale'] = 'vue-jd-ui/lib/locale'
 utilsList.forEach(function(file) {
   file = path.basename(file, '.js')
-  externals[`jd-ui/src/utils/${file}`] = `jd-ui/lib/utils/${file}`
+  externals[`vue-jd-ui/src/utils/${file}`] = `vue-jd-ui/lib/utils/${file}`
 })
 mixinsList.forEach(function(file) {
   file = path.basename(file, '.js')
-  externals[`jd-ui/src/mixins/${file}`] = `jd-ui/lib/mixins/${file}`
+  externals[`vue-jd-ui/src/mixins/${file}`] = `vue-jd-ui/lib/mixins/${file}`
 })
 transitionList.forEach(function(file) {
   file = path.basename(file, '.js')
-  externals[`jd-ui/src/transitions/${file}`] = `jd-ui/lib/transitions/${file}`
+  externals[`vue-jd-ui/src/transitions/${file}`] = `vue-jd-ui/lib/transitions/${file}`
 })
 
 externals = [Object.assign({
@@ -36,7 +36,7 @@ exports.externals = externals
 exports.alias = {
   main: path.resolve(__dirname, '../src'),
   packages: path.resolve(__dirname, '../packages'),
-  'jd-ui': path.resolve(__dirname, '../')
+  'vue-jd-ui': path.resolve(__dirname, '../')
 }
 
 exports.vue = {

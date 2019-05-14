@@ -1,5 +1,5 @@
 import Vue from 'vue'
-import { addClass, removeClass } from 'jd-ui/src/utils/dom'
+import { addClass, removeClass } from 'vue-jd-ui/src/utils/dom'
 
 let hasModal = false
 let hasInitZIndex = false

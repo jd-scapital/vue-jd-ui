@@ -1,7 +1,7 @@
-import ElCheckbox from 'jd-ui/packages/el-checkbox'
-import ElTag from 'jd-ui/packages/el-tag'
-import objectAssign from 'jd-ui/src/utils/merge'
-import { getPropByPath } from 'jd-ui/src/utils/util'
+import ElCheckbox from 'vue-jd-ui/packages/el-checkbox'
+import ElTag from 'vue-jd-ui/packages/el-tag'
+import objectAssign from 'vue-jd-ui/src/utils/merge'
+import { getPropByPath } from 'vue-jd-ui/src/utils/util'
 
 let columnIdSeed = 1
 

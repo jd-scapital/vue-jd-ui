@@ -214,10 +214,10 @@
 
 <script type="text/babel">
 import { debounce } from 'throttle-debounce'
-import { addResizeListener, removeResizeListener } from 'jd-ui/src/utils/resize-event'
-import Mousewheel from 'jd-ui/src/directives/mousewheel'
-import Locale from 'jd-ui/src/mixins/locale'
-import Migrating from 'jd-ui/src/mixins/migrating'
+import { addResizeListener, removeResizeListener } from 'vue-jd-ui/src/utils/resize-event'
+import Mousewheel from 'vue-jd-ui/src/directives/mousewheel'
+import Locale from 'vue-jd-ui/src/mixins/locale'
+import Migrating from 'vue-jd-ui/src/mixins/migrating'
 import TableStore from './table-store'
 import TableLayout from './table-layout'
 import TableBody from './table-body'

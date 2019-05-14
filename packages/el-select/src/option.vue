@@ -16,8 +16,8 @@
 </template>
 
 <script type="text/babel">
-import Emitter from 'jd-ui/src/mixins/emitter'
-import { getValueByPath, escapeRegexpString } from 'jd-ui/src/utils/util'
+import Emitter from 'vue-jd-ui/src/mixins/emitter'
+import { getValueByPath, escapeRegexpString } from 'vue-jd-ui/src/utils/util'
 
 export default {
   mixins: [Emitter],

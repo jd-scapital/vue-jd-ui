@@ -122,10 +122,10 @@
  * @createTime 2019年03月26日09:57:17
  */
 import VClickOutside from 'v-click-outside'
-import ElMessage from 'jd-ui/packages/el-message'
+import ElMessage from 'vue-jd-ui/packages/el-message'
 import InputSelect from './NormalInputSelect'
 
-import { isChildOf } from 'jd-ui/src/utils/dom'
+import { isChildOf } from 'vue-jd-ui/src/utils/dom'
 import {
   INPUT_TYPE_PASSWORD,
   INPUT_TYPE_TEXT,
@@ -135,7 +135,7 @@ import {
   INPUT_TYPE_VERIFY_CODE_SPARE_TIME,
   PUSH_TXT,
   ACTION_VALUE_EDIT_USER_INFO
-} from 'jd-ui/src/utils/constant.js'
+} from 'vue-jd-ui/src/utils/constant.js'
 
 export default {
   name: 'JdNormalInput',

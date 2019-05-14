@@ -105,10 +105,10 @@
   </div>
 </template>
 <script>
-import emitter from 'jd-ui/src/mixins/emitter'
-import Migrating from 'jd-ui/src/mixins/migrating'
+import emitter from 'vue-jd-ui/src/mixins/emitter'
+import Migrating from 'vue-jd-ui/src/mixins/migrating'
 import calcTextareaHeight from './calcTextareaHeight'
-import merge from 'jd-ui/src/utils/merge'
+import merge from 'vue-jd-ui/src/utils/merge'
 
 export default {
   name: 'ElInput',

@@ -1,9 +1,9 @@
-import { kebabCase } from 'jd-ui/src/utils/util'
+import { kebabCase } from 'vue-jd-ui/src/utils/util'
 /**
  * Show migrating guide in browser console.
  *
  * Usage:
- * import Migrating from 'jd-ui/src/mixins/migrating'
+ * import Migrating from 'vue-jd-ui/src/mixins/migrating'
  *
  * mixins: [Migrating]
  *

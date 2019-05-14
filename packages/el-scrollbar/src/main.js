@@ -1,8 +1,8 @@
 // reference https://github.com/noeldelgado/gemini-scrollbar/blob/master/index.js
 
-import { addResizeListener, removeResizeListener } from 'jd-ui/src/utils/resize-event'
-import scrollbarWidth from 'jd-ui/src/utils/scrollbar-width'
-import { toObject } from 'jd-ui/src/utils/util'
+import { addResizeListener, removeResizeListener } from 'vue-jd-ui/src/utils/resize-event'
+import scrollbarWidth from 'vue-jd-ui/src/utils/scrollbar-width'
+import { toObject } from 'vue-jd-ui/src/utils/util'
 import Bar from './bar'
 
 /* istanbul ignore next */
