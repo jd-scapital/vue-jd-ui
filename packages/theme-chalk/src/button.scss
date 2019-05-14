@@ -1,0 +1,38 @@
+@import 'common/variable.scss';
+@import 'common/color.scss';
+
+a {
+  display: inline-block;
+  font-size: 14px;
+  line-height: 30px;
+  text-decoration: none;
+  border-radius: 50px;
+  border: 1px solid $button-fill;
+  text-align: center;
+  &.fill {
+    background-color: $button-fill;
+    color: $white;
+  }
+  &.text {
+    color: $button-fill;
+    border-width: 0;
+    &:hover {
+      background-color: initial;
+      border-width: 0;
+      color: $button-fill;
+    }
+  }
+  &.blank {
+    color: $button-fill;
+  }
+  &:hover {
+    background-color: $button-hover;
+    border-color: $button-hover;
+    color: $white;
+  }
+  &.disabled {
+    background-color: $gray-12;
+    border-color: $gray-12;
+    cursor: not-allowed;
+  }
+}

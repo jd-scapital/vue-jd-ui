@@ -1,0 +1,390 @@
+<template>
+  <div class="tab-echarts">
+    <div class="tabs">
+      <ul>
+        <li
+          v-for="(tab, i) in tabs"
+          :key="i"
+          :class="{active: i === tabActive}"
+          @click="tabClickHandle(i)">{{tab}}</li>
+      </ul>
+    </div>
+    <!-- border-gray-1 -->
+    <div class="echart-box">
+      <div class="date">
+        <ul>
+          <li
+            v-for="(date, i) in dateList"
+            :key="i"
+            :class="{active: i === dateActive}"
+            @click="dateClickHandle(i)">{{date.name}}</li>
+        </ul>
+      </div>
+      <div class="echarts-tab" ref="echartsTab">loading...</div>
+    </div>
+  </div>
+</template>
+<script>
+/**
+ * @prop { String } type 活期产品子类型 T0 T1
+ * @event tabClickHandle tab切换触发，回调参数是当前索引
+ * @event dateClickHandle 日期切换触发，回调参数是当前索引
+ */
+import echarts from 'echarts'
+import dayjs from 'dayjs'
+import numeral from 'numeral'
+import { CURRENT_T0 } from 'jd-ui/src/utils/constant'
+export default {
+  name: 'JdEchartsTab',
+  props: {
+    type: {
+      type: String,
+      default: CURRENT_T0
+    }
+    // X轴日期列表
+    // days: {
+    //   type: Array,
+    //   default: () => ['2019-01-01', '2019-01-02', '2019-01-03', '2019-01-04', '2019-01-05', '2019-01-06', '2019-01-07', '2019-01-08', '2019-01-09', '2019-01-10', '2019-01-11', '2019-01-12', '2019-01-13', '2019-01-14', '2019-01-15', '2019-01-16', '2019-01-17', '2019-01-18', '2019-01-19', '2019-01-20', '2019-01-21', '2019-01-22', '2019-01-23', '2019-01-24', '2019-01-25', '2019-01-26', '2019-01-27', '2019-01-28', '2019-01-29', '2019-01-30']
+    // },
+    // Y轴数据
+    // data: {
+    //   type: Array,
+    //   default: () => [3.4, 3.4, 3.5, 3.4, 3.6, 4.1, 3.9, 4.12, 3.31, 4.3, 3.51, 3.14, 4.51, 4.32, 3.92, 3.26, 4.19, 4.2, 4.3]
+    // }
+  },
+  data() {
+    return {
+      echartsInstance: null,
+      tabActive: 0,
+      tabs: [
+        '七日年化',
+        '万份收益'
+      ],
+      dateActive: 0,
+      dateList: [
+        {
+          name: '近一周'
+        },
+        {
+          name: '近一个月'
+        },
+        {
+          name: '近三个月'
+        }
+      ],
+      // 当前日期
+      currentDate: dayjs().subtract(20, 'day').format('YYYY-MM-DD'),
+      rateList: []
+    }
+  },
+  computed: {
+    data() {
+      switch (this.tabActive) {
+        case 0:
+          return this.rateList.map(el => el.weekYield)
+        case 1:
+          return this.rateList.map(el => el.price)
+        default:
+          return this.rateList.map(el => el.weekYield)
+      }
+    },
+    days() {
+      return this.rateList.map(el => dayjs(el.date).format('MM-DD'))
+    }
+  },
+  watch: {
+    days(val) {
+      this.updateDate()
+    },
+    data(val) {
+      this.updateData()
+    }
+  },
+  mounted() {
+    this.init()
+  },
+  methods: {
+    init() {
+      // 更新数据
+      this.updateRateList()
+      // 初始化图表样式
+      this.initEcharts()
+      // 更新日期
+      // this.updateDate()
+      // // 更新数据
+      // this.updateData()
+    },
+    // 获取过去某天的日期
+    getPastDate(current, days = 7) {
+      days -= 1
+      const past = dayjs(current).subtract(days, 'day').format('YYYY-MM-DD')
+      return past
+    },
+    // 更新数据
+    async updateRateList(days = 7) {
+      const { currentDate, type } = this
+      const past = this.getPastDate(currentDate, days)
+      const query = {
+        startDate: past,
+        endDate: currentDate,
+        type
+      }
+      const { data } = await this.$api.getRatesList(query)
+      this.rateList = Array.isArray(data) ? data : []
+    },
+    // tab切换
+    tabClickHandle(index) {
+      this.tabActive = index
+      this.$emit('tabClickHandle', index)
+      let options = null
+      switch (index) {
+        case 0:
+        // 图表参数变更
+          options = {
+            yAxis: {
+              axisLabel: {
+                formatter: (value, index) => {
+                  return numeral(value).format('0.0000')
+                }
+              }
+            },
+            tooltip: {
+              formatter: (params, ticket, callback) => {
+                const data = params[0]
+                const { value } = data
+                const sumMoney = `${value}%`
+                return `当天七日年化：${sumMoney}`
+              }
+            }
+          }
+          break
+        case 1:
+        // 图表参数变更
+          options = {
+            yAxis: {
+              axisLabel: {
+                formatter: (value, index) => {
+                  return numeral(value).format('0.00') + '%'
+                }
+              }
+            },
+            tooltip: {
+              formatter: (params, ticket, callback) => {
+                const data = params[0]
+                const { value } = data
+                const sumMoney = numeral(value).format('0.0000')
+                return `万份收益(元)：${sumMoney}`
+              }
+            }
+          }
+          break
+        default:
+          break
+      }
+      this.echartsInstance.setOption(options)
+      this.dateClickHandle(0)
+    },
+    // 日期切换
+    dateClickHandle(index) {
+      this.dateActive = index
+      this.$emit('dateClickHandle', index)
+      switch (index) {
+        case 0: // 一周
+          this.updateRateList(7)
+          break
+        case 1: // 一个月
+          this.updateRateList(30)
+          break
+        case 2: // 三个月
+          this.updateRateList(90)
+          break
+        default:
+          this.updateRateList(7)
+          break
+      }
+    },
+    initEcharts() {
+      const echartsTab = this.$refs.echartsTab
+      this.echartsInstance = echarts.init(echartsTab, null, { width: 470 })
+
+      const options = {
+        // x坐标轴
+        xAxis: {
+          type: 'category',
+          offset: 0,
+          // 坐标轴轴线相关设置
+          axisLine: {
+            // 轴线显示
+            show: false
+          },
+          // 坐标轴刻度相关设置
+          axisTick: {
+            // 刻度显示
+            show: false
+          },
+          // 刻度标签
+          axisLabel: {
+            // 显示刻度
+            // interval: (index, value) => {
+            //   // 第一天
+            //   if (index === 0) {
+            //     return true
+            //   } // 15日
+            //   else if (index === 14) {
+            //     return true
+            //   } // 最后一天
+            //   else if (index === 29) {
+            //     return true
+            //   }
+            //   else {
+            //     return false
+            //   }
+            // },
+            formatter: (value, index) => {
+              return dayjs(value).format('MM-DD')
+            },
+            color: '#666',
+            fontFamily: 'Helvetica',
+            fontSize: 12,
+            align: 'center',
+            lineHeight: 14
+          },
+          axisPointer: {
+            // 显示hover
+            show: true,
+            type: 'line',
+            // 自动吸附
+            snap: true,
+            // hover文本标签。
+            label: {
+              show: true,
+              formatter: (params) => {
+                return dayjs(params.value).format('YYYY-MM-DD')
+              },
+              margin: -235,
+              color: '#999',
+              fontFamily: 'Helvetica',
+              fontSize: 10,
+              backgroundColor: 'transparent'
+            },
+            // hover线（竖的）
+            lineStyle: {
+              color: '#F4F4F4',
+              width: 2
+            }
+          },
+          nameLocation: 'center',
+          data: []
+        },
+        // y坐标轴
+        yAxis: {
+          type: 'value',
+          // type: 'category',
+          show: true,
+          interval: 1,
+          offset: 0,
+          // 坐标轴线
+          axisLine: {
+            show: false
+          },
+          // 坐标轴刻度
+          axisTick: {
+            show: false
+          },
+          scale: true,
+          // 坐标轴刻度标签
+          axisLabel: {
+            show: true,
+            formatter: (value, index) => {
+              return numeral(value).format('0.00') + '%'
+            },
+            color: '#666',
+            fontSize: 10,
+            fontFamily: 'Helvetica'
+          },
+          // 分割线
+          splitLine: {
+            show: true,
+            color: '#E5E5E5'
+          },
+          // 坐标点
+          axisPointer: {
+            show: false,
+            label: {
+              show: false
+            }
+          }
+        },
+        // hover提示框
+        tooltip: {
+          show: true,
+          trigger: 'axis',
+          axisPointer: {
+            // 自动吸附到点
+            snap: true
+          },
+          formatter: (params, ticket, callback) => {
+            const data = params[0]
+            const { value } = data
+            const sumMoney = `${value}%`
+            return `当天七日年化：${sumMoney}`
+          },
+          backgroundColor: '#EC4C42',
+          padding: 6,
+          // 浮层字体
+          textStyle: {
+            color: '#fff',
+            fontFamily: 'Helvetica',
+            fontSize: 12
+          },
+          // 额外的浮层样式
+          extraCssText: 'box-shadow: 0 5px 13px 4px rgba(237, 97, 88, 0.23)'
+        },
+        series: [{
+          data: [],
+          type: 'line',
+          // 数据圆点类型
+          symbol: 'emptyCircle',
+          // 数据圆点不显示
+          showSymbol: false,
+          // 折线的样式
+          lineStyle: {
+            width: 1,
+            color: '#EC4C42'
+          }
+        }]
+      }
+      // 绘制图表
+      this.echartsInstance.setOption(options)
+    },
+    // 初始化图表日期（x轴）
+    updateDate() {
+      const options = {
+        xAxis: {
+          data: this.days
+        }
+      }
+      this.echartsInstance.setOption(options)
+    },
+    // 初始化图表数据（y轴）
+    updateData() {
+      const options = {
+        series: [{
+          data: this.data,
+          type: 'line',
+          // 数据圆点类型
+          symbol: 'emptyCircle',
+          // 数据圆点不显示
+          showSymbol: false,
+          // 折线的样式
+          lineStyle: {
+            width: 1,
+            color: '#EC4C42'
+          }
+        }]
+      }
+      this.echartsInstance.setOption(options)
+    }
+  }
+}
+</script>

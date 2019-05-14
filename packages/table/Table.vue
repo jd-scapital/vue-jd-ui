@@ -1,0 +1,231 @@
+<template>
+  <div class="table"
+    :class="{'frist-at-one': firstAtOne}">
+    <el-table stripe
+      :data="tableData"
+      :class="hasFilter"
+      :show-header="showHeader">
+      <el-table-column
+        v-for="(column, i) in columns"
+        :key="i"
+        :label="column.label"
+        :prop="column.prop"
+        :width="column.width">
+          <template slot="header" slot-scope="scope">
+            <slot :name="column.filter" :column="scope.column">
+              <span class="table-head" :class="{'table-head-padding' : i === 0}">{{scope.column.label}}</span>
+            </slot>
+          </template>
+          <template slot-scope="scope" >
+            <div
+              v-if="column.render"
+              v-html="column.render(scope)"
+              :class="{'table-head-padding' : i === 0}"></div>
+            <template v-else-if="column.slot" >
+              <slot :name="column.slot" :row="scope.row"></slot>
+            </template>
+            <div v-else>
+              <span class="normal-content">{{scope.row[column.prop]}}</span>
+            </div>
+          </template>
+        </el-table-column>
+    </el-table>
+    <el-pagination
+      class="pagination"
+      :page-size="pageSize"
+      :pager-count="5"
+      :current-page="currentPage"
+      @current-change="currentChange"
+      background
+      layout="->, total, slot, prev, pager, next, jumper"
+      :total="total"
+      v-if="isShowPage">
+      <span class="size">{{totalPage}}页 {{pageSize}}/页</span>
+    </el-pagination>
+  </div>
+</template>
+<script>
+/**
+ * @event current-change 页码变化，参数为改变后的页数
+ * @prop { Array } tableData 表格数据
+ * @prop { Boolean } isShowPage 是否展示分页
+ * @prop { Boolean } firstAtOne 是否显示展示第一行
+ * @prop { Boolean } showHeader 是否展示表头
+ * @prop { Number } currentPage 当前页码
+ * @prop { Number } total 总条数
+ * @prop { Number } pageSize 一页多少条
+ * @prop { Array } columns 表头及内容格式定义
+ * @extends columns
+ *    @property { String } label 表头
+ *    @property { String } prop 对应的字段
+ *    @property { [String, Number] } width 当前列宽度
+ *    @property { Function(scope) } render 自定义渲染数据的格式
+ *    @property { String } slot 最后操作项自定义组件或者html， slot的值就是slot的name @augments { Object } row 当前列的数据
+ *    @property { String } filter 具有筛选功能，filter的值就是slot的name，@augments { Object } slotProps 当前表头的数据参数
+ */
+import elTable from '../el-table'
+import elTableColumn from '../el-table-column'
+import elPagination from '../el-pagination'
+
+export default {
+  name: 'JdTable',
+  components: {
+    elTable,
+    elTableColumn,
+    elPagination
+  },
+  props: {
+    // 数据
+    tableData: {
+      type: Array,
+      default: () => [
+        {
+          name: '活期T+0',
+          type: '去向 南京奇点有限公司',
+          amount: '30,003,323.00',
+          status: '资金在途',
+          time: '2019-01-20 10:53',
+          orderId: 'SG17112759459'
+        },
+        {
+          name: '活期T+0',
+          type: '去向 南京奇点有限公司',
+          amount: '30,003,323.00',
+          status: '资金在途',
+          time: '2019-01-20 10:53',
+          orderId: 'SG17112759459'
+        },
+        {
+          name: '活期T+0',
+          type: '去向 余额账户',
+          amount: '30,003,323.00',
+          status: '已到账',
+          time: '2019-01-20 10:53',
+          orderId: 'SG17112759459'
+        }
+      ]
+    },
+    columns: {
+      type: Array,
+      default: () => [
+        {
+          label: '全部产品',
+          prop: 'name',
+          render: (scope) => {
+            return (`
+              <p style="color:#333;font-size:14px;line-height:17px;">${scope.row['name']}</p>
+            `)
+          }
+        },
+        {
+          label: '交易金额',
+          prop: 'amount',
+          render: (scope) => {
+            return (`
+              <span style="font-size:14px;color:#333;">${scope.row['amount']}</span>
+            `)
+          }
+        },
+        {
+          label: '资金状态',
+          prop: 'status',
+          render: (scope) => {
+            return (`
+              <span style="font-size:12px;color:#333;">${scope.row['status']}</span>
+            `)
+          }
+        },
+        {
+          label: '资金来源/去向',
+          prop: 'type',
+          render: (scope) => {
+            return (`
+              <span style="color:#999;font-size:12px;">${scope.row['type']}</span>
+            `)
+          }
+        },
+        {
+          label: '账户结余额',
+          prop: 'balance',
+          render: (scope) => {
+            return (`
+              <span style="font-size:14px;color:#333;">${scope.row['amount']}</span>
+            `)
+          }
+        },
+        {
+          label: '交易时间',
+          prop: 'time',
+          render: (scope) => {
+            return (`
+              <span style="font-size:12px;color:#999;">${scope.row['time']}</span>
+            `)
+          }
+        }
+      ]
+    },
+    // 当前页码
+    currentPage: {
+      type: Number,
+      default: 1
+    },
+    // 每页多少条
+    pageSize: {
+      type: Number,
+      default: 10
+    },
+    // 总条数
+    total: {
+      type: Number,
+      default: 1
+    },
+    // 是否展示分页组件
+    isShowPage: {
+      type: Boolean,
+      default: true
+    },
+    // 第一行是否显示(激活色)展示
+    firstAtOne: {
+      type: Boolean,
+      default: false
+    },
+    // 是否展示表头
+    showHeader: {
+      type: Boolean,
+      default: true
+    }
+  },
+  computed: {
+    // 判断当前列是否具有过滤查询功能
+    hasFilter() {
+      const filterArray = this.columns.filter(el => {
+        return el.filter
+      })
+      if (filterArray.length !== 0) {
+        return 'header-filter'
+      }
+      return ''
+    },
+    // 总页数
+    totalPage() {
+      const { total, pageSize } = this
+      return Math.ceil(total / pageSize) || 1
+    }
+  },
+  methods: {
+    // 不需要expand的处理样式
+    rowClassName({ row, rowIndex }) {
+      if (this.firstAtOne) {
+        return rowIndex % 2 === 0 ? 'table-active' : ''
+      }
+      else {
+        return ''
+      }
+    },
+    // 页码改变
+    currentChange(page) {
+      this.$emit('current-change', page)
+    }
+  }
+}
+</script>
