@@ -1,5 +1,5 @@
 <template>
-  <div class="collapse-box">
+  <div class="jd-collapse-box">
     <div v-if="type === 'title'" class="collapse-title">
       <div class="collapse">
         <p @click="toggle()">

@@ -1,5 +1,5 @@
 <template>
-  <div class="tab">
+  <div class="jd-normal-tab">
     <ul class="tab-titles">
       <li v-for="(label, key) in labels"
         :key="key"

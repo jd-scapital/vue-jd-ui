@@ -1,5 +1,5 @@
 <template>
-  <div class="progress">
+  <div class="jd-progress">
     <ul>
       <li v-for="(item, i) in progress" :key="i">
         <div class="content" :class="{active: contentActive(i) }">

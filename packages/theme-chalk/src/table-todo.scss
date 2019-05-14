@@ -2,18 +2,18 @@
 @import 'common/color.scss';
 
 // expand隐藏
-.todo-table /deep/ .hide-expand .el-table__expand-icon  {
+.jd-todo-table /deep/ .hide-expand .el-table__expand-icon  {
   visibility: hidden;
 }
 // expand背景色
-.todo-table /deep/ .el-table__expanded-cell {
+.jd-todo-table /deep/ .el-table__expanded-cell {
   background-color: $gray-5;
 }
 // expand hover背景色
-.todo-table /deep/ .el-table__expanded-cell:hover {
+.jd-todo-table /deep/ .el-table__expanded-cell:hover {
   background-color: $gray-5!important;
 }
-.todo-table {
+.jd-todo-table {
   .table-head {
     font-size: 12px;
     font-weight: 400;

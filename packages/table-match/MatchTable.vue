@@ -1,5 +1,5 @@
 <template>
-  <div class="match-table">
+  <div class="jd-match-table">
     <el-table
       :data="tableData"
       stripe

@@ -1,5 +1,5 @@
 <template>
-  <div class="verify-code">
+  <div class="jd-verify-code">
     <div class="input-box clearfix">
       <div class="input">
         <input type="text"

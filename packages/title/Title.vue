@@ -1,5 +1,5 @@
 <template>
-  <div class="title">
+  <div class="jd-title">
     <h3>{{title}}<span>{{subTitle}}</span></h3>
     <slot></slot>
   </div>

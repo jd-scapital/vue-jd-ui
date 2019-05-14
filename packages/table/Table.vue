@@ -1,5 +1,5 @@
 <template>
-  <div class="table"
+  <div class="jd-table"
     :class="{'frist-at-one': firstAtOne}">
     <el-table stripe
       :data="tableData"

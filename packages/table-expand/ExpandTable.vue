@@ -1,5 +1,5 @@
 <template>
-  <div class="expand-table" >
+  <div class="jd-expand-table" >
     <el-table :data="data">
       <!-- 序号 -->
       <el-table-column type="index">

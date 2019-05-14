@@ -1,10 +1,10 @@
 @import 'common/variable.scss';
 @import 'common/color.scss';
 
-.match-table /deep/ .first {
+.jd-match-table /deep/ .first {
   padding-left: 48px;
 }
-.match-table /deep/ .active .first {
+.jd-match-table /deep/ .active .first {
   position: relative;
   &::before {
     content: '';
@@ -16,7 +16,7 @@
     left: 0;
   }
 }
-.match-table {
+.jd-match-table {
   width: 700px;
   background-color: $white;
   .table-head {

@@ -1,5 +1,5 @@
 <template>
-  <div class="input-box">
+  <div class="jd-input-box">
     <div v-if="isSubmit" class="input-submit">
       <div class="input">
         <input

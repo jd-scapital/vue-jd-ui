@@ -1,5 +1,5 @@
 <template>
-  <div class="tab-box">
+  <div class="jd-tab-box">
     <div class="tab" :style="{'width': width}">
       <el-tabs stretch v-model="active" @tab-click="handleClick">
         <el-tab-pane

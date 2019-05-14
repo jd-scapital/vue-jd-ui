@@ -1,5 +1,5 @@
 <template>
-  <span :style="scaleCss">
+  <span class="jd-scale" :style="scaleCss">
     {{text}}
   </span>
 </template>

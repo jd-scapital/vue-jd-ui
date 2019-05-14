@@ -1,5 +1,5 @@
 <template>
-  <div class="message">
+  <div class="jd-message">
     <jd-alter v-if="value"
       :show="value"
       :showClose="showClose"

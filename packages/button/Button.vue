@@ -1,5 +1,5 @@
 <template>
-  <a href="javascript:void(0);" :class="className"
+  <a href="javascript:void(0);" class="jd-button" :class="className"
     @click.stop="click">
     <slot></slot>
   </a>

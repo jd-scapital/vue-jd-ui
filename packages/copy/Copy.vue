@@ -1,5 +1,5 @@
 <template>
-  <div class="copy">
+  <div class="jd-copy">
     <div :id="`copyContent${_uid}`"
       class="content">
       <slot></slot>

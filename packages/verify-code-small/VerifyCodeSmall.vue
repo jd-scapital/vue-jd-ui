@@ -1,5 +1,5 @@
 <template>
-  <div class="verify-code-small">
+  <div class="jd-verify-code-small">
     <input type="text" placeholder="6位短信验证码"
       v-model="code">
     <div class="operate">

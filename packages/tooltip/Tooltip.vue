@@ -1,5 +1,5 @@
 <template>
-  <div class="tooltip" v-click-outside="clickOutSideHandle">
+  <div class="jd-tooltip" v-click-outside="clickOutSideHandle">
     <el-tooltip
       v-model="show"
       placement="top"

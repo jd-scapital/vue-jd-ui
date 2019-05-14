@@ -1,5 +1,5 @@
 <template>
-  <div class="tab-swiper" :style="`height: ${height}px;`">
+  <div class="jd-tab-swiper" :style="`height: ${height}px;`">
     <swiper
       :options="swiperOption"
       @ready="ready">

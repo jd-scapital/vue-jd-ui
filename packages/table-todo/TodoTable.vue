@@ -1,5 +1,5 @@
 <template>
-  <div class="todo-table">
+  <div class="jd-todo-table">
     <el-table :data="data" stripe :row-class-name="rowClassName">
       <el-table-column type="expand">
         <template slot-scope="props">

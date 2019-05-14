@@ -1,5 +1,5 @@
 <template>
-  <div class="select-box">
+  <div class="jd-select-box">
     <el-select
       class="select"
       size="size"

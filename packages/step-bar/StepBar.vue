@@ -1,5 +1,5 @@
 <template>
-  <div class="step-bar">
+  <div class="jd-step-bar">
     <ul v-if="!isProfit" class="normal">
       <li v-for="(item, i) in list" :key="i" :class="{step: item.step}">
         <div class="name">{{item.name}}</div>
