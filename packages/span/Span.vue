@@ -12,7 +12,7 @@
  * @createTime 2019年03月18日11:57:32
  */
 export default {
-  name: 'JdSapn',
+  name: 'JdSpan',
   props: {
     // 展示的标签内容
     text: {
