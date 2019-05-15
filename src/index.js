@@ -25,9 +25,9 @@ import TabSwiper from '../packages/tab-swiper/index.js'
 import Title from '../packages/title/index.js'
 import Tooltip from '../packages/tooltip/index.js'
 import Table from '../packages/table/index.js'
-import TableExpand from '../packages/table-expand'
-import TableMatch from '../packages/table-match'
-import TableTodo from '../packages/table-todo'
+import TableExpand from '../packages/table-expand/index.js'
+import TableMatch from '../packages/table-match/index.js'
+import TableTodo from '../packages/table-todo/index.js'
 import VerifyCode from '../packages/verify-code/index.js'
 import VerifyCodeSmall from '../packages/verify-code-small/index.js'
 
@@ -84,7 +84,7 @@ if (typeof window !== 'undefined' && window.Vue) {
 }
 
 export default {
-  version: '1.0.0-dev.4',
+  version: '1.0.0-dev.5',
   install,
   CollapseTransition,
   Loading: ElLoading,
