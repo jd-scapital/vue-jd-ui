@@ -1,8 +1,8 @@
-import TodoTable from './TodoTable'
+import TableTodo from './TableTodo'
 
 /* istanbul ignore next */
-TodoTable.install = function(Vue) {
-  Vue.component(TodoTable.name, TodoTable)
+TableTodo.install = function(Vue) {
+  Vue.component(TableTodo.name, TableTodo)
 }
 
-export default TodoTable
+export default TableTodo

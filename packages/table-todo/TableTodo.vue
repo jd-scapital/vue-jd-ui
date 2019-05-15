@@ -48,7 +48,7 @@ import JdButton from '../button'
 import { timeFormat } from 'vue-jd-ui/src/utils/tools'
 
 export default {
-  name: 'JdTodoTable',
+  name: 'JdTableTodo',
   components: {
     ExpandTable,
     elTable,

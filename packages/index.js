@@ -24,10 +24,10 @@ import NormalTab from './common/NormalTab' // tab容器
 import NormalTabPane from './common/NormalTabPane' // tab每个面板
 
 // table
-import TodoTable from './table-todo'
+import TableTodo from './table-todo'
 import Table from './table/Table'
-import ExpandTable from './table-expand'
-import MatchTable from './table-match'
+import TableExpand from './table-expand'
+import TableMatch from './table-match'
 
 // echarts
 import EchartsHome from './echarts/Home'
@@ -61,10 +61,10 @@ const components = [
   VerifyCodeSmall,
   NormalTab,
   NormalTabPane,
-  TodoTable,
+  TableTodo,
   Table,
-  ExpandTable,
-  MatchTable,
+  TableExpand,
+  TableMatch,
   EchartsHome,
   EchartsMatch,
   EchartsTab

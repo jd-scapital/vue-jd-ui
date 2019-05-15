@@ -38,7 +38,7 @@ import elTable from '../el-table'
 import elTableColumn from '../el-table-column'
 
 export default {
-  name: 'JdMatchTable',
+  name: 'JdTableMatch',
   components: {
     elTable,
     elTableColumn
