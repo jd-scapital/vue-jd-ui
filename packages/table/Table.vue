@@ -78,32 +78,7 @@ export default {
     // 数据
     tableData: {
       type: Array,
-      default: () => [
-        {
-          name: '活期T+0',
-          type: '去向 南京奇点有限公司',
-          amount: '30,003,323.00',
-          status: '资金在途',
-          time: '2019-01-20 10:53',
-          orderId: 'SG17112759459'
-        },
-        {
-          name: '活期T+0',
-          type: '去向 南京奇点有限公司',
-          amount: '30,003,323.00',
-          status: '资金在途',
-          time: '2019-01-20 10:53',
-          orderId: 'SG17112759459'
-        },
-        {
-          name: '活期T+0',
-          type: '去向 余额账户',
-          amount: '30,003,323.00',
-          status: '已到账',
-          time: '2019-01-20 10:53',
-          orderId: 'SG17112759459'
-        }
-      ]
+      default: () => []
     },
     columns: {
       type: Array,
