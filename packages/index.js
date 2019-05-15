@@ -24,10 +24,10 @@ import NormalTab from './common/NormalTab' // tab容器
 import NormalTabPane from './common/NormalTabPane' // tab每个面板
 
 // table
-import TodoTable from './table/TodoTable'
+import TodoTable from './table-todo'
 import Table from './table/Table'
-import ExpandTable from './table/ExpandTable'
-import MatchTable from './table/MatchTable'
+import ExpandTable from './table-expand'
+import MatchTable from './table-match'
 
 // echarts
 import EchartsHome from './echarts/Home'
