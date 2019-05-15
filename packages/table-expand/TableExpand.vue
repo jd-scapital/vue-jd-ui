@@ -40,7 +40,7 @@ import elTable from '../el-table'
 import elTableColumn from '../el-table-column'
 
 export default {
-  name: 'JdExpandTable',
+  name: 'JdTableExpand',
   components: {
     elTable,
     elTableColumn

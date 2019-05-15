@@ -55,8 +55,8 @@
   }
   // 当前页样式
   /deep/ .el-pagination.is-background .el-pager .active {
-    background-color: $button-fill;
-    border-color: $button-fill;
+    background-color: $button-fill!important;
+    border-color: $button-fill!important;
   }
   // 跳至样式
   /deep/ .el-pagination.is-background .el-pagination__jump {

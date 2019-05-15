@@ -1,8 +1,8 @@
-import ExpandTable from './ExpandTable'
+import TableExpand from './TableExpand'
 
 /* istanbul ignore next */
-ExpandTable.install = function(Vue) {
-  Vue.component(ExpandTable.name, ExpandTable)
+TableExpand.install = function(Vue) {
+  Vue.component(TableExpand.name, TableExpand)
 }
 
-export default ExpandTable
+export default TableExpand

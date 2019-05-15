@@ -1,8 +1,8 @@
-import MatchTable from './MatchTable'
+import TableMatch from './TableMatch'
 
 /* istanbul ignore next */
-MatchTable.install = function(Vue) {
-  Vue.component(MatchTable.name, MatchTable)
+TableMatch.install = function(Vue) {
+  Vue.component(TableMatch.name, TableMatch)
 }
 
-export default MatchTable
+export default TableMatch
