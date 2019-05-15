@@ -18,3 +18,4 @@ coverage
 .npmrc
 .envrc
 package-lock.json
+yarn.lock
