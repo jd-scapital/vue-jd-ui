@@ -17,3 +17,4 @@ examples/pages/es
 coverage
 .npmrc
 .envrc
+package-lock.json
