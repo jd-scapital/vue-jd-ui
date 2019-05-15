@@ -11,6 +11,7 @@
   "input": "./packages/input/index.js",
   "message": "./packages/message/index.js",
   "normal-input": "./packages/normal-input/index.js",
+  "normal-input-select": "./packages/normal-input-select/index.js",
   "normal-tab": "./packages/normal-tab/index.js",
   "normal-tab-pane": "./packages/normal-tab-pane/index.js",
   "progress": "./packages/progress/index.js",
