@@ -45,7 +45,7 @@
 import JdAlter from '../alter'
 
 export default {
-  name: 'jDMessage',
+  name: 'JdMessage',
   components: {
     JdAlter
   },
