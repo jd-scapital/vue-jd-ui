@@ -12,6 +12,7 @@ import ElMessage from '../packages/el-message/index.js'
 import Input from '../packages/input/index.js'
 import Message from '../packages/message/index.js'
 import NormalInput from '../packages/normal-input/index.js'
+import NormalInputSelect from '../packages/normal-input-select/index.js'
 import NormalTab from '../packages/normal-tab/index.js'
 import NormalTabPane from '../packages/normal-tab-pane/index.js'
 import Progress from '../packages/progress/index.js'
@@ -44,6 +45,7 @@ const components = [
   Input,
   Message,
   NormalInput,
+  NormalInputSelect,
   NormalTab,
   NormalTabPane,
   Progress,
@@ -84,7 +86,7 @@ if (typeof window !== 'undefined' && window.Vue) {
 }
 
 export default {
-  version: '1.0.0-dev.7',
+  version: '1.0.0-dev.8',
   install,
   CollapseTransition,
   Loading: ElLoading,
@@ -100,6 +102,7 @@ export default {
   Input,
   Message,
   NormalInput,
+  NormalInputSelect,
   NormalTab,
   NormalTabPane,
   Progress,
