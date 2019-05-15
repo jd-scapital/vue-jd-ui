@@ -123,7 +123,7 @@
  */
 import VClickOutside from 'v-click-outside'
 import ElMessage from 'vue-jd-ui/packages/el-message'
-import InputSelect from './NormalInputSelect'
+import InputSelect from 'vue-jd-ui/packages/normal-input-select'
 
 import { isChildOf } from 'vue-jd-ui/src/utils/dom'
 import {
