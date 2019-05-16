@@ -2,7 +2,9 @@
 - [alter](./alter.md): 弹框组件
 - [message](./message.md): 统一消息弹框(成功/失败/消息)
 - [normal-input-select](./normal-input-select.md): 输入下拉选择框
+  - 回填最好是option
 - [normal-input](./normal-input.md): 输入框
+  - 自动检测功能尚未完成
 - [normal-tab-pane](./normal-tab-pane.md): tab切换pane
 - [normal-tab](./normal-tab.md): tab容器
 - [scale](./scale.md): 缩放组件(解决这样的css需求`font-size: 10px`)
@@ -10,3 +12,4 @@
 - [step](./step.md): 步骤组件
 - [tab-swiper](./tab-swiper.md): tab样式的swiper组件
 - [verify-code-small](./verify-code-small.md): 小的验证码组件(开通存管)
+  - 功能缺失
