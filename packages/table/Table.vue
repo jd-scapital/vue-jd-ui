@@ -78,11 +78,11 @@ export default {
     // 数据
     tableData: {
       type: Array,
-      default: () => []
+      default: () => ([])
     },
     columns: {
       type: Array,
-      default: () => [
+      default: () => ([
         {
           label: '全部产品',
           prop: 'name',
@@ -137,7 +137,7 @@ export default {
             `)
           }
         }
-      ]
+      ])
     },
     // 当前页码
     currentPage: {
