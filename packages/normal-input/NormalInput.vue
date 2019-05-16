@@ -132,9 +132,7 @@ import {
   INPUT_TYPE_SELECT,
   INPUT_TYPE_MULTI_SELECT,
   INPUT_TYPE_VERIFY_CODE,
-  INPUT_TYPE_VERIFY_CODE_SPARE_TIME,
-  PUSH_TXT,
-  ACTION_VALUE_EDIT_USER_INFO
+  INPUT_TYPE_VERIFY_CODE_SPARE_TIME
 } from 'vue-jd-ui/src/utils/constant.js'
 
 export default {
@@ -197,6 +195,13 @@ export default {
     phone: {
       type: String,
       default: ''
+    },
+    // 短信发送
+    smsPush: {
+      type: Function,
+      default() {
+        return null
+      }
     }
   },
   data() {
@@ -367,11 +372,11 @@ export default {
     // 发送验证码
     async sendVerifyCode() {
       // 发送验证码
-      const resp = await this.$api.smsPush({
-        action: ACTION_VALUE_EDIT_USER_INFO,
-        pushType: PUSH_TXT,
-        phoneNo: this.phone
-      })
+      const smsPush = this.smsPush()
+      if (!smsPush) {
+        return console.error('smsPush has not defined')
+      }
+      const resp = await smsPush
       if (resp.success) {
         this.$emit('verifyInfo', resp.data)
         // 验证码发送成功后

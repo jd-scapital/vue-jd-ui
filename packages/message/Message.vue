@@ -42,7 +42,7 @@
  * @emit submit
  */
 import JdAlter from '../alter'
-import { MSG_TYPE_SUCCESS, MSG_TYPE_FAIL, MSG_TYPE_INFO } from 'vue-jd-ui/utils/constant'
+import { MSG_TYPE_SUCCESS, MSG_TYPE_FAIL, MSG_TYPE_INFO } from 'vue-jd-ui/src/utils/constant'
 
 export default {
   name: 'JdMessage',
