@@ -36,6 +36,7 @@ then
   git push origin master
   git push origin refs/tags/v$VERSION
   git checkout dev
+  git pull
   git rebase master
   git push origin dev
 
