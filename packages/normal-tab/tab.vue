@@ -1,6 +1,6 @@
 <template>
   <div class="jd-normal-tab">
-    <ul class="tab-titles">
+    <ul class="jd-normal-tab-titles">
       <li v-for="(label, key) in labels"
         :key="key"
         :class="{'active': label.active}"
