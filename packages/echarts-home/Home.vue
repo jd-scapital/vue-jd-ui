@@ -2,24 +2,50 @@
   <div class="echarts-home" ref="echartsHome">loading...</div>
 </template>
 <script>
+/**
+ * @prop { Array } xData x轴数据
+ * @prop { Array } yData y轴数据
+ * @prop { Function } tooltipFormat echarts[tooltip.formatter的函数]
+ */
 import echarts from 'echarts'
 import dayjs from 'dayjs'
 import numeral from 'numeral'
 export default {
   name: 'JdEchartsHome',
+  props: {
+    xData: {
+      type: Array,
+      default: () => ([])
+    },
+    yData: {
+      type: Array,
+      default: () => ([])
+    },
+    tooltipFormat: {
+      type: Function,
+      default: (params, ticket, callback) => {
+        const data = params[0]
+        const { value } = data
+        const sumMoney = numeral(value).format('0,0.00')
+        return `到今日累计收益：${sumMoney}`
+      }
+    }
+  },
   data() {
     return {
-      xData: [],
-      yData: [],
-      tooltipData: [],
+      // xData: [],
+      // yData: [],
       echartsInstance: null
     }
   },
-  created() {
+  watch: {
+    xData(val) {
+      this.updateEcharts()
+    }
   },
   mounted() {
     this.initEcharts()
-    this.updateData()
+    // this.updateData()
   },
   methods: {
     initEcharts() {
@@ -154,13 +180,7 @@ export default {
             // 自动吸附到点
             snap: true
           },
-          formatter: (params, ticket, callback) => {
-            const data = params[0]
-            const { value, dataIndex } = data
-            const sumMoney = numeral(value).format('0,0.00')
-            const profit = this.tooltipData[dataIndex]
-            return `到今日累计收益：${sumMoney} 当天收益： ${profit}`
-          },
+          formatter: this.tooltipFormat,
           backgroundColor: '#EC4C42',
           padding: 15,
           // 浮层字体
