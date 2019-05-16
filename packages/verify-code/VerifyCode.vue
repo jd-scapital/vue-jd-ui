@@ -33,6 +33,7 @@
  * @prop { String } type 当前短信验证码的模板类型, 当 isCs: false 时为必填
  * @prop { String } placeholder placeholder
  * @prop { Number } time 倒计时时间，单位：秒
+ * @prop { Function } codePromise 发送验证码的请求
  * @event send-handle 点击发送按钮时触发
  * @event get-certificate 发送获取验证码的请求成功后用来校验的凭证
  * @template slot:warn 自定义提示
@@ -56,11 +57,15 @@ export default {
       type: Number,
       default: 30
     },
-    // codePromise: {
-    //   type: Function,
-    //   default: () => {},
-    //   required: true
-    // },
+    codePromise: {
+      type: Function,
+      default: (params) => {
+        return new Promise((resolve, reject) => {
+          reject(new Error('请传入一个函数并返回一个Promise'))
+        })
+      },
+      required: true
+    },
     phone: {
       type: String,
       default: '******',
@@ -89,8 +94,8 @@ export default {
       // 当前倒计时剩余时间
       currentTime: this.time,
       // 是否显示warn
-      warning: false,
-      codePromise: this.$api.smsPush
+      warning: false
+      // codePromise: this.$api.smsPush
       // csCodePromise: new Promise()
     }
   },
