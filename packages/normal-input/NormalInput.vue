@@ -191,11 +191,6 @@ export default {
         }
       }
     },
-    // 手机号
-    phone: {
-      type: String,
-      default: ''
-    },
     // 短信发送
     smsPush: {
       type: Function,
