@@ -40,6 +40,22 @@ export default {
     type: {
       type: String,
       default: CURRENT_T0
+    },
+    xData: {
+      type: Array,
+      default: () => ([])
+    },
+    yData: {
+      type: Array,
+      default: () => ([])
+    },
+    tabActive: {
+      type: Number,
+      default: 0
+    },
+    dateActive: {
+      type: Number,
+      default: 0
     }
     // X轴日期列表
     // days: {
@@ -55,12 +71,12 @@ export default {
   data() {
     return {
       echartsInstance: null,
-      tabActive: 0,
+      // tabActive: 0,
       tabs: [
         '七日年化',
         '万份收益'
       ],
-      dateActive: 0,
+      // dateActive: 0,
       dateList: [
         {
           name: '近一周'
@@ -71,33 +87,33 @@ export default {
         {
           name: '近三个月'
         }
-      ],
+      ]
       // 当前日期
-      currentDate: dayjs().subtract(20, 'day').format('YYYY-MM-DD'),
-      rateList: []
+      // currentDate: dayjs().subtract(20, 'day').format('YYYY-MM-DD'),
+      // rateList: []
     }
   },
-  computed: {
-    data() {
-      switch (this.tabActive) {
-        case 0:
-          return this.rateList.map(el => el.weekYield)
-        case 1:
-          return this.rateList.map(el => el.price)
-        default:
-          return this.rateList.map(el => el.weekYield)
-      }
-    },
-    days() {
-      return this.rateList.map(el => dayjs(el.date).format('MM-DD'))
-    }
-  },
+  // computed: {
+  //   data() {
+  //     switch (this.tabActive) {
+  //       case 0:
+  //         return this.rateList.map(el => el.weekYield)
+  //       case 1:
+  //         return this.rateList.map(el => el.price)
+  //       default:
+  //         return this.rateList.map(el => el.weekYield)
+  //     }
+  //   },
+  //   days() {
+  //     return this.rateList.map(el => dayjs(el.date).format('MM-DD'))
+  //   }
+  // },
   watch: {
-    days(val) {
-      this.updateDate()
+    xData(val) {
+      this.updateDate(val)
     },
-    data(val) {
-      this.updateData()
+    yData(val) {
+      this.updateData(val)
     }
   },
   mounted() {
@@ -105,36 +121,12 @@ export default {
   },
   methods: {
     init() {
-      // 更新数据
-      this.updateRateList()
       // 初始化图表样式
       this.initEcharts()
-      // 更新日期
-      // this.updateDate()
-      // // 更新数据
-      // this.updateData()
-    },
-    // 获取过去某天的日期
-    getPastDate(current, days = 7) {
-      days -= 1
-      const past = dayjs(current).subtract(days, 'day').format('YYYY-MM-DD')
-      return past
-    },
-    // 更新数据
-    async updateRateList(days = 7) {
-      const { currentDate, type } = this
-      const past = this.getPastDate(currentDate, days)
-      const query = {
-        startDate: past,
-        endDate: currentDate,
-        type
-      }
-      const { data } = await this.$api.getRatesList(query)
-      this.rateList = Array.isArray(data) ? data : []
     },
     // tab切换
     tabClickHandle(index) {
-      this.tabActive = index
+      // this.tabActive = index
       this.$emit('tabClickHandle', index)
       let options = null
       switch (index) {
@@ -186,7 +178,7 @@ export default {
     },
     // 日期切换
     dateClickHandle(index) {
-      this.dateActive = index
+      // this.dateActive = index
       this.$emit('dateClickHandle', index)
       switch (index) {
         case 0: // 一周
@@ -358,19 +350,19 @@ export default {
       this.echartsInstance.setOption(options)
     },
     // 初始化图表日期（x轴）
-    updateDate() {
+    updateDate(xData) {
       const options = {
         xAxis: {
-          data: this.days
+          data: xData
         }
       }
       this.echartsInstance.setOption(options)
     },
     // 初始化图表数据（y轴）
-    updateData() {
+    updateData(yData) {
       const options = {
         series: [{
-          data: this.data,
+          data: yData,
           type: 'line',
           // 数据圆点类型
           symbol: 'emptyCircle',
