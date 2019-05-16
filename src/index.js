@@ -86,7 +86,7 @@ if (typeof window !== 'undefined' && window.Vue) {
 }
 
 export default {
-  version: '1.0.0-dev.14',
+  version: '1.0.0-dev.15',
   install,
   CollapseTransition,
   Loading: ElLoading,
