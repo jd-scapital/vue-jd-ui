@@ -8,7 +8,7 @@
       width="580px"
       @click="submitHandle"
       @close-handle="closeHandle">
-      <div class="message-wrap"
+      <div class="jd-message-wrap"
         :class="{
           'success': isSuccess,
           'fail': isFail,
