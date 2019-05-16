@@ -19,6 +19,12 @@ export const BUTTON_INPUT = 'input'
 
 // ============ input 类型 end ==================
 
+// ============ 消息类型 start ================
+export const MSG_TYPE_SUCCESS = 'MSG_TYPE_SUCCESS'
+export const MSG_TYPE_FAIL = 'MSG_TYPE_FAIL'
+export const MSG_TYPE_INFO = 'MSG_TYPE_INFO'
+// ============ 消息类型 end ==================
+
 // ============ 产品子类型 start ===============
 // 活期T0
 export const CURRENT_T0 = 'CURRENT_T0'
