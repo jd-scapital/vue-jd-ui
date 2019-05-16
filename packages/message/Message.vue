@@ -41,8 +41,8 @@
  *  信息(叹号)
  * @emit submit
  */
-// import { MSG_TYPE_SUCCESS, MSG_TYPE_FAIL, MSG_TYPE_INFO } from '@/utils/constant'
 import JdAlter from '../alter'
+import { MSG_TYPE_SUCCESS, MSG_TYPE_FAIL, MSG_TYPE_INFO } from 'vue-jd-ui/utils/constant'
 
 export default {
   name: 'JdMessage',
@@ -88,13 +88,13 @@ export default {
   },
   computed: {
     isSuccess() {
-      return this.type === this.$msg.MSG_TYPE_SUCCESS
+      return this.type === MSG_TYPE_SUCCESS
     },
     isFail() {
-      return this.type === this.$msg.MSG_TYPE_FAIL
+      return this.type === MSG_TYPE_FAIL
     },
     isInfo() {
-      return this.type === this.$msg.MSG_TYPE_INFO
+      return this.type === MSG_TYPE_INFO
     }
   },
   data() {
