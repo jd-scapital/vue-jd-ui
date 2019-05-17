@@ -180,20 +180,20 @@ export default {
     dateClickHandle(index) {
       // this.dateActive = index
       this.$emit('dateClickHandle', index)
-      switch (index) {
-        case 0: // 一周
-          this.updateRateList(7)
-          break
-        case 1: // 一个月
-          this.updateRateList(30)
-          break
-        case 2: // 三个月
-          this.updateRateList(90)
-          break
-        default:
-          this.updateRateList(7)
-          break
-      }
+      // switch (index) {
+      //   case 0: // 一周
+      //     this.updateRateList(7)
+      //     break
+      //   case 1: // 一个月
+      //     this.updateRateList(30)
+      //     break
+      //   case 2: // 三个月
+      //     this.updateRateList(90)
+      //     break
+      //   default:
+      //     this.updateRateList(7)
+      //     break
+      // }
     },
     initEcharts() {
       const echartsTab = this.$refs.echartsTab
