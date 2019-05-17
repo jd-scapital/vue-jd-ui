@@ -32,11 +32,6 @@ export default {
     disabled: {
       type: Boolean,
       default: false
-    },
-    // 外部传入class
-    classNames: {
-      type: String,
-      default: ''
     }
   },
   computed: {
@@ -54,11 +49,6 @@ export default {
       }
       if (this.disabled) {
         className.push('disabled')
-      }
-      if (this.classNames) {
-        this.classNames.split(' ').forEach(claz => {
-          className.push(claz)
-        })
       }
       return className
     }
