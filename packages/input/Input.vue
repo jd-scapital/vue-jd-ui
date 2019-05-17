@@ -32,7 +32,7 @@
 </template>
 <script>
 /**
- * @prop { String / Number } value 输入框的值
+ * @prop { String / Number: required } value 输入框的值
  * @prop { String } type 按钮类型
  * @prop { String } placeholder
  * @prop { String } allInText 全部金额选择显示的文案 （type为submit）

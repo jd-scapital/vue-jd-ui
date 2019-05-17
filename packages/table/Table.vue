@@ -82,62 +82,7 @@ export default {
     },
     columns: {
       type: Array,
-      default: () => ([
-        {
-          label: '全部产品',
-          prop: 'name',
-          render: (scope) => {
-            return (`
-              <p style="color:#333;font-size:14px;line-height:17px;">${scope.row['name']}</p>
-            `)
-          }
-        },
-        {
-          label: '交易金额',
-          prop: 'amount',
-          render: (scope) => {
-            return (`
-              <span style="font-size:14px;color:#333;">${scope.row['amount']}</span>
-            `)
-          }
-        },
-        {
-          label: '资金状态',
-          prop: 'status',
-          render: (scope) => {
-            return (`
-              <span style="font-size:12px;color:#333;">${scope.row['status']}</span>
-            `)
-          }
-        },
-        {
-          label: '资金来源/去向',
-          prop: 'type',
-          render: (scope) => {
-            return (`
-              <span style="color:#999;font-size:12px;">${scope.row['type']}</span>
-            `)
-          }
-        },
-        {
-          label: '账户结余额',
-          prop: 'balance',
-          render: (scope) => {
-            return (`
-              <span style="font-size:14px;color:#333;">${scope.row['amount']}</span>
-            `)
-          }
-        },
-        {
-          label: '交易时间',
-          prop: 'time',
-          render: (scope) => {
-            return (`
-              <span style="font-size:12px;color:#999;">${scope.row['time']}</span>
-            `)
-          }
-        }
-      ])
+      default: () => ([])
     },
     // 当前页码
     currentPage: {
