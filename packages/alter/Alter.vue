@@ -22,13 +22,12 @@
     <div slot="footer" class="dialog-footer">
       <div class="dialog-footer-wrap" v-if="hasFooter">
         <jd-button v-if="hasCancelButton"
-          :classNames="'jd-alter-cancel'"
+          class="jd-alter-cancel"
           :type="'text'"
           @click="cancelClick">
           {{cancelText}}
         </jd-button>
-        <jd-button
-          :classNames="'jd-alter-btn'"
+        <jd-button class="jd-alter-btn"
           :type="'fill'"
           @click="btnClick">
           {{buttonText}}
