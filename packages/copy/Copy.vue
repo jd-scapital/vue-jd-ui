@@ -18,7 +18,7 @@
 <script>
 /**
  * @description 复制组件
- * @prop { String } style 需要修改的样式
+ * @prop { String } styleContent 需要修改的样式
  * @slot 要复制的内容
  */
 import Clipboard from 'clipboard'

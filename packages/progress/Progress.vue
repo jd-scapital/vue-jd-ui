@@ -20,19 +20,21 @@
 </template>
 <script>
 /**
- * @prop { Number } value 当前到第几步
- * @prop { Array } progress 进度条 @property { String } name 显示文字 @property { String } time 显示时间
+ * @prop { Number: required } value 当前到第几步
+ * @prop { Array: required } progress 进度条 @property { String } name 显示文字 @property { String } time 显示时间
  */
 export default {
   name: 'JdProgress',
   props: {
     value: {
       type: Number,
-      default: 1
+      default: 1,
+      required: true
     },
     progress: {
       type: Array,
-      default: () => []
+      default: () => [],
+      required: true
     }
   },
   methods: {
