@@ -13,3 +13,4 @@
 - [tab-swiper](./tab-swiper.md): tab样式的swiper组件
 - [verify-code-small](./verify-code-small.md): 小的验证码组件(开通存管)
   - 功能缺失
+- [button](./button.md): 按钮组件
