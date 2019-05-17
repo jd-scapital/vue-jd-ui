@@ -7,7 +7,7 @@
   - 代码格式检测: `npm run lint`
 - 旧打包文件清除: `npm run clean`
 ### 文档说明
-  - [文档目录](./doc/readme.md)
+  - [文档目录](./docs/readme.md)
 ### TODO LIST
 - example
 - test
