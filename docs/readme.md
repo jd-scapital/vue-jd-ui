@@ -21,7 +21,12 @@
 - [select](./select.md): 选择器组件
 - [step-bar](./step-bar): 时间轴组件
 - [tab](./tab.md): tab切换组件
-- [tab](./table.md): 表格
 - [title](./title.md): 标题组件
 - [tooltip](./tooltip.md): 额外提示组件
 - [verify-code](./verify-code.md): 验证码组件
+- [echarts-home](./echarts-home.md): 资产收益图表
+- [echarts-match](./echarts-match.md): 资产配比图表
+- [echarts-tab](./echarts-tab.md): 产品收益图表
+- [table](./table.md): 表格
+- [table-match](./table-match.md): 资产配比的表格
+- [table-todo](./table-todo.md): 待处理事项的表格
