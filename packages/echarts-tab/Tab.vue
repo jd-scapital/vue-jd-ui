@@ -33,14 +33,10 @@
 import echarts from 'echarts'
 import dayjs from 'dayjs'
 import numeral from 'numeral'
-import { CURRENT_T0 } from 'vue-jd-ui/src/utils/constant'
+// import { CURRENT_T0 } from 'vue-jd-ui/src/utils/constant'
 export default {
   name: 'JdEchartsTab',
   props: {
-    type: {
-      type: String,
-      default: CURRENT_T0
-    },
     xData: {
       type: Array,
       default: () => ([])
