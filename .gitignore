@@ -10,10 +10,8 @@ yarn-error.log.*
 lib
 .idea
 .vscode
-examples/vue-jd-ui
-examples/pages/en-US
-examples/pages/zh-CN
-examples/pages/es
+examples/dist
+examples/node_modules
 coverage
 .npmrc
 .envrc
