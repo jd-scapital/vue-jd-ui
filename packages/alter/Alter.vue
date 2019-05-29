@@ -10,29 +10,33 @@
     :visible.sync="isShow"
     :show-close="false">
     <div slot="title" class="dialog-header">
-      <div class="dialog-header-wrap" v-if="hasTitle">
-        <p class="jd-alter-title">{{title}}</p>
-        <button type="button" aria-label="Close" class="el-dialog__headerbtn" v-if="hasCancelButton && showClose"
-          @click="closeDialog">
-          <i class="el-dialog__close el-icon el-icon-close"></i>
-        </button>
-      </div>
+      <template v-slot:header>
+        <div class="dialog-header-wrap" v-if="hasTitle">
+          <p class="jd-alter-title">{{title}}</p>
+          <button type="button" aria-label="Close" class="el-dialog__headerbtn" v-if="hasCancelButton && showClose"
+            @click="closeDialog">
+            <i class="el-dialog__close el-icon el-icon-close"></i>
+          </button>
+        </div>
+      </template>
     </div>
     <slot></slot>
     <div slot="footer" class="dialog-footer">
-      <div class="dialog-footer-wrap" v-if="hasFooter">
-        <jd-button v-if="hasCancelButton"
-          class="jd-alter-cancel"
-          :type="'text'"
-          @click="cancelClick">
-          {{cancelText}}
-        </jd-button>
-        <jd-button class="jd-alter-btn"
-          :type="'fill'"
-          @click="btnClick">
-          {{buttonText}}
-        </jd-button>
-      </div>
+      <template v-slot:footer>
+        <div class="dialog-footer-wrap" v-if="hasFooter">
+          <jd-button v-if="hasCancelButton"
+            class="jd-alter-cancel"
+            :type="'text'"
+            @click="cancelClick">
+            {{cancelText}}
+          </jd-button>
+          <jd-button class="jd-alter-btn"
+            :type="'fill'"
+            @click="btnClick">
+            {{buttonText}}
+          </jd-button>
+        </div>
+      </template>
     </div>
   </el-dialog>
 </template>
