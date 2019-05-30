@@ -37,11 +37,14 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  width: 1200px;
-  margin: 0 auto;
+  width: 100%;
+  margin: 0;
   display: flex;
   .menus {
     width: 200px;
+    position: fixed;
+    left: 0;
+    overflow-y: scroll;
   }
   .contents {
     flex: 1;

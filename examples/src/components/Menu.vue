@@ -7,7 +7,7 @@
           class="el-menu-vertical-demo"
           @open="handleOpen"
           @close="handleClose">
-          <el-menu-item v-for="(menu, key) in menus"
+          <el-menu-item v-for="(menu, key) in menus" class="menu-item"
             :key="key"
             :index="'index_' + key">
             <i class="el-icon-menu"></i>
@@ -43,3 +43,10 @@ export default {
   }
 }
 </script>
+<style lang="scss" scoped>
+.menu {
+  .menu-item {
+    text-align: left;
+  }
+}
+</style>
