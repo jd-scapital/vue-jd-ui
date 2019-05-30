@@ -39,11 +39,12 @@ export default {
   color: #2c3e50;
   width: 1200px;
   margin: 0 auto;
+  display: flex;
   .menus {
-
+    width: 200px;
   }
   .contents {
-
+    flex: 1;
   }
 }
 </style>
