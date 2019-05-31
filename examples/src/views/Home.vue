@@ -5,8 +5,15 @@
 </template>
 
 <script>
-// @ is an alias to /src
+/**
+ * @file views/Home.vue
+ * @description 主页面
+ * @createTime 2019年05月31日13:42:32
+ */
 export default {
-  name: 'home'
+  name: 'home',
+  components: {
+
+  }
 }
 </script>
