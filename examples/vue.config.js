@@ -6,7 +6,11 @@ function resolve(dir) {
 }
 
 module.exports = {
+<<<<<<< HEAD
   publicPath: '/',
+=======
+  lintOnSave: process.env.NODE_ENV !== 'production',
+>>>>>>> 3c70f743b9e66ea4feca2c114b45f606dff44fdd
   // 多核编译构建
   parallel: os.cpus().length > 1,
   css: {
