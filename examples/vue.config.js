@@ -6,11 +6,8 @@ function resolve(dir) {
 }
 
 module.exports = {
-<<<<<<< HEAD
   publicPath: '/',
-=======
   lintOnSave: process.env.NODE_ENV !== 'production',
->>>>>>> 3c70f743b9e66ea4feca2c114b45f606dff44fdd
   // 多核编译构建
   parallel: os.cpus().length > 1,
   css: {
@@ -33,8 +30,27 @@ module.exports = {
     }
   },
   chainWebpack: config => {
-    config.resolve.alias
-      .set('vue-jd-ui', resolve('../'))
+    // 1.设置别名
+    // config.resolve.alias
+    //   .set('vue-jd-ui', resolve('../'))
     // console.log('config.resolve.alias: ', config.resolve.alias)
+
+    // 2.调试用, 增加include, babel转换
+    config.module.rule('compile')
+      .test(/\.js$/)
+      .include
+      .add(resolve('src'))
+      .add(resolve('node_modules/vue-jd-ui/packages/el-scrollbar'))
+      .add(resolve('node_modules/vue-jd-ui/packages/el-tooltip'))
+      .end()
+      .use('babel')
+      .loader('babel-loader')
+      .options({
+        presets: [
+          ['@babel/preset-env', {
+            modules: false
+          }]
+        ]
+      })
   }
 }
