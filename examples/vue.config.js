@@ -7,6 +7,7 @@ function resolve(dir) {
 
 module.exports = {
   lintOnSave: process.env.NODE_ENV !== 'production',
+  publicPath: '/',
   // 多核编译构建
   parallel: os.cpus().length > 1,
   css: {
