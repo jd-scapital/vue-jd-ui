@@ -1,4 +1,4 @@
-import Tab from './Tab'
+import Tab from './tab'
 
 /* istanbul ignore next */
 Tab.install = function(Vue) {

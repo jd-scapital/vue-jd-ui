@@ -7,9 +7,12 @@ import router from './router'
 import store from './store'
 import './registerServiceWorker'
 
+import VueJDUI from './components'
+
 Vue.config.productionTip = false
 
 Vue.use(ElementUI)
+Vue.use(VueJDUI)
 
 new Vue({
   router,

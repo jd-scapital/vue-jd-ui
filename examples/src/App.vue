@@ -26,6 +26,7 @@ export default {
 </script>
 
 <style lang="scss">
+$width: 200px;
 * {
   margin: 0;
   padding: 0;
@@ -41,13 +42,18 @@ export default {
   margin: 0;
   display: flex;
   .menus {
-    width: 200px;
+    width: $width;
     position: fixed;
     left: 0;
     overflow-y: scroll;
+    height: 100%;
   }
   .contents {
-    flex: 1;
+    position: fixed;
+    left: $width;
+    height: 100%;
+    width: calc(100% - #{$width});
+    overflow-y: scroll;
   }
 }
 </style>

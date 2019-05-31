@@ -10,7 +10,7 @@
     :visible.sync="isShow"
     :show-close="false">
     <div slot="title" class="dialog-header">
-      <template v-slot:header>
+      <slot name="alter-header">
         <div class="dialog-header-wrap" v-if="hasTitle">
           <p class="jd-alter-title">{{title}}</p>
           <button type="button" aria-label="Close" class="el-dialog__headerbtn" v-if="hasCancelButton && showClose"
@@ -18,11 +18,11 @@
             <i class="el-dialog__close el-icon el-icon-close"></i>
           </button>
         </div>
-      </template>
+      </slot>
     </div>
     <slot></slot>
     <div slot="footer" class="dialog-footer">
-      <template v-slot:footer>
+      <slot name="alter-footer">
         <div class="dialog-footer-wrap" v-if="hasFooter">
           <jd-button v-if="hasCancelButton"
             class="jd-alter-cancel"
@@ -36,7 +36,7 @@
             {{buttonText}}
           </jd-button>
         </div>
-      </template>
+      </slot>
     </div>
   </el-dialog>
 </template>

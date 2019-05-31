@@ -84,8 +84,6 @@
     "json-loader": "^0.5.7",
     "json-templater": "^1.2.0",
     "node-sass": "^4.12.0",
-    "os": "^0.1.1",
-    "path": "^0.12.7",
     "postcss-loader": "^3.0.0",
     "postcss-salad": "^2.0.1",
     "progress-bar-webpack-plugin": "^1.12.1",
