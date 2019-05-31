@@ -6,6 +6,7 @@ function resolve(dir) {
 }
 
 module.exports = {
+  publicPath: '/',
   // 多核编译构建
   parallel: os.cpus().length > 1,
   css: {

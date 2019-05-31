@@ -9,11 +9,13 @@
     "test:unit": "vue-cli-service test:unit"
   },
   "dependencies": {
+    "babel-helper-vue-jsx-merge-props": "^2.0.3",
     "core-js": "^2.6.5",
     "element-ui": "^2.8.2",
     "register-service-worker": "^1.6.2",
     "swiper": "^4.5.0",
     "vue": "^2.6.10",
+    "vue-jd-ui": "^1.0.0-dev.3",
     "vue-router": "^3.0.3",
     "vuex": "^3.0.1"
   },
@@ -26,6 +28,8 @@
     "@vue/eslint-config-standard": "^4.0.0",
     "@vue/test-utils": "1.0.0-beta.29",
     "babel-eslint": "^10.0.1",
+    "babel-plugin-syntax-jsx": "^6.18.0",
+    "babel-plugin-transform-vue-jsx": "^3.7.0",
     "chai": "^4.1.2",
     "eslint": "^5.16.0",
     "eslint-plugin-vue": "^5.0.0",
