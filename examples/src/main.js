@@ -7,7 +7,7 @@ import router from './router'
 import store from './store'
 import './registerServiceWorker'
 
-import VueJDUI from './components'
+import VueJDUI from '../../src'
 
 Vue.config.productionTip = false
 

@@ -28,16 +28,16 @@ import components from '../../../components.json'
 
 export default {
   name: 'Menu',
-  data () {
+  data() {
     return {
       menus: Object.keys(components)
     }
   },
   methods: {
-    handleOpen () {
+    handleOpen() {
       console.log('open')
     },
-    handleClose () {
+    handleClose() {
       console.log('close')
     }
   }
