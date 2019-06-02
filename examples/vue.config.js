@@ -33,5 +33,28 @@ module.exports = {
     config.resolve.alias
       .set('vue-jd-ui', resolve('../'))
     // console.log('config.resolve.alias: ', config.resolve.alias)
+
+    // 2.调试用, 增加include, babel转换
+    config.module.rule('compile')
+      .test(/\.js$/)
+      .include
+      .add(resolve('src'))
+      .add(resolve('node_modules/vue-jd-ui/packages/el-scrollbar'))
+      .add(resolve('node_modules/vue-jd-ui/packages/el-tooltip'))
+      .end()
+      .use('babel')
+      .loader('babel-loader')
+      .options({
+        presets: [
+          ['@babel/preset-env', {
+            modules: false
+          }]
+        ]
+      })
+    // 3.增加md解析
+    config.module.rule('markdown')
+      .test(/\.md$/)
+      .use('text')
+      .loader('text-loader')
   }
 }

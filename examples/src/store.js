@@ -5,12 +5,21 @@ Vue.use(Vuex)
 
 export default new Vuex.Store({
   state: {
-
+    // 当前menu
+    menu: ''
   },
-  mutations: {
-
+  getters: {
+    menu: state => state.menu
   },
   actions: {
-
+    setMenu({ commit }, payload) {
+      console.log('11: ', payload)
+      commit('SET_MENU', payload)
+    }
+  },
+  mutations: {
+    SET_MENU(state, payload) {
+      state.menu = payload
+    }
   }
 })

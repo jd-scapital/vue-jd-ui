@@ -6,10 +6,11 @@
           default-active="2"
           class="el-menu-vertical-demo"
           @open="handleOpen"
-          @close="handleClose">
+          @close="handleClose"
+          @select="select">
           <el-menu-item v-for="(menu, key) in menus" class="menu-item"
             :key="key"
-            :index="'index_' + key">
+            :index="menu">
             <i class="el-icon-menu"></i>
             <span slot="title">{{menu}}</span>
           </el-menu-item>
@@ -39,6 +40,9 @@ export default {
     },
     handleClose() {
       console.log('close')
+    },
+    select(menu) {
+      this.$store.dispatch('setMenu', menu)
     }
   }
 }
