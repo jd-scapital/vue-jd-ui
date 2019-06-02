@@ -52,5 +52,10 @@ module.exports = {
           }]
         ]
       })
+    // 3.增加md解析
+    config.module.rule('markdown')
+      .test(/\.md$/)
+      .use('text')
+      .loader('text-loader')
   }
 }
