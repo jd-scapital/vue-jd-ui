@@ -17,6 +17,12 @@ import mds from '../docs'
 
 export default {
   name: 'home',
+  props: {
+    query: {
+      type: String,
+      default: ''
+    }
+  },
   data() {
     return {
       mds,
@@ -39,6 +45,13 @@ export default {
   },
   components: {
     VueMarkdown
+  },
+  created() {
+    const defaultMenu = this.query
+    if (defaultMenu) {
+      this.$store.dispatch('setDefaultMenu', defaultMenu)
+      this.$store.dispatch('setMenu', defaultMenu)
+    }
   },
   mounted() {
     this.init(this.menu)
