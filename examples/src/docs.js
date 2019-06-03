@@ -5,6 +5,8 @@ import copy from '../../docs/copy.md'
 import echartsHome from '../../docs/echarts-home.md'
 import echartsMatch from '../../docs/echarts-match.md'
 import echartsTab from '../../docs/echarts-tab.md'
+import elLoading from '../../docs/el-loading.md'
+import elMessage from '../../docs/el-message.md'
 import input from '../../docs/input.md'
 import message from '../../docs/message.md'
 import normalInputSelect from '../../docs/normal-input-select.md'
@@ -16,8 +18,10 @@ import scale from '../../docs/scale.md'
 import select from '../../docs/select.md'
 import span from '../../docs/span.md'
 import stepBar from '../../docs/step-bar.md'
+import step from '../../docs/step.md'
 import tabSwiper from '../../docs/tab-swiper.md'
 import tab from '../../docs/tab.md'
+import tableExpand from '../../docs/table-expand.md'
 import tableMatch from '../../docs/table-match.md'
 import tableTodo from '../../docs/table-todo.md'
 import table from '../../docs/table.md'
@@ -35,6 +39,8 @@ export default {
   echartsHome,
   echartsMatch,
   echartsTab,
+  elLoading,
+  elMessage,
   input,
   message,
   normalInputSelect,
@@ -46,8 +52,10 @@ export default {
   select,
   span,
   stepBar,
+  step,
   tabSwiper,
   tab,
+  tableExpand,
   tableMatch,
   tableTodo,
   table,
