@@ -1,6 +1,6 @@
 <template>
   <div class="home">
-    11
+    <vue-markdown :source="content"></vue-markdown>
   </div>
 </template>
 
@@ -12,13 +12,15 @@
  * @createTime 2019年05月31日13:42:32
  */
 import { mapGetters } from 'vuex'
+import VueMarkdown from 'vue-markdown'
 import mds from '../docs'
 
 export default {
   name: 'home',
   data() {
     return {
-      mds
+      mds,
+      content: ''
     }
   },
   computed: {
@@ -35,10 +37,24 @@ export default {
       }
     }
   },
+  components: {
+    VueMarkdown
+  },
+  mounted() {
+    this.init(this.menu)
+  },
   methods: {
     init(menu) {
-      console.log('init menu: ', menu)
+      this.content = mds[menu]
     }
   }
 }
 </script>
+
+<style lang="scss" scoped>
+.home {
+  text-align: left;
+  padding-left: 50px;
+  padding-right: 30px;
+}
+</style>
