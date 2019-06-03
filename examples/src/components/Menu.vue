@@ -3,7 +3,7 @@
     <el-row class="tac">
       <el-col :span="24">
         <el-menu
-          default-active="defaultActive"
+          :default-active="defaultMenu"
           class="el-menu-vertical-demo"
           @open="handleOpen"
           @close="handleClose"
@@ -25,6 +25,8 @@
  * @description 菜单
  * @createTime 2019年05月29日18:28:52
  */
+import { mapGetters } from 'vuex'
+
 import components from '../../../components.json'
 import { toHump } from '@/utils/tools'
 
@@ -32,8 +34,14 @@ export default {
   name: 'Menu',
   data() {
     return {
+      // defaultMenu: '',
       menus: Object.keys(components).map(key => toHump(key))
     }
+  },
+  computed: {
+    ...mapGetters({
+      'defaultMenu': 'defaultMenu'
+    })
   },
   created() {
     this.init()
@@ -41,8 +49,10 @@ export default {
   methods: {
     async init() {
       const defaultMenu = this.menus[0]
-      this.$store.dispatch('setMenu', defaultMenu)
-      this.defaultActive = defaultMenu
+      if (defaultMenu) {
+        this.$store.dispatch('setDefaultMenu', defaultMenu)
+        this.$store.dispatch('setMenu', defaultMenu)
+      }
     },
     handleOpen() {
       console.log('open')
@@ -51,6 +61,12 @@ export default {
       console.log('close')
     },
     select(menu) {
+      this.$router.replace({
+        name: 'home',
+        query: {
+          q: menu
+        }
+      })
       this.$store.dispatch('setMenu', menu)
     }
   }
