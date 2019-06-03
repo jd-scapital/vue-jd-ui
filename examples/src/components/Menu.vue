@@ -3,7 +3,7 @@
     <el-row class="tac">
       <el-col :span="24">
         <el-menu
-          default-active="2"
+          default-active="defaultActive"
           class="el-menu-vertical-demo"
           @open="handleOpen"
           @close="handleClose"
@@ -26,15 +26,24 @@
  * @createTime 2019年05月29日18:28:52
  */
 import components from '../../../components.json'
+import { toHump } from '@/utils/tools'
 
 export default {
   name: 'Menu',
   data() {
     return {
-      menus: Object.keys(components)
+      menus: Object.keys(components).map(key => toHump(key))
     }
   },
+  created() {
+    this.init()
+  },
   methods: {
+    async init() {
+      const defaultMenu = this.menus[0]
+      this.$store.dispatch('setMenu', defaultMenu)
+      this.defaultActive = defaultMenu
+    },
     handleOpen() {
       console.log('open')
     },

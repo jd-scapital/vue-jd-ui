@@ -13,7 +13,6 @@ export default new Vuex.Store({
   },
   actions: {
     setMenu({ commit }, payload) {
-      console.log('11: ', payload)
       commit('SET_MENU', payload)
     }
   },
