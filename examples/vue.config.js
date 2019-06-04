@@ -25,13 +25,15 @@ module.exports = {
       },
       // 配置全局scss
       sass: {
-        // data: `@import "@/assets/scss/index.scss";`
+        data: '@import "@/assets/scss/color.scss";'
       }
     }
   },
   chainWebpack: config => {
+    // 1.设置别名
     config.resolve.alias
-      .set('vue-jd-ui', resolve('../'))
+      .set('vue$', 'vue/dist/vue.esm.js')
+      // .set('vue-jd-ui', resolve('../'))
     // console.log('config.resolve.alias: ', config.resolve.alias)
 
     // 2.调试用, 增加include, babel转换
