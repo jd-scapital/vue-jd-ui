@@ -1,7 +1,7 @@
 <template>
   <div class="home">
     <div class="render-item" v-for="(render, key) in renders" :key="key">
-      <md-code v-if="render.code"
+      <md-code class="code-item" v-if="render.code"
         :code="render.code"
         :title="render.title">
         <div class="pre-code">
@@ -120,6 +120,11 @@ export default {
   padding-left: 50px;
   padding-right: 30px;
   .render-item {
+    .code-item {
+      &:hover {
+        box-shadow: 0 0 8px 0 rgba(232,237,250,.6), 0 2px 4px 0 rgba(232,237,250,.5);
+      }
+    }
     /deep/ .pre-code {
       padding: 10px;
       background-color: $gray;

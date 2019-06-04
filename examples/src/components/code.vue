@@ -1,8 +1,17 @@
 <template>
   <div class="code">
     <div id="render"></div>
-    <div class="title">{{title}}</div>
-    <slot></slot>
+    <collapse-transition>
+      <div class="base-code" v-show="isShowBaseCode">
+        <div class="title">{{title}}</div>
+        <slot></slot>
+      </div>
+    </collapse-transition>
+    <div class="button" @click="toggleBaseCode"
+      :class="{ 'is-show': isShowBaseCode ? 1 : 0 }">
+      <i class="button-icon el-icon-caret-bottom"></i>
+      <span class="text">{{ isShowBaseCode ? '隐藏代码' : '显示代码'}}</span>
+    </div>
   </div>
 </template>
 <script>
@@ -30,7 +39,8 @@ export default {
   },
   data() {
     return {
-      renderHtml: ''
+      // 是否展示源码
+      isShowBaseCode: false
     }
   },
   mounted() {
@@ -60,6 +70,10 @@ export default {
       option = Object.assign({}, option, script)
       const Component = Vue.extend(option)
       new Component({ el: '#render' }).$mount()
+    },
+    // 展示或隐藏
+    toggleBaseCode() {
+      this.isShowBaseCode = !this.isShowBaseCode
     }
   }
 }
@@ -77,6 +91,41 @@ export default {
     margin: 10px;
     padding: 15px 20px;
     border: 1px solid $border;
+  }
+  .button {
+    height: 44px;
+    line-height: 44px;
+    text-align: center;
+    color: $sliver;
+    background-color: $white;
+    cursor: pointer;
+    .text {
+      opacity: 0;
+      transition: opacity .6s ease;
+    }
+    .button-icon {
+      position: relative;
+      left: 48px;
+      transition: left .3s ease;
+    }
+    &.is-show {
+      .el-icon-caret-bottom {
+        display: inline-block;
+        transform: rotate(180deg);
+      }
+    }
+    &:hover {
+      color: $blue;
+      background-color: $bgColor;
+      .button-icon {
+        left: 0;
+      }
+      .text {
+        margin-left: 5px;
+        opacity: 1;
+        display: inline-block;
+      }
+    }
   }
 }
 </style>
