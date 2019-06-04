@@ -8,6 +8,9 @@ import store from './store'
 import './registerServiceWorker'
 
 import VueJDUI from '../../src'
+import 'vue-jd-ui/lib/theme-chalk/index.css'
+
+import './assets/scss/index.scss'
 
 Vue.config.productionTip = false
 

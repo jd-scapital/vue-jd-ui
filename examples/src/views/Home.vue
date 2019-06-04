@@ -1,6 +1,17 @@
 <template>
   <div class="home">
-    <vue-markdown :source="content"></vue-markdown>
+    <div class="render-item" v-for="(render, key) in renders" :key="key">
+      <md-code v-if="render.code"
+        :code="render.code"
+        :title="render.title">
+        <div class="pre-code">
+          <pre><code class="show-code">{{render.code}}</code></pre>
+        </div>
+      </md-code>
+      <vue-markdown v-if="render.md"
+        :source="render.md">
+      </vue-markdown>
+    </div>
   </div>
 </template>
 
@@ -14,6 +25,7 @@
 import { mapGetters } from 'vuex'
 import VueMarkdown from 'vue-markdown'
 import mds from '../docs'
+import MdCode from '../components/code'
 
 export default {
   name: 'home',
@@ -25,8 +37,12 @@ export default {
   },
   data() {
     return {
+      // md文档列表
       mds,
-      content: ''
+      // md字符串内容
+      content: '',
+      // 渲染列表
+      renders: []
     }
   },
   computed: {
@@ -35,16 +51,50 @@ export default {
     })
   },
   watch: {
+    // 菜单
     menu(val, oldVal) {
       if (val
         && oldVal
         && val !== oldVal) {
         this.init(val)
       }
+    },
+    // 内容
+    content(val) {
+      const renders = []
+      if (val) {
+        const arrays = val.split(':::')
+        arrays.forEach(array => {
+          const render = {}
+          const codeStart = '```html'
+          const codeLast = '```'
+          const codeIndex = array.indexOf(codeStart)
+          // 有代码块
+          if (~codeIndex) {
+            const title = array.substr(0, codeIndex)
+            array = array.replace(title + codeStart, '')
+            const codeLastIndex = array.indexOf(codeLast)
+            const code = array.substr(0, codeLastIndex)
+            array = array.replace(code + codeLast, '')
+            render.title = title
+            render.code = code ? code.trim() : code
+            // console.log('render.code: \n', render.code)
+            render.md = array
+          }
+          // 没有代码块
+          else {
+            render.md = array
+          }
+          // console.log('array: ', array)
+          renders.push(render)
+        })
+      }
+      this.renders = renders
     }
   },
   components: {
-    VueMarkdown
+    VueMarkdown,
+    MdCode
   },
   created() {
     const defaultMenu = this.query
@@ -69,5 +119,15 @@ export default {
   text-align: left;
   padding-left: 50px;
   padding-right: 30px;
+  .render-item {
+    /deep/ .pre-code {
+      padding: 10px;
+      background-color: $gray;
+      pre {
+        border-width: 0;
+        background-color: $gray;
+      }
+    }
+  }
 }
 </style>

@@ -1,29 +1,54 @@
-# 步骤组件
+## 步骤组件
 
-## 作用
+### 作用
 - 自定义设计的步骤ui
 
-## 依赖
+### 依赖
 - `jd-scale`
 
 ## 使用
-```bash
-# js
-import { Step } from 'vue-jd-ui'
-Vue.use(Step)
-# html
-<jd-step></jd-step>
+::: 基础使用示例
+```html
+<template>
+  <jd-step
+    :type="type"
+    :steps="steps"
+    :step="step">
+  </jd-step>
+</template>
+<script>
+export default {
+  data() {
+    return {
+      // 当前阶段(根据index取值, 第一个是1, 而非0
+      step: 1,
+      // 类型
+      type: 'small',
+      // 步骤
+      steps: [
+        {
+          // 序号
+          index: 1,
+          // 标题文本
+          text: '企业信息',
+          // 是否激活
+          active: true
+        },
+        {
+          index: 2,
+          text: '法人信息',
+          active: false
+        }
+      ]
+    }
+  }
+}
+</script>
 ```
 
-## props
-- `type`: 类型
-  - `middle`: 稍等大点的
-  - `small`: 小点的
-- `steps`: 步骤
-  - ` [ { index: 1, text: '企业信息', active: true } ]`
-  - index: 序号
-  - text: 标题文本
-  - active: 是否激活
-- `step`: 当前阶段(根据index取值, 第一个是`1`, 而非`0`)
-
-## emit
+### Attributes
+| 参数      | 说明          | 类型      | 可选值                           | 默认值  |
+|---------- |-------------- |---------- |--------------------------------  |-------- |
+| type     | 类型           | string | middle/small | small |
+| steps    | 步骤           | array  | - | [] |
+| step     | 当前阶段        | number | - | 1  |
