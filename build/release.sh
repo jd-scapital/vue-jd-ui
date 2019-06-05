@@ -46,5 +46,5 @@ then
   else
     npm publish
   fi
-  git checkout master
+  # git checkout master
 fi
