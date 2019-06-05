@@ -8,7 +8,7 @@
           <pre><code class="show-code">{{render.code}}</code></pre>
         </div>
       </md-code>
-      <vue-markdown v-if="render.md"
+      <vue-markdown class="markdown" v-if="render.md"
         :source="render.md">
       </vue-markdown>
     </div>
@@ -125,6 +125,13 @@ export default {
         box-shadow: 0 0 8px 0 rgba(232,237,250,.6), 0 2px 4px 0 rgba(232,237,250,.5);
       }
     }
+    // markdown文档样式
+    /deep/ .markdown {
+      ul {
+        margin: 5px 0;
+      }
+    }
+    // 代码块样式
     /deep/ .pre-code {
       padding: 10px;
       background-color: $gray;
