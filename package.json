@@ -1,6 +1,6 @@
 {
   "name": "vue-jd-ui",
-  "version": "1.0.0-dev.4",
+  "version": "1.0.0-dev.5",
   "description": "invest/cas/ai-bank's common component",
   "main": "lib/vue-jd-ui.common.js",
   "files": [
