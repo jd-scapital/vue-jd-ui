@@ -7,7 +7,7 @@
         'active': step.active,
         'active-last': step.isActiveLast
       }"
-      @click="stepClick">
+      @click="stepClick(step)">
       <div class="j-s-circle">
         <i>{{step.index}}</i>
       </div>
@@ -66,8 +66,11 @@ export default {
     }
   },
   methods: {
-    stepClick() {
-
+    stepClick(step) {
+      if (step.index > this.step) {
+        return
+      }
+      this.$emit('change', step)
     }
   }
 }

@@ -54,7 +54,8 @@ export default {
   <jd-step
     :type="type"
     :steps="steps"
-    :step="step">
+    :step="step"
+    @change="stepClick">
   </jd-step>
 </template>
 <script>
@@ -62,7 +63,7 @@ export default {
   data() {
     return {
       // 当前阶段(根据index取值, 第一个是1, 而非0
-      step: 1,
+      step: 2,
       // 类型
       type: 'small',
       // 步骤
@@ -81,6 +82,11 @@ export default {
           active: false
         }
       ]
+    }
+  },
+  methods: {
+    stepClick() {
+      console.log('click')
     }
   }
 }
