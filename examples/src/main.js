@@ -9,9 +9,18 @@ import store from './store'
 import './registerServiceWorker'
 
 import VueJDUI from '../../src'
-import 'vue-jd-ui/lib/theme-chalk/index.css'
+// import 'vue-jd-ui/lib/theme-chalk/index.css'
+// import '../../packages/theme-chalk/src/index.scss'
 
 import './assets/scss/index.scss'
+
+const isProd = process.env.NODE_ENV === 'production'
+if (isProd) {
+  require('vue-jd-ui/lib/theme-chalk/index.css')
+}
+else {
+  require('../../packages/theme-chalk/src/index.scss')
+}
 
 Vue.config.productionTip = false
 

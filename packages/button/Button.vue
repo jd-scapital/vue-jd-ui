@@ -9,6 +9,7 @@
  * @prop { String } type 按钮类型 @type fill 有填充色 @type none 无填充色
  * @prop { String / Object } to 路由跳转
  * @prop { Boolean } disabled 禁用状态
+ * @prop { Boolean } aibank 是否是aibank
  * @event click 点击触发
  * @template slot 按钮内容
  */
@@ -32,6 +33,11 @@ export default {
     disabled: {
       type: Boolean,
       default: false
+    },
+    // 是否是aibank
+    aibank: {
+      type: Boolean,
+      default: false
     }
   },
   computed: {
@@ -49,6 +55,9 @@ export default {
       }
       if (this.disabled) {
         className.push('disabled')
+      }
+      if (this.aibank) {
+        className.push('aibank')
       }
       return className
     }

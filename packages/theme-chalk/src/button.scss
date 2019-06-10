@@ -5,7 +5,7 @@
   display: inline-block;
   font-size: 14px;
   line-height: 30px;
-  text-decoration: none;
+  text-decoration: none!important;
   border-radius: 50px;
   border: 1px solid $button-fill;
   text-align: center;
@@ -33,6 +33,36 @@
   &.disabled {
     background-color: $gray-12;
     border-color: $gray-12;
+    color: $white;
     cursor: not-allowed;
+  }
+  &.aibank {
+    border: 1px solid $button-aibank-fill;
+    &.fill {
+      background-color: $button-aibank-fill;
+      color: $button-aibank-text;
+    }
+    &.text {
+      border-width: 0;
+      color: $button-aibank-fill;
+      &:hover {
+        background-color: transparent;
+        color: $button-aibank-fill;
+      }
+    }
+    &.blank {
+      color: $button-aibank-fill;
+    }
+    &:hover {
+      background-color: $button-aibank-hover;
+      border-color: $button-aibank-hover;
+      color: $button-aibank-text;
+    }
+    &.disabled {
+      background-color: $button-aibank-disabled;
+      border-color: $button-aibank-disabled;
+      color: $button-aibank-text;
+      cursor: not-allowed;
+    }
   }
 }
