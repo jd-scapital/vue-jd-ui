@@ -92,7 +92,7 @@ export default {
       if (step.index > this.step) {
         return
       }
-      this.currentStep = step.index
+      this.$emit('update:currentStep', step.index)
       this.$emit('change', step)
     }
   }

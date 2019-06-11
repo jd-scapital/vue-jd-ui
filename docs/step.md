@@ -148,7 +148,8 @@ export default {
     :type="type"
     :steps="steps"
     :step="step"
-    :current-step="currentStep">
+    :current-step.sync="currentStep"
+    @change="stepClick">
   </jd-step>
 </template>
 <script>
@@ -182,6 +183,11 @@ export default {
       ],
       // 当前阶段
       currentStep: 2
+    }
+  },
+  methods: {
+    stepClick(step) {
+      console.log('step: ', step)
     }
   }
 }
