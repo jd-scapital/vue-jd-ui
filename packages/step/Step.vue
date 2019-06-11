@@ -68,25 +68,23 @@ export default {
       type: String,
       default: ''
     },
-    // 是否展示当前组件
-    isShowCurrent: {
-      type: Boolean,
-      default: false
+    // 当前步骤
+    currentStep: {
+      type: Number,
+      default: null
     }
   },
   computed: {
+    // 是否展示当前组件
+    isShowCurrent() {
+      return this.currentStep !== null
+    },
     cSteps() {
       return this.steps.map((step, index) => {
         step.active = step.index <= this.step
         step.isActiveLast = step.index === this.step
         return step
       })
-    }
-  },
-  data() {
-    return {
-      // 当前步骤
-      currentStep: this.step
     }
   },
   methods: {

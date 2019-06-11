@@ -148,7 +148,7 @@ export default {
     :type="type"
     :steps="steps"
     :step="step"
-    :is-show-current="isShowCurrent">
+    :current-step="currentStep">
   </jd-step>
 </template>
 <script>
@@ -180,7 +180,8 @@ export default {
           active: false
         }
       ],
-      isShowCurrent: true
+      // 当前阶段
+      currentStep: 2
     }
   }
 }
@@ -194,4 +195,4 @@ export default {
 | steps    | 步骤           | array  | - | [] |
 | step     | 当前阶段        | number | - | 1  |
 | color    | 激活颜色设置     | string | - | ''  |
-| isShowCurrent | 是否展示当前阶段   | boolean | - | false  |
+| currentStep | 当前阶段   | number | - | null  |
