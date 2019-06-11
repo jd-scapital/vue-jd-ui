@@ -37,31 +37,31 @@
     cursor: not-allowed;
   }
   &.aibank {
-    border: 1px solid $button-aibank-fill;
+    border: 1px solid $aibank-blue;
     &.fill {
-      background-color: $button-aibank-fill;
-      color: $button-aibank-text;
+      background-color: $aibank-blue;
+      color: $aibank-blue-text;
     }
     &.text {
       border-width: 0;
-      color: $button-aibank-fill;
+      color: $aibank-blue;
       &:hover {
         background-color: transparent;
-        color: $button-aibank-fill;
+        color: $aibank-blue;
       }
     }
     &.blank {
-      color: $button-aibank-fill;
+      color: $aibank-blue;
     }
     &:hover {
-      background-color: $button-aibank-hover;
-      border-color: $button-aibank-hover;
-      color: $button-aibank-text;
+      background-color: $aibank-blue-hover;
+      border-color: $aibank-blue-hover;
+      color: $aibank-blue-text;
     }
     &.disabled {
-      background-color: $button-aibank-disabled;
-      border-color: $button-aibank-disabled;
-      color: $button-aibank-text;
+      background-color: $aibank-blue-disabled;
+      border-color: $aibank-blue-disabled;
+      color: $aibank-blue-text;
       cursor: not-allowed;
     }
   }

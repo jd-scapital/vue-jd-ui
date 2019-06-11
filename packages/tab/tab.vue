@@ -1,6 +1,6 @@
 <template>
   <div class="jd-tab-box">
-    <div class="tab" :style="{'width': width}">
+    <div class="tab" :style="{'width': width}" :class="className">
       <el-tabs stretch v-model="active" @tab-click="handleClick">
         <el-tab-pane
           v-for="(tab, i) in tabs"
@@ -15,6 +15,7 @@
 /**
  * @prop { Boolean } value 当前选中
  * @prop { String } width tab的宽度
+ * @prop { Boolean } aibank 是否是aibank
  * @prop { Array } tabs 展示的tab @property { String } label 显示的文案 @property { String } name 对应显示的tab的name 赋给 value
  */
 import elTabs from '../el-tabs'
@@ -38,11 +39,24 @@ export default {
     width: {
       type: [String],
       default: '340px'
+    },
+    aibank: {
+      type: Boolean,
+      default: false
     }
   },
   data() {
     return {
       active: this.value
+    }
+  },
+  computed: {
+    className() {
+      const defaultClassName = []
+      if (this.aibank) {
+        defaultClassName.push('aibank')
+      }
+      return defaultClassName
     }
   },
   watch: {

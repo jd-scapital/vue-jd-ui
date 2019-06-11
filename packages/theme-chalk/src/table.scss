@@ -2,11 +2,12 @@
 @import 'common/color.scss';
 
 .frist-at-one {
-  /deep/ .el-table__row--striped {
-    td {
-      background: $white !important;
-    }
-  }
+  // TODO: 找到能不用!important的方式去修改，不然会引起样式冲突
+  // /deep/ .el-table__row--striped {
+  //   td {
+  //     background: $white !important;
+  //   }
+  // }
   /deep/ .table-active {
     td {
       background: $table-active;

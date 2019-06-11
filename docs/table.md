@@ -15,8 +15,7 @@
 | showHeader | 是否展示表头 | 否 | Boolean | true/false | true |
 | currentPage | 当前页码 | 否 | Number | - | 1 |
 | total | 总条数 | 否 | Number | - | 1 |
-| pageSize | 一页多少条 | 否 | Array | - | [] |
-| tableData | 表格数据 | 否 | Number | - | 10 |
+| pageSize | 一页多少条 | 否 | Number | - | 10 |
 
 ```js
 tableData: [
