@@ -141,3 +141,4 @@ export default {
 | type     | 类型           | string | middle/small | small |
 | steps    | 步骤           | array  | - | [] |
 | step     | 当前阶段        | number | - | 1  |
+| color    | 颜色设置        | string | - | ''  |
