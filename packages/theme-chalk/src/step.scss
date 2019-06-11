@@ -84,6 +84,10 @@
         background-color: $gray-15;
         color: $white;
         text-align: center;
+        &.current {
+          line-height: 12px;
+          font-size: 18px;
+        }
       }
     }
     .line {
