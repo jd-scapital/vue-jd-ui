@@ -27,4 +27,16 @@
       background-color: $blue;
     }
   }
+  .aibank {
+    // tab 字体
+    /deep/ .el-tabs__item {
+      &.is-active {
+        color: $aibank-blue;
+      }
+    }
+    // tab下划线
+    /deep/ .el-tabs__active-bar {
+      background-color: $aibank-blue;
+    }
+  }
 }
