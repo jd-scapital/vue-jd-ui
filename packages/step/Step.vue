@@ -9,12 +9,19 @@
       }"
       @click="stepClick(step)">
       <div class="j-s-circle">
-        <i>{{step.index}}</i>
+        <i :style="color ? `background-color: ${color}` : ''">{{step.index}}</i>
       </div>
-      <span class="line"></span>
+      <span class="line" :style="color ? `border-color: ${color}` : ''"></span>
       <div class="j-s-info">
-        <jd-scale :text="step.text" :multiple="10/12" v-if="!step.active"></jd-scale>
-        <span v-else>{{step.text}}</span>
+        <jd-scale v-if="!step.active"
+          :text="step.text"
+          :multiple="10/12"
+          :color="color">
+        </jd-scale>
+        <span v-else
+          :style="color ? `color: ${color}` : ''">
+          {{step.text}}
+        </span>
       </div>
     </li>
   </ul>
@@ -54,6 +61,11 @@ export default {
     step: {
       type: Number,
       default: 0
+    },
+    // 圆圈的样式
+    color: {
+      type: String,
+      default: ''
     }
   },
   computed: {

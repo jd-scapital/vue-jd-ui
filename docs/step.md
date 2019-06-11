@@ -93,6 +93,48 @@ export default {
 </script>
 ```
 
+- 设置样式
+::: 设置圆圈样式的示例用法
+```html
+<template>
+  <jd-step
+    :type="type"
+    :steps="steps"
+    :step="step"
+    :color="color">
+  </jd-step>
+</template>
+<script>
+export default {
+  data() {
+    return {
+      // 当前阶段(根据index取值, 第一个是1, 而非0
+      step: 2,
+      // 类型
+      type: 'small',
+      // 步骤
+      steps: [
+        {
+          // 序号
+          index: 1,
+          // 标题文本
+          text: '企业信息',
+          // 是否激活
+          active: true
+        },
+        {
+          index: 2,
+          text: '法人信息',
+          active: false
+        }
+      ],
+      color: '#1EA6E9'
+    }
+  }
+}
+</script>
+```
+
 ### Attributes
 | 参数      | 说明          | 类型      | 可选值                           | 默认值  |
 |---------- |-------------- |---------- |--------------------------------  |-------- |

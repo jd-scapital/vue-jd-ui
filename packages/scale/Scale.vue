@@ -21,11 +21,17 @@ export default {
     multiple: {
       type: Number,
       default: 1
+    },
+    // 颜色
+    color: {
+      type: String,
+      default: ''
     }
   },
   computed: {
     scaleCss() {
-      return `transform: scale(${this.multiple});display: inline-block;`
+      const color = this.color
+      return `transform: scale(${this.multiple});display: inline-block;${color ? `color: ${color}` : ''}`
     }
   }
 }
