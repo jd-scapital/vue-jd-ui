@@ -7,3 +7,4 @@ coverage
 *.scss
 *.woff
 *.ttf
+packages/theme-chalk/src/fonts
