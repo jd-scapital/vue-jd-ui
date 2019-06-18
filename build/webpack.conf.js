@@ -17,6 +17,7 @@ module.exports = {
     filename: 'index.js',
     chunkFilename: '[id].js',
     libraryTarget: 'umd',
+    libraryExport: 'default',
     library: 'JDUI',
     umdNamedDefine: true,
     globalObject: 'typeof self !== \'undefined\' ? self : this'
