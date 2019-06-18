@@ -4,9 +4,9 @@ import PopupManager from 'vue-jd-ui/src/utils/popup/popup-manager'
 import getScrollBarWidth from '../scrollbar-width'
 import { getStyle, addClass, removeClass, hasClass } from '../dom'
 
-let idSeed = 1
+var idSeed = 1
 
-let scrollBarWidth
+var scrollBarWidth
 
 export default {
   props: {
@@ -44,19 +44,19 @@ export default {
     }
   },
 
-  beforeMount() {
+  beforeMount: function() {
     this._popupId = 'popup-' + idSeed++
     PopupManager.register(this._popupId, this)
   },
 
-  beforeDestroy() {
+  beforeDestroy: function() {
     PopupManager.deregister(this._popupId)
     PopupManager.closeModal(this._popupId)
 
     this.restoreBodyStyle()
   },
 
-  data() {
+  data: function() {
     return {
       opened: false,
       bodyPaddingRight: null,
@@ -67,12 +67,12 @@ export default {
   },
 
   watch: {
-    visible(val) {
+    visible: function(val) {
       if (val) {
         if (this._opening) return
         if (!this.rendered) {
           this.rendered = true
-          Vue.nextTick(() => {
+          Vue.nextTick(function() {
             this.open()
           })
         }
@@ -87,12 +87,12 @@ export default {
   },
 
   methods: {
-    open(options) {
+    open: function(options) {
       if (!this.rendered) {
         this.rendered = true
       }
 
-      const props = merge({}, this.$props || this, options)
+      var props = merge({}, this.$props || this, options)
 
       if (this._closeTimer) {
         clearTimeout(this._closeTimer)
@@ -100,7 +100,7 @@ export default {
       }
       clearTimeout(this._openTimer)
 
-      const openDelay = Number(props.openDelay)
+      var openDelay = Number(props.openDelay)
       if (openDelay > 0) {
         this._openTimer = setTimeout(() => {
           this._openTimer = null
@@ -112,18 +112,18 @@ export default {
       }
     },
 
-    doOpen(props) {
+    doOpen: function(props) {
       if (this.$isServer) return
       if (this.willOpen && !this.willOpen()) return
       if (this.opened) return
 
       this._opening = true
 
-      const dom = this.$el
+      var dom = this.$el
 
-      const modal = props.modal
+      var modal = props.modal
 
-      const zIndex = props.zIndex
+      var zIndex = props.zIndex
       if (zIndex) {
         PopupManager.zIndex = zIndex
       }
@@ -141,8 +141,8 @@ export default {
             this.computedBodyPaddingRight = parseInt(getStyle(document.body, 'paddingRight'), 10)
           }
           scrollBarWidth = getScrollBarWidth()
-          let bodyHasOverflow = document.documentElement.clientHeight < document.body.scrollHeight
-          let bodyOverflowY = getStyle(document.body, 'overflowY')
+          var bodyHasOverflow = document.documentElement.clientHeight < document.body.scrollHeight
+          var bodyOverflowY = getStyle(document.body, 'overflowY')
           if (scrollBarWidth > 0 && (bodyHasOverflow || bodyOverflowY === 'scroll') && this.withoutHiddenClass) {
             document.body.style.paddingRight = this.computedBodyPaddingRight + scrollBarWidth + 'px'
           }
@@ -162,11 +162,11 @@ export default {
       this.doAfterOpen()
     },
 
-    doAfterOpen() {
+    doAfterOpen: function() {
       this._opening = false
     },
 
-    close() {
+    close: function() {
       if (this.willClose && !this.willClose()) return
 
       if (this._openTimer !== null) {
@@ -175,10 +175,10 @@ export default {
       }
       clearTimeout(this._closeTimer)
 
-      const closeDelay = Number(this.closeDelay)
+      var closeDelay = Number(this.closeDelay)
 
       if (closeDelay > 0) {
-        this._closeTimer = setTimeout(() => {
+        this._closeTimer = setTimeout(function() {
           this._closeTimer = null
           this.doClose()
         }, closeDelay)
@@ -188,7 +188,7 @@ export default {
       }
     },
 
-    doClose() {
+    doClose: function() {
       this._closing = true
 
       this.onClose && this.onClose()
@@ -202,12 +202,12 @@ export default {
       this.doAfterClose()
     },
 
-    doAfterClose() {
+    doAfterClose: function() {
       PopupManager.closeModal(this._popupId)
       this._closing = false
     },
 
-    restoreBodyStyle() {
+    restoreBodyStyle: function() {
       if (this.modal && this.withoutHiddenClass) {
         document.body.style.paddingRight = this.bodyPaddingRight
         removeClass(document.body, 'el-popup-parent--hidden')
