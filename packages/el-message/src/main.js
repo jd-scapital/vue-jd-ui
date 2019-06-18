@@ -40,8 +40,8 @@ const Message = function(options) {
 }
 
 const levels = ['success', 'warning', 'info', 'error']
-levels.forEach(type => {
-  Message[type] = options => {
+levels.forEach(function(type) {
+  Message[type] = function(options) {
     if (typeof options === 'string') {
       options = {
         message: options
