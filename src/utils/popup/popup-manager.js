@@ -89,9 +89,11 @@ const PopupManager = {
     }
     if (modalClass) {
       let classArr = modalClass.trim().split(/\s+/)
-      classArr.forEach(item => addClass(modalDom, item))
+      classArr.forEach(function(item) {
+        return addClass(modalDom, item)
+      })
     }
-    setTimeout(() => {
+    setTimeout(function() {
       removeClass(modalDom, 'v-modal-enter')
     }, 200)
 
@@ -120,7 +122,9 @@ const PopupManager = {
       if (topItem.id === id) {
         if (topItem.modalClass) {
           let classArr = topItem.modalClass.trim().split(/\s+/)
-          classArr.forEach(item => removeClass(modalDom, item))
+          classArr.forEach(function(item) {
+            return removeClass(modalDom, item)
+          })
         }
 
         modalStack.pop()
@@ -142,7 +146,7 @@ const PopupManager = {
       if (this.modalFade) {
         addClass(modalDom, 'v-modal-leave')
       }
-      setTimeout(() => {
+      setTimeout(function() {
         if (modalStack.length === 0) {
           if (modalDom.parentNode) modalDom.parentNode.removeChild(modalDom)
           modalDom.style.display = 'none'
