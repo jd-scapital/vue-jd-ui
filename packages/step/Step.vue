@@ -1,20 +1,28 @@
 <template>
   <ul class="jd-step"
     :class="`${type}`">
-    <li v-for="(step, key) in cSteps"
+    <li v-for="(cStep, key) in cSteps"
       :key="key"
       :class="{
-        'active': step.active,
-        'active-last': step.isActiveLast
+        'active': cStep.active,
+        'active-last': cStep.isActiveLast
       }"
-      @click="stepClick(step)">
+      @click="stepClick(cStep)">
       <div class="j-s-circle">
-        <i>{{step.index}}</i>
+        <i class="current" :style="color && cStep.active ? `background-color: ${color}` : ''" v-if="isShowCurrent && cStep.index === currentStep">...</i>
+        <i :style="color && cStep.active ? `background-color: ${color}` : ''" v-else>{{cStep.index}}</i>
       </div>
-      <span class="line"></span>
+      <span class="line" :style="color && cStep.index < step ? `border-color: ${color}` : ''"></span>
       <div class="j-s-info">
-        <jd-scale :text="step.text" :multiple="10/12" v-if="!step.active"></jd-scale>
-        <span v-else>{{step.text}}</span>
+        <jd-scale v-if="!cStep.active"
+          :text="cStep.text"
+          :multiple="10/12"
+          :color="cStep.active ? color : ''">
+        </jd-scale>
+        <span v-else
+          :style="color && cStep.active ? `color: ${color}` : ''">
+          {{cStep.text}}
+        </span>
       </div>
     </li>
   </ul>
@@ -54,9 +62,23 @@ export default {
     step: {
       type: Number,
       default: 0
+    },
+    // 组件激活色
+    color: {
+      type: String,
+      default: ''
+    },
+    // 当前步骤
+    currentStep: {
+      type: Number,
+      default: null
     }
   },
   computed: {
+    // 是否展示当前组件
+    isShowCurrent() {
+      return this.currentStep !== null
+    },
     cSteps() {
       return this.steps.map((step, index) => {
         step.active = step.index <= this.step
@@ -70,6 +92,7 @@ export default {
       if (step.index > this.step) {
         return
       }
+      this.$emit('update:currentStep', step.index)
       this.$emit('change', step)
     }
   }

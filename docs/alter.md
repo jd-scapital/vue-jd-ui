@@ -8,12 +8,34 @@
 - `jd-button`
 
 ## 使用
-```bash
-# js
-import { Alter } from 'vue-jd-ui'
-Vue.use(Alter)
-# html
-<jd-alter :show="isShow"></jd-alter>
+- 基础示例
+::: 基础使用示例
+```html
+<template>
+  <div>
+    <jd-button style="width: 120px; height: 40px; line-height: 40px;" @click="toggle">展示弹框</jd-button>
+    <jd-alter v-if="isShow"
+      title="示例"
+      :hasCancelButton="true">
+      1123
+    </jd-alter>
+  </div>
+</template>
+<script>
+export default {
+  data() {
+    return {
+      isShow: false
+    }
+  },
+  methods: {
+    // 展示与否
+    toggle(val) {
+      this.isShow = !this.isShow
+    }
+  }
+}
+</script>
 ```
 
 ## props
