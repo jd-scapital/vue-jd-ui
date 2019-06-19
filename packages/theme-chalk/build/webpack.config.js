@@ -1,15 +1,22 @@
-// var fs = require('fs')
+var fs = require('fs')
 var path = require('path')
-// var CopyWebpackPlugin = require('copy-webpack-plugin')
+var CopyWebpackPlugin = require('copy-webpack-plugin')
 var ExtractTextPlugin = require('extract-text-webpack-plugin')
-// let files = fs.readdirSync(path.resolve(__dirname, './src'))
+const entry = {}
+let files = fs.readdirSync(path.resolve(__dirname, '../src/js'))
 // files = files.filter(f => !~f.indexOf('.js'))
-// files = files.map(f => path.resolve(__dirname, `src/${f}`))
-// console.log('files: ', files)
+files = files.map(f => ({ [f.replace('.js', '')]: path.resolve(__dirname, `../src/js/${f}`) }))
+files.forEach(file => {
+  Object.keys(file).forEach(f => {
+    entry[f] = file[f]
+  })
+})
+
+console.log('entry: ', entry)
 
 module.exports = {
   mode: 'production',
-  entry: './src/index.js',
+  entry: entry,
   output: {
     filename: '[name].css',
     path: path.resolve(__dirname, '../lib'),
@@ -44,12 +51,11 @@ module.exports = {
   },
   plugins: [
     new ExtractTextPlugin({
-      // filename: '[name].[hash].css',
       filename: './[name].css',
       allChunks: true
-    })
-    // new CopyWebpackPlugin([
-    //   { from: './src/fonts', to: './fonts' }
-    // ])
+    }),
+    new CopyWebpackPlugin([
+      { from: './src/fonts', to: './fonts' }
+    ])
   ]
 }

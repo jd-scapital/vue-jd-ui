@@ -9,7 +9,8 @@
     "src"
   ],
   "scripts": {
-    "build": "gulp build"
+    "build": "gulp build",
+    "b": "webpack --config build/webpack.config.js --progress --profile --colors --display-error-details --display-cached"
   },
   "keywords": [
     "jd-ui",
@@ -43,9 +44,5 @@
     "webpack": "^4.34.0"
   },
   "dependencies": {},
-  "browserslist": [
-    "> 1%",
-    "last 2 versions",
-    "not ie <= 8"
-  ]
+  "browserslist": [ "> 1%", "last 2 versions", "not ie <= 8" ]
 }
