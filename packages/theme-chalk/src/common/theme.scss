@@ -1,8 +1,5 @@
 @import "./variable";
 
-html, body {
-  height: 100%;
-}
 html {
   font-family: -apple-system,Helvetica Neue,Helvetica,Arial,PingFang SC,Hiragino Sans GB,WenQuanYi Micro Hei,Microsoft Yahei,sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -32,14 +29,6 @@ button {
   margin: 0 auto;
 }
 
-.top-24 {
-  margin-top: 24px;
-}
-
-.bottom-24 {
-  margin-bottom: 24px;
-}
-
 .a {
   color: $a;
   text-decoration: none;
@@ -47,11 +36,6 @@ button {
   &:hover {
     color: $a1;
   }
-}
-.a1 {
-  color: $a1;
-  text-decoration: none;
-  cursor: pointer;
 }
 
 .el-select-dropdown__item {
