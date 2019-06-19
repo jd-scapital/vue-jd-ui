@@ -15,3 +15,5 @@ examples/node_modules
 coverage
 .npmrc
 .envrc
+packages/theme-chalk/node_modules
+packages/theme-chalk/lib2
