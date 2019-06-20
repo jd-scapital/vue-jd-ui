@@ -275,3 +275,11 @@ export default {
   }
 }
 </script>
+<style lang="scss" scoped>
+.echarts-home {
+  width: 100%;
+  height: 300px;
+  margin: 0 auto;
+  background-color: #fff;
+}
+</style>

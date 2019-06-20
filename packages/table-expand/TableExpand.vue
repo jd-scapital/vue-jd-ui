@@ -59,3 +59,25 @@ export default {
   }
 }
 </script>
+<style lang="scss" scoped>
+// hover背景色
+.jd-expand-table {
+  & /deep/ .el-table {
+    background-color: $gray-5;
+  }
+  /* & /deep/ .el-table th, .el-table tr {
+    background-color: transparent;
+  } */
+  & /deep/ th, & /deep/ tr {
+    background-color: transparent;
+  }
+  & /deep/ .el-table--enable-row-hover .el-table__body tr:hover>td {
+    background-color: transparent;
+  }
+  /* 字体 */
+  .expand-table-head, .expand-table-content {
+    color: $gray;
+    font-size: 12px;
+  }
+}
+</style>

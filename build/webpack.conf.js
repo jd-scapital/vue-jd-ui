@@ -3,13 +3,14 @@ const VueLoaderPlugin = require('vue-loader/lib/plugin')
 const ProgressBarPlugin = require('progress-bar-webpack-plugin')
 const TerserPlugin = require('terser-webpack-plugin')
 const os = require('os')
+const ExtractTextPlugin = require('extract-text-webpack-plugin')
 
 const config = require('./config')
 
 module.exports = {
   mode: 'production',
   entry: {
-    app: ['./src/index.js']
+    index: ['./src/index.js']
   },
   output: {
     path: path.resolve(process.cwd(), './lib'),
@@ -59,16 +60,48 @@ module.exports = {
         test: /\.vue$/,
         loader: 'vue-loader',
         options: {
-          preserveWhitespace: false
+          preserveWhitespace: false,
+          loaders: {
+            css: ExtractTextPlugin.extract({
+              use: [
+                'css-loader',
+                'sass-loader'
+              ],
+              fallback: 'vue-style-loader'
+            })
+          }
         }
       },
       {
         test: /\.css$/,
-        loaders: ['style-loader', 'css-loader']
+        loader: ExtractTextPlugin.extract({
+          fallback: 'style-loader',
+          use: [
+            'css-loader'
+          ]
+        })
       },
       {
         test: /\.scss$/,
-        loaders: ['style-loader', 'css-loader', 'sass-loader']
+        loader: ExtractTextPlugin.extract({
+          fallback: 'vue-style-loader',
+          use: [
+            {
+              loader: 'css-loader',
+              options: {
+                importLoaders: 1
+              }
+            },
+            'postcss-loader',
+            'sass-loader',
+            {
+              loader: 'sass-resources-loader',
+              options: {
+                resources: path.resolve(__dirname, '../packages/theme-chalk/src/base.scss')
+              }
+            }
+          ]
+        })
       },
       {
         test: /\.(svg|otf|ttf|woff2?|eot|gif|png|jpe?g)(\?\S*)?$/,
@@ -82,6 +115,10 @@ module.exports = {
   },
   plugins: [
     new VueLoaderPlugin(),
-    new ProgressBarPlugin()
+    new ProgressBarPlugin(),
+    new ExtractTextPlugin({
+      filename: 'theme-chalk/[name].css',
+      allChunks: true
+    })
   ]
 }

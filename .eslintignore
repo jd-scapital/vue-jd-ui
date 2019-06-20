@@ -2,6 +2,7 @@ src/utils/popper.js
 *.sh
 node_modules
 lib
+lib2
 coverage
 *.md
 *.scss

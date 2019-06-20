@@ -51,3 +51,25 @@ export default {
   }
 }
 </script>
+<style lang="scss" scoped>
+.jd-select-box {
+  .select /deep/ .el-input {
+    input {
+      width: 150px;
+      height: 28px;
+      line-height: 28px;
+      border-radius: 15px;
+    }
+    .el-input__suffix {
+      right: 10px;
+    }
+    .el-input__suffix-inner {
+      display: inline-block;
+      height: 28px;
+      .el-select__caret {
+        line-height: 28px;
+      }
+    }
+  }
+}
+</style>

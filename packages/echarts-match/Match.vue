@@ -130,3 +130,11 @@ export default {
   }
 }
 </script>
+<style lang="scss" scoped>
+.echarts-match {
+  /* height: 144px; */
+  height: 100%;
+  /* width: 144px;
+  height: 144px; */
+}
+</style>
