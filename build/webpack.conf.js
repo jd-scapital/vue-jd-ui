@@ -14,7 +14,7 @@ module.exports = {
   },
   output: {
     path: path.resolve(process.cwd(), './lib'),
-    publicPath: '/dist/',
+    publicPath: '/',
     filename: 'index.js',
     chunkFilename: '[id].js',
     libraryTarget: 'umd',
@@ -108,7 +108,7 @@ module.exports = {
         loader: 'url-loader',
         query: {
           limit: 10000,
-          name: path.posix.join('static', '[name].[hash:7].[ext]')
+          name: path.posix.join('fonts', '[name].[ext]')
         }
       }
     ]

@@ -13,7 +13,7 @@
     "build:file": "node build/bin/build-entry.js",
     "build:utils": "cross-env BABEL_ENV=utils babel src --out-dir lib --ignore src/index.js",
     "build:theme": "node build/bin/gen-cssfile && gulp build --gulpfile packages/theme-chalk/gulpfile.js && cp-cli packages/theme-chalk/lib lib/theme-chalk",
-    "build:theme-webpack": "cp-cli lib/theme-chalk packages/theme-chalk/lib && cp-cli packages/theme-chalk/src/fonts lib/theme-chalk/fonts",
+    "build:theme-webpack": "cp-cli lib/theme-chalk packages/theme-chalk/lib && cp-cli packages/theme-chalk/src/fonts packages/theme-chalk/lib/fonts && cp-cli packages/theme-chalk/src/fonts lib/theme-chalk/fonts",
     "clean": "rimraf lib && rimraf packages/*/lib && rimraf test/**/coverage",
     "dist": "npm run clean && npm run build:file && npm run lint && webpack --config build/webpack.conf.js && webpack --config build/webpack.common.js && webpack --config build/webpack.component.js && npm run build:utils && npm run build:theme",
     "dist:webpack": "npm run clean && npm run build:file && webpack --config build/webpack.conf.js && webpack --config build/webpack.common.js && webpack --config build/webpack.component.js && npm run build:utils && npm run build:theme-webpack",
@@ -37,7 +37,11 @@
   "license": "ISC",
   "unpkg": "lib/index.js",
   "style": "lib/theme-chalk/index.css",
-  "browserslist": [ "> 1%", "last 2 versions", "not ie <= 8" ],
+  "browserslist": [
+    "> 1%",
+    "last 2 versions",
+    "not ie <= 8"
+  ],
   "dependencies": {
     "babel-helper-vue-jsx-merge-props": "^2.0.3",
     "clipboard": "^2.0.4",
@@ -82,6 +86,7 @@
     "eslint-plugin-json": "^1.4.0",
     "eslint-plugin-vue": "^5.2.2",
     "extract-text-webpack-plugin": "^4.0.0-beta.0",
+    "file-loader": "^4.0.0",
     "fs": "0.0.1-security",
     "gulp": "^4.0.2",
     "gulp-autoprefixer": "^6.1.0",

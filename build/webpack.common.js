@@ -8,11 +8,11 @@ const config = require('./config')
 module.exports = {
   mode: 'production',
   entry: {
-    app: ['./src/index.js']
+    index: ['./src/index.js']
   },
   output: {
     path: path.resolve(process.cwd(), './lib'),
-    publicPath: '/dist/',
+    publicPath: '/',
     filename: 'vue-jd-ui.common.js',
     chunkFilename: '[id].js',
     libraryExport: 'default',
@@ -95,7 +95,7 @@ module.exports = {
         loader: 'url-loader',
         query: {
           limit: 10000,
-          name: path.posix.join('static', '[name].[hash:7].[ext]')
+          name: path.posix.join('fonts', '[name].[ext]')
         }
       }
     ]

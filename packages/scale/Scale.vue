@@ -37,4 +37,7 @@ export default {
 }
 </script>
 <style lang="scss" scoped>
+.jd-scale {
+
+}
 </style>

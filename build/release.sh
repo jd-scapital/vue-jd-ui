@@ -13,7 +13,8 @@ then
   echo "Releasing $VERSION ..."
 
   # build
-  VERSION=$VERSION npm run dist
+  # VERSION=$VERSION npm run dist
+  VERSION=$VERSION npm run dist:webpack
 
   # publish theme
   echo "Releasing theme-chalk $VERSION ..."
