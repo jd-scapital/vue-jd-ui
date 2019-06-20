@@ -8,3 +8,4 @@ coverage
 *.woff
 *.ttf
 packages/theme-chalk/src/fonts
+packages/theme-chalk/node_modules
