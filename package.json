@@ -16,7 +16,7 @@
     "build:theme-webpack": "cp-cli lib/theme-chalk packages/theme-chalk/lib && cp-cli packages/theme-chalk/src/fonts packages/theme-chalk/lib/fonts && cp-cli packages/theme-chalk/src/fonts lib/theme-chalk/fonts",
     "clean": "rimraf lib && rimraf packages/*/lib && rimraf test/**/coverage",
     "dist": "npm run clean && npm run build:file && npm run lint && webpack --config build/webpack.conf.js && webpack --config build/webpack.common.js && webpack --config build/webpack.component.js && npm run build:utils && npm run build:theme",
-    "dist:webpack": "npm run clean && npm run build:file && webpack --config build/webpack.conf.js && webpack --config build/webpack.common.js && webpack --config build/webpack.component.js && npm run build:utils && npm run build:theme-webpack",
+    "dist:webpack": "npm run clean && npm run build:file && npm run lint && webpack --config build/webpack.conf.js && webpack --config build/webpack.common.js && webpack --config build/webpack.component.js && npm run build:utils && npm run build:theme-webpack",
     "lint": "eslint src/**/*.js test/**/*.js packages/**/*.js packages/**/*.vue build/**/*.js --quiet",
     "pub": "npm run bootstrap && sh build/git-release.sh && sh build/release.sh",
     "test": ""
