@@ -36,11 +36,6 @@
   "license": "ISC",
   "unpkg": "lib/index.js",
   "style": "lib/theme-chalk/index.css",
-  "browserslist": [
-    "> 1%",
-    "last 2 versions",
-    "not ie <= 8"
-  ],
   "dependencies": {
     "babel-helper-vue-jsx-merge-props": "^2.0.3",
     "clipboard": "^2.0.4",
