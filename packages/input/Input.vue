@@ -1,5 +1,5 @@
 <template>
-  <div class="jd-input-box">
+  <div class="jd-input-box" :class="{ 'aibank': aibank }">
     <div v-if="isSubmit" class="input-submit">
       <div class="input">
         <input
@@ -33,6 +33,7 @@
 <script>
 /**
  * @prop { String / Number: required } value 输入框的值
+ * @prop { Boolean } aibank 是否是aibank
  * @prop { String } type 按钮类型
  * @prop { String } placeholder
  * @prop { String } allInText 全部金额选择显示的文案 （type为submit）
@@ -52,6 +53,10 @@ export default {
     value: {
       type: [String, Number],
       default: ''
+    },
+    aibank: {
+      type: Boolean,
+      default: false
     },
     type: {
       type: String,
@@ -237,6 +242,16 @@ export default {
     font-weight: 400;
     color: $red-2;
     padding-left: 7px;
+  }
+}
+.jd-input-box.aibank {
+  .input {
+    input {
+      border-color: $aibank-blue;
+    }
+  }
+  .confirm {
+    background-color: $aibank-blue;
   }
 }
 </style>

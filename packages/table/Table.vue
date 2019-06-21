@@ -1,6 +1,6 @@
 <template>
   <div class="jd-table"
-    :class="{'frist-at-one': firstAtOne}">
+    :class="{'frist-at-one': firstAtOne, 'aibank': aibank}">
     <el-table stripe
       :data="tableData"
       :class="hasFilter"
@@ -47,6 +47,7 @@
 <script>
 /**
  * @event current-change 页码变化，参数为改变后的页数
+ * @prop { Boolean } aibank 是否是aibank
  * @prop { Array } tableData 表格数据
  * @prop { Boolean } isShowPage 是否展示分页
  * @prop { Boolean } firstAtOne 是否显示展示第一行
@@ -218,6 +219,13 @@ export default {
     .cell, div, .el-table__header-wrapper, th {
       overflow: initial;
     }
+  }
+}
+.jd-table.aibank {
+  // 当前页样式
+  /deep/ .el-pagination.is-background .el-pager .active {
+    background-color: $aibank-blue!important;
+    border-color: $aibank-blue!important;
   }
 }
 </style>

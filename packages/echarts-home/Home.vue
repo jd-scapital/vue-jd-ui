@@ -5,11 +5,13 @@
 /**
  * @prop { Array } xData x轴数据
  * @prop { Array } yData y轴数据
+ * @prop { Boolean } aibank 是否是aibank
  * @prop { Function } tooltipFormat echarts[tooltip.formatter的函数]
  */
 import echarts from 'echarts'
 import dayjs from 'dayjs'
 import numeral from 'numeral'
+const aibankColor = '#1EA6E9'
 export default {
   name: 'JdEchartsHome',
   props: {
@@ -20,6 +22,10 @@ export default {
     yData: {
       type: Array,
       default: () => ([])
+    },
+    aibank: {
+      type: Boolean,
+      default: false
     },
     tooltipFormat: {
       type: Function,
@@ -51,7 +57,7 @@ export default {
     initEcharts() {
       const echartsHome = this.$refs.echartsHome
       this.echartsInstance = echarts.init(echartsHome)
-
+      const aibank = this.aibank
       const options = {
         // x坐标轴
         xAxis: {
@@ -181,7 +187,7 @@ export default {
             snap: true
           },
           formatter: this.tooltipFormat,
-          backgroundColor: '#EC4C42',
+          backgroundColor: aibank ? aibankColor : '#EC4C42',
           padding: 15,
           // 浮层字体
           textStyle: {
@@ -210,10 +216,10 @@ export default {
               y2: 0,
               colorStops: [
                 {
-                  offset: 0, color: '#EC4C42'
+                  offset: 0, color: aibank ? aibankColor : '#EC4C42'
                 },
                 {
-                  offset: 1, color: '#C9281E'
+                  offset: 1, color: aibank ? aibankColor : '#C9281E'
                 }
               ]
             }
@@ -239,6 +245,7 @@ export default {
     updateEcharts() {
       const xData = this.xData
       const yData = this.yData
+      const aibank = this.aibank
       const options = {
         xAxis: {
           data: xData
@@ -260,10 +267,10 @@ export default {
               y2: 0,
               colorStops: [
                 {
-                  offset: 0, color: '#EC4C42'
+                  offset: 0, color: aibank ? aibankColor : '#EC4C42'
                 },
                 {
-                  offset: 1, color: '#C9281E'
+                  offset: 1, color: aibank ? aibankColor : '#C9281E'
                 }
               ]
             }
@@ -275,11 +282,3 @@ export default {
   }
 }
 </script>
-<style lang="scss" scoped>
-.echarts-home {
-  width: 100%;
-  height: 300px;
-  margin: 0 auto;
-  background-color: #fff;
-}
-</style>
