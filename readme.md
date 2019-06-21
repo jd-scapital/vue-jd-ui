@@ -14,6 +14,13 @@
   cd examples
   npm run serve
   ````
-
+### browser
+  ```
+  "browserslist": [
+    "> 1%",
+    "last 2 versions",
+    "not ie <= 8"
+  ],
+  ```
 ### TODO LIST
 - test
