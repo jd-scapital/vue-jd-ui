@@ -1,6 +1,6 @@
 {
   "name": "theme-chalk",
-  "version": "1.0.0-beta.16",
+  "version": "1.0.0-beta.17",
   "description": "JDUI component chalk theme.",
   "main": "lib/index.css",
   "style": "lib/index.css",
@@ -43,10 +43,5 @@
     "vue-style-loader": "^4.1.2",
     "webpack": "^4.34.0"
   },
-  "dependencies": {},
-  "browserslist": [
-    "> 1%",
-    "last 2 versions",
-    "not ie <= 8"
-  ]
+  "dependencies": {}
 }
