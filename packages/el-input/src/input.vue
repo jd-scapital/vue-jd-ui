@@ -423,7 +423,7 @@ export default {
   }
 }
 </script>
-<style lang="scss" scoped>
+<style lang="scss">
 .el-textarea {
   position: relative;
   display: inline-block;

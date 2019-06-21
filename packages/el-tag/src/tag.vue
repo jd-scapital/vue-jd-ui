@@ -41,7 +41,7 @@ export default {
   }
 }
 </script>
-<style lang="scss" scoped>
+<style lang="scss">
 .el-tag {
   background-color: rgba(64, 158, 255, 0.1);
   display: inline-block;

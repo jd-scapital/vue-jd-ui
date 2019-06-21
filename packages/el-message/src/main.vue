@@ -108,7 +108,7 @@ export default {
   }
 }
 </script>
-<style lang="scss" scoped>
+<style lang="scss">
 .el-message__closeBtn:focus,
 .el-message__content:focus {
   outline-width: 0;

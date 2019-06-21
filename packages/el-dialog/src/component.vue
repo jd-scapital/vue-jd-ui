@@ -201,7 +201,7 @@ export default {
   }
 }
 </script>
-<style lang="scss" scoped>
+<style lang="scss">
 .v-modal-enter {
   -webkit-animation: v-modal-in 0.2s ease;
   animation: v-modal-in 0.2s ease;

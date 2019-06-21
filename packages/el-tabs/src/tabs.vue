@@ -196,7 +196,7 @@ export default {
   }
 }
 </script>
-<style lang="scss" scoped>
+<style lang="scss">
 .el-tabs__header {
   padding: 0;
   position: relative;

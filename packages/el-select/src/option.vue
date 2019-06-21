@@ -161,7 +161,7 @@ export default {
   }
 }
 </script>
-<style lang="scss" scoped>
+<style lang="scss">
 .el-select-dropdown__item {
   font-size: 14px;
   padding: 0 20px;

@@ -903,7 +903,7 @@ export default {
   }
 }
 </script>
-<style lang="scss" scoped>
+<style lang="scss">
 .el-popper .popper__arrow,
 .el-popper .popper__arrow::after {
   position: absolute;

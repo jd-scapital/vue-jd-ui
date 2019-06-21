@@ -58,7 +58,7 @@ export default {
   }
 }
 </script>
-<style lang="scss" scoped>
+<style lang="scss">
 .el-select-group {
   margin: 0;
   padding: 0;

@@ -223,7 +223,7 @@ export default {
   }
 }
 </script>
-<style lang="scss" scoped>
+<style lang="scss">
 @charset "UTF-8";
 .el-checkbox,
 .el-checkbox__input {
