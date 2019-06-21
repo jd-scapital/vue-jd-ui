@@ -1,5 +1,5 @@
-@import 'common/variable.scss';
-@import 'common/color.scss';
+@import './common/variable.scss';
+@import './common/color.scss';
 
 .jd-select-box {
   .select /deep/ .el-input {
@@ -19,6 +19,5 @@
         line-height: 28px;
       }
     }
-
   }
 }

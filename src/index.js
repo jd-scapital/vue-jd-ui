@@ -9,6 +9,7 @@ import EchartsMatch from '../packages/echarts-match/index.js'
 import EchartsTab from '../packages/echarts-tab/index.js'
 import ElLoading from '../packages/el-loading/index.js'
 import ElMessage from '../packages/el-message/index.js'
+import Icon from '../packages/icon/index.js'
 import Input from '../packages/input/index.js'
 import Message from '../packages/message/index.js'
 import NormalInput from '../packages/normal-input/index.js'
@@ -42,6 +43,7 @@ const components = [
   EchartsHome,
   EchartsMatch,
   EchartsTab,
+  Icon,
   Input,
   Message,
   NormalInput,
@@ -99,6 +101,7 @@ export default {
   EchartsTab,
   ElLoading,
   ElMessage,
+  Icon,
   Input,
   Message,
   NormalInput,

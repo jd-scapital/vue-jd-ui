@@ -23,3 +23,18 @@ export default {
   }
 }
 </script>
+<style lang="scss" scoped>
+.jd-title {
+  h3 {
+    font-weight: 400;
+    color: $black-deep;
+    font-size: 18px;
+    margin: 24px 0 15px 24px;
+    span {
+      color: $black;
+      font-size: 12px;
+      margin-left: 10px;
+    }
+  }
+}
+</style>

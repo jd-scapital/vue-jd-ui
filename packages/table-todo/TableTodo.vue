@@ -325,3 +325,41 @@ export default {
   }
 }
 </script>
+<style lang="scss" scoped>
+// expand隐藏
+.jd-todo-table /deep/ .hide-expand .el-table__expand-icon  {
+  visibility: hidden;
+}
+// expand背景色
+.jd-todo-table /deep/ .el-table__expanded-cell {
+  background-color: $gray-5;
+}
+// expand hover背景色
+.jd-todo-table /deep/ .el-table__expanded-cell:hover {
+  background-color: $gray-5!important;
+}
+.jd-todo-table {
+  .table-head {
+    font-size: 12px;
+    font-weight: 400;
+    color: $black;
+    &.operate {
+      margin-right: 30px;
+    }
+  }
+  .button {
+    border-radius: 15px;
+    text-align: center;
+    &.button-s {
+      width: 72px;
+      height: 30px;
+      margin-right: 16px;
+    }
+    &.button-m {
+      width: 82px;
+      height: 30px;
+      margin-right: 94px;
+    }
+  }
+}
+</style>

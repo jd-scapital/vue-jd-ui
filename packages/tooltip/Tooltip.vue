@@ -69,3 +69,22 @@ export default {
   }
 }
 </script>
+<style lang="scss" scoped>
+.jd-tooltip {
+  display: inline-block;
+  .iconfont {
+    display: inline-block;
+    vertical-align: top;
+    font-size: 12px;
+    transform: scale(0.8);
+    color: $gray;
+  }
+  .iconfont:hover {
+    color: $red;
+    cursor: pointer;
+  }
+  .iconfont.active {
+    color: $red;
+  }
+}
+</style>

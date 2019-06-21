@@ -59,19 +59,19 @@ button {
 }
 
 // checkbox统一样式
-.jd-checkbox {
-  font-size: 12px;
-  /deep/ .el-checkbox__inner {
-    height: 12px;
-    width: 12px;
-    background-color: $black-border;
-    border-color: $black-border;
-    &:after {
-      left: 3px;
-      top: 0;
-    }
-  }
-}
+// .jd-checkbox {
+//   font-size: 12px;
+//   /deep/ .el-checkbox__inner {
+//     height: 12px;
+//     width: 12px;
+//     background-color: $black-border;
+//     border-color: $black-border;
+//     &:after {
+//       left: 3px;
+//       top: 0;
+//     }
+//   }
+// }
 
 // tooltip统一样式
 .el-tooltip__popper.is-light.tooltip-popper {

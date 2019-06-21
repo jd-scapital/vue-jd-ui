@@ -65,3 +65,24 @@ export default {
   }
 }
 </script>
+<style lang="scss" scoped>
+.jd-copy {
+  position: relative;
+  display: inline-block;
+  .content {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    line-height: 0;
+    text-indent: -1000px;
+    background-color: transparent;
+    color: transparent;
+    overflow: hidden;
+  }
+  .iconfuzhi {
+    cursor: pointer;
+    font-size: 12px;
+    color: $blue-4;
+  }
+}
+</style>

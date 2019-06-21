@@ -8,6 +8,7 @@
   "echarts-tab": "./packages/echarts-tab/index.js",
   "el-loading": "./packages/el-loading/index.js",
   "el-message": "./packages/el-message/index.js",
+  "icon": "./packages/icon/index.js",
   "input": "./packages/input/index.js",
   "message": "./packages/message/index.js",
   "normal-input": "./packages/normal-input/index.js",

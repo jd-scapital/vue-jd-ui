@@ -1,5 +1,5 @@
 <template>
-  <div class="tab-pane" v-show="active">
+  <div class="jd-normal-tab-pane" v-show="active">
     <slot></slot>
   </div>
 </template>
@@ -32,3 +32,6 @@ export default {
   }
 }
 </script>
+<style lang="scss" scoped>
+.jd-normal-tab-pane {}
+</style>

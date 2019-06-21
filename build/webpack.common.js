@@ -1,17 +1,18 @@
 const path = require('path')
 const VueLoaderPlugin = require('vue-loader/lib/plugin')
 const ProgressBarPlugin = require('progress-bar-webpack-plugin')
+const ExtractTextPlugin = require('extract-text-webpack-plugin')
 
 const config = require('./config')
 
 module.exports = {
   mode: 'production',
   entry: {
-    app: ['./src/index.js']
+    index: ['./src/index.js']
   },
   output: {
     path: path.resolve(process.cwd(), './lib'),
-    publicPath: '/dist/',
+    publicPath: '/',
     filename: 'vue-jd-ui.common.js',
     chunkFilename: '[id].js',
     libraryExport: 'default',
@@ -45,25 +46,66 @@ module.exports = {
         test: /\.vue$/,
         loader: 'vue-loader',
         options: {
-          preserveWhitespace: false
+          preserveWhitespace: false,
+          loaders: {
+            css: ExtractTextPlugin.extract({
+              use: [
+                'css-loader',
+                'sass-loader'
+              ],
+              fallback: 'vue-style-loader'
+            })
+          }
         }
       },
       {
         test: /\.css$/,
-        loaders: ['style-loader', 'css-loader']
+        loader: ExtractTextPlugin.extract({
+          fallback: 'style-loader',
+          use: [
+            'css-loader'
+          ]
+        })
+        // loaders: ['style-loader', 'css-loader']
+      },
+      {
+        test: /\.scss$/,
+        loader: ExtractTextPlugin.extract({
+          fallback: 'vue-style-loader',
+          use: [
+            {
+              loader: 'css-loader',
+              options: {
+                importLoaders: 1
+              }
+            },
+            'postcss-loader',
+            'sass-loader',
+            {
+              loader: 'sass-resources-loader',
+              options: {
+                resources: path.resolve(__dirname, '../packages/theme-chalk/src/base.scss')
+              }
+            }
+          ]
+        })
       },
       {
         test: /\.(svg|otf|ttf|woff2?|eot|gif|png|jpe?g)(\?\S*)?$/,
         loader: 'url-loader',
         query: {
           limit: 10000,
-          name: path.posix.join('static', '[name].[hash:7].[ext]')
+          name: path.posix.join('fonts', '[name].[ext]')
         }
       }
     ]
   },
   plugins: [
     new ProgressBarPlugin(),
-    new VueLoaderPlugin()
+    new VueLoaderPlugin(),
+    new ExtractTextPlugin({
+      filename: 'theme-chalk/[name].css',
+      allChunks: true
+    })
   ]
 }
