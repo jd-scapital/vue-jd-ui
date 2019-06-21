@@ -1,5 +1,5 @@
 <template>
-  <div class="tab-echarts">
+  <div class="tab-echarts" :class="{ 'aibank': aibank }">
     <div class="tabs">
       <ul>
         <li
@@ -34,9 +34,14 @@ import echarts from 'echarts'
 import dayjs from 'dayjs'
 import numeral from 'numeral'
 // import { CURRENT_T0 } from 'vue-jd-ui/src/utils/constant'
+const aibankColor = '#02669B'
 export default {
   name: 'JdEchartsTab',
   props: {
+    aibank: {
+      type: Boolean,
+      default: false
+    },
     xData: {
       type: Array,
       default: () => ([])
@@ -194,7 +199,7 @@ export default {
     initEcharts() {
       const echartsTab = this.$refs.echartsTab
       this.echartsInstance = echarts.init(echartsTab, null, { width: 470 })
-
+      const aibank = this.aibank
       const options = {
         // x坐标轴
         xAxis: {
@@ -317,7 +322,7 @@ export default {
             const sumMoney = `${value}%`
             return `当天七日年化：${sumMoney}`
           },
-          backgroundColor: '#EC4C42',
+          backgroundColor: aibank ? aibankColor : '#EC4C42',
           padding: 6,
           // 浮层字体
           textStyle: {
@@ -338,7 +343,7 @@ export default {
           // 折线的样式
           lineStyle: {
             width: 1,
-            color: '#EC4C42'
+            color: aibank ? aibankColor : '#EC4C42'
           }
         }]
       }
@@ -356,6 +361,7 @@ export default {
     },
     // 初始化图表数据（y轴）
     updateData(yData) {
+      const aibank = this.aibank
       const options = {
         series: [{
           data: yData,
@@ -367,7 +373,7 @@ export default {
           // 折线的样式
           lineStyle: {
             width: 1,
-            color: '#EC4C42'
+            color: aibank ? aibankColor : '#EC4C42'
           }
         }]
       }
@@ -447,6 +453,19 @@ export default {
       height: 200px;
       width: 470px;
       margin: 0 auto;
+    }
+  }
+}
+.tab-echarts.aibank {
+  .echart-box {
+    .date {
+      ul {
+        li {
+          &.active {
+            background-color: $aibank-blue;
+          }
+        }
+      }
     }
   }
 }

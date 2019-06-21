@@ -1,5 +1,5 @@
 <template>
-  <div class="jd-progress">
+  <div class="jd-progress" :class="{ 'aibank': aibank }">
     <ul>
       <li v-for="(item, i) in progress" :key="i">
         <div class="content" :class="{active: contentActive(i) }">
@@ -30,6 +30,10 @@ export default {
       type: Number,
       default: 1,
       required: true
+    },
+    aibank: {
+      type: Boolean,
+      default: false
     },
     progress: {
       type: Array,
@@ -95,6 +99,22 @@ export default {
         &.active {
           background-color: $green;
         }
+      }
+    }
+  }
+}
+.jd-progress.aibank {
+  ul li {
+    .content {
+      &.active {
+        .iconok {
+          color: $aibank-blue;
+        }
+      }
+    }
+    .line {
+      &.active {
+        background-color: $aibank-blue;
       }
     }
   }
