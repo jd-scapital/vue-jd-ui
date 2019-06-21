@@ -25,7 +25,7 @@ module.exports = {
       },
       // 配置全局scss
       sass: {
-        data: '@import "@/assets/scss/color.scss";'
+        data: '@import "~@/assets/scss/color.scss";@import "~@/../../packages/theme-chalk/src/base.scss";'
       }
     }
   },
