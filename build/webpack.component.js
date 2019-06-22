@@ -79,7 +79,7 @@ const webpackConfig = {
             {
               loader: 'sass-resources-loader',
               options: {
-                resources: path.resolve(__dirname, '../packages/theme-chalk/src/base.scss')
+                resources: path.resolve(__dirname, '../packages/theme-chalk/src/baseCommon.scss')
               }
             }
           ]
