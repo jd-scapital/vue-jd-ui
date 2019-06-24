@@ -8,6 +8,14 @@
 
 ## 使用
 - 基础示例
+```bash
+# js
+import { Step } from 'vue-jd-ui'
+Vue.use(Step)
+# html
+<jd-step></jd-step>
+```
+## 例子
 ::: 基础使用示例
 ```html
 <template>
@@ -194,7 +202,7 @@ export default {
 </script>
 ```
 
-### Attributes
+## Attributes
 | 参数      | 说明          | 类型      | 可选值                           | 默认值  |
 |---------- |-------------- |---------- |--------------------------------  |-------- |
 | type     | 类型           | string | middle/small | small |

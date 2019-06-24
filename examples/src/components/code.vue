@@ -1,6 +1,7 @@
 <template>
-  <div class="code">
-    <div id="render"></div>
+  <div class="code" ref="code">
+    <div class="render"></div>
+    <!-- <div ref="render"></div> -->
     <collapse-transition>
       <div class="base-code" v-show="isShowBaseCode">
         <div class="title">{{title}}</div>
@@ -40,7 +41,15 @@ export default {
   data() {
     return {
       // 是否展示源码
-      isShowBaseCode: false
+      isShowBaseCode: false,
+      renderWrap: ''
+    }
+  },
+  watch: {
+    code(val) {
+      if (val) {
+        this.init()
+      }
     }
   },
   mounted() {
@@ -52,6 +61,25 @@ export default {
       if (!code) {
         return
       }
+      const templateClass = 'code-render'
+      const codeDom = this.$refs.code
+      // const render = this.$refs.render
+      // 旧的dom移除
+      const afterRenderDom = codeDom.querySelector(`.${templateClass}`)
+      if (afterRenderDom) {
+        afterRenderDom.remove()
+      }
+      // 添加新的渲染容器
+      const dom = document.createElement('div')
+      dom.setAttribute('class', 'render')
+      const codeChildFirst = codeDom.childNodes[0]
+      if (!codeChildFirst) {
+        return console.warn('code child first was empty')
+      }
+      codeChildFirst.before(dom)
+      const render = dom
+
+      // 解析code字符串
       const templateStart = '<template>'
       const templateEnd = '\<\/template>'
       const scriptStart = '<script>'
@@ -65,11 +93,13 @@ export default {
       script = window.eval(script)
       script = script()
       let option = {
-        template: `<div class="code-render">${template}</div>`
+        template: `<div class="${templateClass}">${template}</div>`
       }
       option = Object.assign({}, option, script)
-      const Component = Vue.extend(option)
-      new Component({ el: '#render' }).$mount()
+      option.el = render
+      new Vue(option).$mount()
+      // const Component = Vue.extend(option)
+      // new Component({ el: render }).$mount()
     },
     // 展示或隐藏
     toggleBaseCode() {

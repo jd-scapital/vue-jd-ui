@@ -1,10 +1,11 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import Home from './views/Home.vue'
+import store from './store'
 
 Vue.use(Router)
 
-export default new Router({
+const router = new Router({
   routes: [
     {
       path: '/',
@@ -22,3 +23,11 @@ export default new Router({
     }
   ]
 })
+
+// 路由客户端跳转, 进行token检查
+router.beforeEach(async function(to, from, next) {
+  store.dispatch('setRouter', to)
+  next()
+})
+
+export default router
