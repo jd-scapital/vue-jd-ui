@@ -7,6 +7,7 @@ import echartsMatch from '../../docs/echarts-match.md'
 import echartsTab from '../../docs/echarts-tab.md'
 import elLoading from '../../docs/el-loading.md'
 import elMessage from '../../docs/el-message.md'
+import icon from '../../docs/icon.md'
 import input from '../../docs/input.md'
 import message from '../../docs/message.md'
 import normalInputSelect from '../../docs/normal-input-select.md'
@@ -41,6 +42,7 @@ export default {
   echartsTab,
   elLoading,
   elMessage,
+  icon,
   input,
   message,
   normalInputSelect,

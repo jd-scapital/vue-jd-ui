@@ -25,7 +25,7 @@
 import { mapGetters } from 'vuex'
 import VueMarkdown from 'vue-markdown'
 import mds from '../docs'
-import MdCode from '../components/code'
+import MdCode from '../components/Code'
 
 export default {
   name: 'home',

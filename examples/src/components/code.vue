@@ -137,6 +137,7 @@ export default {
       position: relative;
       left: 48px;
       transition: left .3s ease;
+      color: $blue-deep;
     }
     &.is-show {
       .el-icon-caret-bottom {
