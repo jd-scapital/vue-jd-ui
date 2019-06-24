@@ -114,6 +114,11 @@ export default {
     showHeader: {
       type: Boolean,
       default: true
+    },
+    // 是否是aibank
+    aibank: {
+      type: Boolean,
+      default: false
     }
   },
   computed: {
