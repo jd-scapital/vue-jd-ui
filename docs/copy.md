@@ -4,6 +4,27 @@
 
 复制内容到粘贴板
 
+## 示例
+
+::: 基础使用示例
+
+```html
+<template>
+  <div>
+    <p>复制的内容 <jd-copy> 复制的内容</jd-copy></p>
+  </div>
+</template>
+<script>
+export default {
+  data() {
+    return {
+
+    }
+  }
+}
+</script>
+```
+
 ## props
 
 | 参数 | 说明 | 必填 | 类型 | 可选值 | 默认值 |
@@ -19,7 +40,3 @@
 `jd-copy`
 
 ## 样式
-
-- `default`
-![copy](./img/copy.png)
-
