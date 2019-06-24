@@ -20,7 +20,7 @@
 - [progress](./progress.md): 过程条组件 √️
 - [select](./select.md): 选择器组件
 - [step-bar](./step-bar): 时间轴组件
-- [tab](./tab.md): tab切换组件 
+- [tab](./tab.md): tab切换组件 √️
 - [title](./title.md): 标题组件 
 - [tooltip](./tooltip.md): 额外提示组件
 - [verify-code](./verify-code.md): 验证码组件
