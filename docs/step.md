@@ -210,3 +210,6 @@ export default {
 | step     | 当前阶段        | number | - | 1  |
 | color    | 激活颜色设置     | string | - | ''  |
 | currentStep | 当前阶段   | number | - | null  |
+
+## Emit
+- `change`: 步骤点击变更事件
