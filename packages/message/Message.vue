@@ -73,7 +73,7 @@ export default {
     // 操作按钮文字
     buttonText: {
       type: String,
-      default: ''
+      default: '确定'
     },
     // 是否展示关闭按钮
     showClose: {
