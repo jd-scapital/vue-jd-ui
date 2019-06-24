@@ -90,12 +90,16 @@ export default {
           font-size: 12px;
           text-align: center;
         }
+        .time {
+          min-height: 1.5em;
+        }
       }
       .line {
         flex: 1;
         background-color: $gray-15;
         height: 2px;
         transform: translateY(-22px);
+        margin-left: 16px;
         &.active {
           background-color: $green;
         }
