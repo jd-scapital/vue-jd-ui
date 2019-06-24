@@ -48,6 +48,7 @@
 <script>
 /**
  * @event current-change 页码变化，参数为改变后的页数
+ * @event row-click 当前行点击，参数row, column, event
  * @prop { Boolean } aibank 是否是aibank
  * @prop { Array } tableData 表格数据
  * @prop { Boolean } isShowPage 是否展示分页

@@ -4,6 +4,25 @@
 
 表格
 
+## 示例
+
+::: 基础使用示例
+
+```html
+<template>
+  <div></div>
+</template>
+<script>
+export default {
+  data() {
+    return {
+
+    }
+  }
+}
+</script>
+```
+
 ## props
 
 | 参数 | 说明 | 必填 | 类型 | 可选值 | 默认值 |
@@ -41,6 +60,8 @@ columns: [
 ## event
 
 - `current-change`: 页码变化，回调参数(page)
+
+- `row-click`: 当前行点击，回调参数(row, column, event)
 
 ## slot
 
