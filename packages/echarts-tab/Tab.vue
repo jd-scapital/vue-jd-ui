@@ -137,26 +137,6 @@ export default {
             yAxis: {
               axisLabel: {
                 formatter: (value, index) => {
-                  return numeral(value).format('0.0000')
-                }
-              }
-            },
-            tooltip: {
-              formatter: (params, ticket, callback) => {
-                const data = params[0]
-                const { value } = data
-                const sumMoney = `${value}%`
-                return `当天七日年化：${sumMoney}`
-              }
-            }
-          }
-          break
-        case 1:
-        // 图表参数变更
-          options = {
-            yAxis: {
-              axisLabel: {
-                formatter: (value, index) => {
                   return numeral(value).format('0.00') + '%'
                 }
               }
@@ -167,6 +147,26 @@ export default {
                 const { value } = data
                 const sumMoney = numeral(value).format('0.0000')
                 return `万份收益(元)：${sumMoney}`
+              }
+            }
+          }
+          break
+        case 1:
+        // 图表参数变更
+          options = {
+            yAxis: {
+              axisLabel: {
+                formatter: (value, index) => {
+                  return numeral(value).format('0.0000')
+                }
+              }
+            },
+            tooltip: {
+              formatter: (params, ticket, callback) => {
+                const data = params[0]
+                const { value } = data
+                const sumMoney = `${value}%`
+                return `当天七日年化：${sumMoney}`
               }
             }
           }
