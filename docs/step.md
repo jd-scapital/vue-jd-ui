@@ -211,5 +211,5 @@ export default {
 | color    | 激活颜色设置     | string | - | ''  |
 | currentStep | 当前阶段   | number | - | null  |
 
-## emit
+## Emit
 - `change`: 步骤点击变更事件

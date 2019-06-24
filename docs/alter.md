@@ -318,7 +318,7 @@ export default {
 | width     | 弹框宽度   | string | - | '50%;'  |
 | closeOnClickModal | 是否能点击背景关闭弹框   | boolean | true/false | true  |
 
-## emit
+## Emit
 - `closeHandle`: 按钮关闭点击事件
 - `cancel`: 取消按钮点击事件
 - `submit`: 弹框确认点击事件

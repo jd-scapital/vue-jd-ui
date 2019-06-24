@@ -168,5 +168,5 @@ export default {
 | showClose       | 是否展示关闭按钮 | boolean | - | true |
 | hasCancelButton | 是否有取消按钮   | boolean | - | true |
 
-## emit
+## Emit
 - `submit`: 确定按钮提交事件

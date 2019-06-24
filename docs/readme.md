@@ -1,6 +1,6 @@
 ## 组件列表
 - [alter](./alter.md): 弹框组件 √
-- [message](./message.md): 统一消息弹框(成功/失败/消息)
+- [message](./message.md): 统一消息弹框(成功/失败/消息) ️️√
 - [normal-input-select](./normal-input-select.md): 输入下拉选择框
   - 回填最好是option
 - [normal-input](./normal-input.md): 输入框
@@ -21,12 +21,12 @@
 - [select](./select.md): 选择器组件
 - [step-bar](./step-bar): 时间轴组件
 - [tab](./tab.md): tab切换组件 √️
-- [title](./title.md): 标题组件 
+- [title](./title.md): 标题组件
 - [tooltip](./tooltip.md): 额外提示组件
 - [verify-code](./verify-code.md): 验证码组件
-- [echarts-home](./echarts-home.md): 资产收益图表 
+- [echarts-home](./echarts-home.md): 资产收益图表
 - [echarts-match](./echarts-match.md): 资产配比图表
 - [echarts-tab](./echarts-tab.md): 产品收益图表 ️
-- [table](./table.md): 表格 
+- [table](./table.md): 表格
 - [table-match](./table-match.md): 资产配比的表格
 - [table-todo](./table-todo.md): 待处理事项的表格
