@@ -4,7 +4,8 @@
     <el-table stripe
       :data="tableData"
       :class="hasFilter"
-      :show-header="showHeader">
+      :show-header="showHeader"
+      @row-click="rowClickHandle">
       <el-table-column
         v-for="(column, i) in columns"
         :key="i"
@@ -151,6 +152,10 @@ export default {
     // 页码改变
     currentChange(page) {
       this.$emit('current-change', page)
+    },
+    // 当前行点击
+    rowClickHandle(row, column, event) {
+      this.$emit('row-click', row, column, event)
     }
   }
 }
