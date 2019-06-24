@@ -4,7 +4,7 @@
       <md-code class="code-item" v-if="render.code"
         :code="render.code"
         :title="render.title">
-        <div class="pre-code">
+        <div class="pre-code" v-if="render.code">
           <pre><code class="show-code">{{render.code}}</code></pre>
         </div>
       </md-code>
@@ -47,7 +47,8 @@ export default {
   },
   computed: {
     ...mapGetters({
-      'menu': 'menu'
+      'menu': 'menu',
+      'router': 'router'
     })
   },
   watch: {
@@ -90,6 +91,11 @@ export default {
         })
       }
       this.renders = renders
+    },
+    // 路由变化
+    router(val) {
+      this.content = ''
+      this.init(this.menu)
     }
   },
   components: {
@@ -109,6 +115,7 @@ export default {
   methods: {
     init(menu) {
       this.content = mds[menu]
+      // console.log('this.content: ', this.content)
     }
   }
 }

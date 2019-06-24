@@ -8,11 +8,14 @@ export default new Vuex.Store({
     // 当前menu
     menu: '',
     // 默认菜单
-    defaultMenu: ''
+    defaultMenu: '',
+    // 当前路由
+    router: {}
   },
   getters: {
     menu: state => state.menu,
-    defaultMenu: state => state.defaultMenu
+    defaultMenu: state => state.defaultMenu,
+    router: state => state.router
   },
   actions: {
     setMenu({ commit }, payload) {
@@ -20,6 +23,9 @@ export default new Vuex.Store({
     },
     setDefaultMenu({ commit }, payload) {
       commit('SET_DEFAULT_MENU', payload)
+    },
+    setRouter({ commit }, payload) {
+      commit('SET_ROUTER', payload)
     }
   },
   mutations: {
@@ -28,6 +34,9 @@ export default new Vuex.Store({
     },
     SET_DEFAULT_MENU(state, payload) {
       state.defaultMenu = payload
+    },
+    SET_ROUTER(state, payload) {
+      state.router = payload
     }
   }
 })
