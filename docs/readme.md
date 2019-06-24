@@ -5,9 +5,9 @@
   - 回填最好是option
 - [normal-input](./normal-input.md): 输入框
   - 自动检测功能尚未完成
-- [normal-tab-pane](./normal-tab-pane.md): tab切换pane
-- [normal-tab](./normal-tab.md): tab容器
-- [scale](./scale.md): 缩放组件(解决这样的css需求`font-size: 10px`)
+- [normal-tab-pane](./normal-tab-pane.md): tab切换pane √
+- [normal-tab](./normal-tab.md): tab容器 √
+- [scale](./scale.md): 缩放组件(解决这样的css需求`font-size: 10px`) √
 - [span](./span.md): 标签组件(`10万元起购`)
 - [step](./step.md): 步骤组件 √️
 - [tab-swiper](./tab-swiper.md): tab样式的swiper组件
