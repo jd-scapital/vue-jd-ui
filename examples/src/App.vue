@@ -49,10 +49,11 @@ $width: 200px;
     height: 100%;
   }
   .contents {
-    position: fixed;
+    // position: fixed;
     left: $width;
     height: 100%;
     width: calc(100% - #{$width});
+    margin-left: $width;
     overflow-y: scroll;
   }
 }
