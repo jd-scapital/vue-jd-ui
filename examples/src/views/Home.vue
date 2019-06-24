@@ -134,10 +134,10 @@ export default {
     // 代码块样式
     /deep/ .pre-code {
       padding: 10px;
-      background-color: $gray;
+      background-color: $bgColor;
       pre {
         border-width: 0;
-        background-color: $gray;
+        background-color: $bgColor;
       }
     }
   }
