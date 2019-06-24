@@ -3,7 +3,7 @@ git merge dev
 
 #!/usr/bin/env sh
 set -e
-echo "current version: " `grep version package.json | awk -F ':' '{print $2}' | awk -F '"' '{print $2}'`
+echo "current version: " `grep version package.json | awk -F '"' '{print $4}'`
 echo "Enter release version: "
 read VERSION
 
