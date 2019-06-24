@@ -8,6 +8,15 @@
 - `jd-button`
 
 ## 使用
+
+```bash
+# js
+import { Alter } from 'vue-jd-ui'
+Vue.use(Alter)
+# html
+<jd-alter v-model="isShow"></jd-alter>
+```
+## 例子
 - 基础示例
 ::: 基础使用示例
 ```html
@@ -297,7 +306,7 @@ export default {
 </script>
 ```
 
-### Attributes
+## Attributes
 | 参数      | 说明          | 类型      | 可选值                           | 默认值  |
 |---------- |-------------- |---------- |--------------------------------  |-------- |
 | show     | 展示弹框与否     | boolean | true/false | false |
