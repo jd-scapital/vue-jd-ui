@@ -21,7 +21,8 @@
     <li v-for="(icon, key) in icons"
       :key="key"
       :class="{'iconfont': 1, [icon]: 1}"
-      style="display: inline;margin-right: 6px;">
+      style="display: inline-flex;margin-right: 6px;margin-bottom: 12px;flex-direction: column;width: 180px;font-size: 14px;">
+      {{icon}}
     </li>
   </ul>
 </template>
