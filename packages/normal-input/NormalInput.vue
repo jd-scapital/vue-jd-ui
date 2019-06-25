@@ -104,6 +104,8 @@
  *  text 普通输入框
  *  select 普通选择框 TODO
  *  multi-select 普通多选框 TODO
+ *  password 密码选择框
+ *  verify-code 短信验证码
  * @param value 输入框值
  * @param childValue 子级输入框值
  * @param options 输入框选项(type为select/multi-select有效)
@@ -197,6 +199,11 @@ export default {
       default() {
         return null
       }
+    },
+    // 倒计时
+    spare: {
+      type: Number,
+      default: INPUT_TYPE_VERIFY_CODE_SPARE_TIME
     }
   },
   data() {
@@ -227,7 +234,7 @@ export default {
       // 子级单选框
       selectChildShow: false,
       // 倒计时时间
-      spareTime: INPUT_TYPE_VERIFY_CODE_SPARE_TIME,
+      spareTime: this.spare,
       // 是否展示剩余时间
       isShowSpareTime: false,
       // 剩余时间定时器
