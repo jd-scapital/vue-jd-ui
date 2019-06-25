@@ -132,7 +132,6 @@ export default {
     // tab切换
     tabClickHandle(index) {
       // this.tabActive = index
-      this.$emit('tabClickHandle', index)
       let options = null
       switch (index) {
         case 0:
@@ -140,28 +139,8 @@ export default {
           options = {
             yAxis: {
               axisLabel: {
-                formatter: (value, index) => {
+                formatter: (value, i) => {
                   return numeral(value).format('0.00') + '%'
-                }
-              }
-            },
-            tooltip: {
-              formatter: (params, ticket, callback) => {
-                const data = params[0]
-                const { value } = data
-                const sumMoney = numeral(value).format('0.0000')
-                return `万份收益(元)：${sumMoney}`
-              }
-            }
-          }
-          break
-        case 1:
-        // 图表参数变更
-          options = {
-            yAxis: {
-              axisLabel: {
-                formatter: (value, index) => {
-                  return numeral(value).format('0.0000')
                 }
               }
             },
@@ -175,11 +154,32 @@ export default {
             }
           }
           break
+        case 1:
+        // 图表参数变更
+          options = {
+            yAxis: {
+              axisLabel: {
+                formatter: (value, i) => {
+                  return numeral(value).format('0.0000')
+                }
+              }
+            },
+            tooltip: {
+              formatter: (params, ticket, callback) => {
+                const data = params[0]
+                const { value } = data
+                const sumMoney = numeral(value).format('0.0000')
+                return `万份收益(元)：${sumMoney}`
+              }
+            }
+          }
+          break
         default:
           break
       }
       this.echartsInstance.setOption(options)
       this.dateClickHandle(0)
+      this.$emit('tabClickHandle', index)
     },
     // 日期切换
     dateClickHandle(index) {
