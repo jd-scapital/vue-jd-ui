@@ -15,8 +15,28 @@ Vue.use(Span)
 <jd-span :text="label"></jd-span>
 ```
 
-## props
-- `text`: 文本
+## 例子
+- 基础示例
+::: 基础使用示例
+```html
+<template>
+  <jd-span :text="text"></jd-span>
+</template>
+<script>
+export default {
+  data() {
+    return {
+      text: '123'
+    }
+  }
+}
+</script>
+```
 
-## emit
+## Attributes
+| 参数      | 说明          | 类型      | 可选值                           | 默认值  |
+|---------- |-------------- |---------- |--------------------------------  |-------- |
+| text     | 文本     | string | - | '' |
+
+## Emit
 - 无
