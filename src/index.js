@@ -88,7 +88,7 @@ if (typeof window !== 'undefined' && window.Vue) {
 }
 
 export default {
-  version: '1.0.0-beta.24',
+  version: '1.0.0-beta.25',
   install,
   CollapseTransition,
   Loading: ElLoading,
