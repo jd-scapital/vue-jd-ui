@@ -33,10 +33,28 @@ banners: [
 </jd-tab-swiper>
 ```
 
-## props
-- `height`: 高度
-- `banners`: banners的数据
+## 例子
+- 展示当前step
+::: 设置是否展示当前step的示例用法
+```html
+<template>
 
-## emit
+</template>
+<script>
+export default {
+  data() {
+    return {}
+  }
+}
+</script>
+```
+
+## Attributes
+| 参数      | 说明          | 类型      | 可选值                           | 默认值  |
+|---------- |-------------- |---------- |--------------------------------  |-------- |
+| height    | 高度           | string | - | '' |
+| banners   | banners的数据   | array | - | [] |
+
+## Emit
 - `slideChange`: slide切换事件
   - `banerItem => {}`: 回传的是banners中的激活数据
