@@ -1,9 +1,9 @@
 ## 组件列表
 - [alter](./alter.md): 弹框组件 √
 - [message](./message.md): 统一消息弹框(成功/失败/消息) ️️√
-- [normal-input-select](./normal-input-select.md): 输入下拉选择框
+- [normal-input-select](./normal-input-select.md): 输入下拉选择框 √
   - 回填最好是option
-- [normal-input](./normal-input.md): 输入框
+- [normal-input](./normal-input.md): 输入框 √
   - 自动检测功能尚未完成
 - [normal-tab-pane](./normal-tab-pane.md): tab切换pane √
 - [normal-tab](./normal-tab.md): tab容器 √
