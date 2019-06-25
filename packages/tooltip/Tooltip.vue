@@ -25,12 +25,16 @@
  * @template slot hover显示的内容
  * @template slot:icon 当 slotIcon 为true时要展示的内容
  */
+import vClickOutside from 'v-click-outside'
 import elTooltip from '../el-tooltip'
 
 export default {
   name: 'JdTooltip',
   components: {
     elTooltip
+  },
+  directives: {
+    clickOutside: vClickOutside.directive
   },
   props: {
     type: {

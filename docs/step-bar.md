@@ -4,6 +4,49 @@
 
 显示每个时间点对应的事
 
+## 示例
+
+::: 基础使用示例
+
+```html
+<template>
+  <div>
+    <jd-step-bar :list="list"></jd-step-bar>
+  </div>
+  <div>
+    <jd-step-bar type="profit" :list="list"></jd-step-bar>
+  </div>
+</template>
+<script>
+export default {
+  data() {
+    return {
+      list: [
+        {
+          name: 'name',
+          time: 'time',
+          step: '1',
+          profit: '1'
+        },
+        {
+          name: 'name',
+          // time: 'time',
+          // step: '',
+          profit: '2'
+        },
+        {
+          name: 'name',
+          time: 'time',
+          step: '2',
+          profit: '3'
+        },
+      ]
+    }
+  }
+}
+</script>
+```
+
 ## props
 
 | 参数 | 说明 | 必填 | 类型 | 可选值 | 默认值 |
@@ -25,11 +68,3 @@ list: [
 ## 默认组件名
 
 `jd-step-bar`
-
-## 样式
-
-- `normal`
-![step-bar-normal](./img/step-bar-normal.png)
-- `profit`
-![step-bar-profit](./img/step-bar-profit.png)
-

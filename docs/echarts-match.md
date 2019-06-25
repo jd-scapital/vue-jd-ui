@@ -4,6 +4,44 @@
 
 各个产品的资产配比图
 
+## 示例
+
+::: 基础使用示例
+
+```html
+<template>
+  <div style="margin-bottom: 20px;">
+    <jd-echarts-match v-model="active" :data="data"></jd-echarts-match>
+  </div>
+  <div>
+    <jd-echarts-match aibank :value="1" :data="data"></jd-echarts-match>
+  </div>
+</template>
+<script>
+export default {
+  data() {
+    return {
+      active: 0,
+      data: [
+        {
+          value: 100,
+          name: 'T+1'
+        },
+        {
+          value: 200,
+          name: 'T+1'
+        },
+        {
+          value: 300,
+          name: 'T+1'
+        }
+      ]
+    }
+  }
+}
+</script>
+```
+
 ## props
 
 | 参数 | 说明 | 必填 | 类型 | 可选值 | 默认值 |

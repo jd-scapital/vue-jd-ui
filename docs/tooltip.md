@@ -4,6 +4,30 @@
 
 鼠标移入，显示额外提示
 
+## 示例
+
+::: 基础使用示例
+
+```html
+<template>
+  <div>
+    <jd-tooltip>123121233</jd-tooltip>
+  </div>
+  <div>
+    <jd-tooltip type="doubt">123121233</jd-tooltip>
+  </div>
+</template>
+<script>
+export default {
+  data() {
+    return {
+
+    }
+  }
+}
+</script>
+```
+
 ## props
 
 | 参数 | 说明 | 必填 | 类型 | 可选值 | 默认值 |
@@ -20,10 +44,3 @@
 ## 默认组件名
 
 `jd-tooltip`
-
-## 样式
-
-- `attention`
-![tooltip](./img/tooltip.png)
-- `doubt`
-![tooltip-doubt](./img/tooltip-doubt.png)

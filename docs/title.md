@@ -4,6 +4,34 @@
 
 每个模块的标题
 
+## 示例
+
+::: 基础使用示例
+
+```html
+<template>
+  <div>
+    <jd-title title="标题">
+      123
+    </jd-title>
+  </div>
+  <div>
+    <jd-title title="标题" subTitle="子标题">
+      321
+    </jd-title>
+  </div>
+</template>
+<script>
+export default {
+  data() {
+    return {
+
+    }
+  }
+}
+</script>
+```
+
 ## props
 
 | 参数 | 说明 | 必填 | 类型 | 可选值 | 默认值 |

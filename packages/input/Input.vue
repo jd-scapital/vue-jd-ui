@@ -1,17 +1,19 @@
 <template>
-  <div class="jd-input-box" :class="{ 'aibank': aibank }">
+  <div class="jd-input-box" :class="{ 'aibank': aibank, 'disabled': disabled }">
     <div v-if="isSubmit" class="input-submit">
       <div class="input">
         <input
           type="text"
           :value="value"
+          :disabled="disabled"
           @change="changeHandle"
-          @input="changeHandle">
+          @input="changeHandle"
+          @dblclick="dblclickHandle">
         <span v-show="showPlaceholder" class="placeholder">{{placeholder}}</span>
-        <button class="all-in" @click="allInHandle">{{allInText}}</button>
+        <button class="all-in" v-if="!disabled" @click="allInHandle">{{allInText}}</button>
       </div>
       <button class="confirm" @click="confirmHandle">{{confirmText}}</button>
-      <p class="format">可购金额大写： {{toChinese}}</p>
+      <p class="format">{{transformText}}： {{toChinese}}</p>
       <p class="warning" v-show="warning.show">{{warning.text}}</p>
     </div>
     <div v-else class="input-input">
@@ -19,6 +21,7 @@
         <input
           type="text"
           :value="value"
+          :disabled="disabled"
           @change="changeHandle"
           @input="changeHandle"
           @dblclick="dblclickHandle">
@@ -130,6 +133,9 @@ export default {
   },
   methods: {
     changeHandle(e) {
+      if (this.disabled) {
+        return false
+      }
       const value = e.target.value
       if (!String(value)) {
         this.showPlaceholder = true
@@ -142,9 +148,15 @@ export default {
       this.$emit('change-handle', noSpaceValue)
     },
     allInHandle() {
+      if (this.disabled) {
+        return false
+      }
       this.$emit('all-in-handle')
     },
     confirmHandle() {
+      if (this.disabled) {
+        return false
+      }
       this.$emit('confirm-handle')
     },
     dblclickHandle() {
@@ -242,6 +254,23 @@ export default {
     font-weight: 400;
     color: $red-2;
     padding-left: 7px;
+  }
+}
+.jd-input-box.disabled {
+  .input {
+    input {
+      cursor: not-allowed;
+      background-color: rgba(128, 128, 128, 0.15);
+      border: none;
+      border: 1px solid #ddd;
+    }
+  }
+  .all-in {
+    cursor: not-allowed;
+  }
+  .confirm {
+    background-color: gray;
+    cursor: not-allowed;
   }
 }
 .jd-input-box.aibank {

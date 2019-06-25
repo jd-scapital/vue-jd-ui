@@ -3,6 +3,7 @@
 </template>
 <script>
 import echarts from 'echarts'
+const aibankColor = '#1EA6E9'
 
 export default {
   name: 'JdEchartsMatch',
@@ -14,13 +15,17 @@ export default {
     data: {
       type: Array,
       default: () => []
+    },
+    aibank: {
+      type: Boolean,
+      default: false
     }
   },
   data() {
     return {
       echartsInstance: null,
       // 当前选中索引
-      index: 0
+      index: this.value
       // data: [
       //   {
       //     value: 200,
@@ -81,7 +86,7 @@ export default {
               },
               // 选中样式
               itemStyle: {
-                color: '#EC4C42'
+                color: this.aibank ? aibankColor : '#EC4C42'
               }
             },
             // 数据

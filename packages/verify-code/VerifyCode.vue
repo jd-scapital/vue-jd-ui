@@ -41,9 +41,25 @@
  */
 import { PUSH_TXT, PUSH_VOICE } from 'vue-jd-ui/src/utils/constant'
 import ElMessage from 'vue-jd-ui/packages/el-message'
-
+const mask = (content = '', fromStart, tillEnd) => {
+  content = String(content).trim()
+  const total = content.length
+  let maskLength = total - fromStart - tillEnd
+  if (maskLength <= 0) {
+    return content
+  }
+  if (maskLength > 8) {
+    maskLength = 8
+  }
+  return content.substr(0, fromStart) + '*'.repeat(maskLength) + content.substr(-tillEnd)
+}
 export default {
   name: 'JdVerifyCode',
+  filters: {
+    maskPhone(phone = '') {
+      return mask(phone, 3, 4)
+    }
+  },
   props: {
     value: {
       type: [Number, String],

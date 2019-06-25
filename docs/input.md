@@ -4,6 +4,82 @@
 
 实现文本内容输入
 
+## 示例
+
+::: 基础使用示例
+
+```html
+<template>
+  <div>
+    <jd-input
+      v-model="value"
+      placeholder="输入的是字符串"
+      allInText="额外操作"
+      confirmText="确认"
+      transformText="金额转换"
+      @all-in-handle="allInHandle"
+      @confirm-handle="confirmHandle"
+      @double-handle="doubleHandle"
+      @change-handle="changeHandle"></jd-input>
+  </div>
+  <div>
+    <jd-input
+      v-model="value"
+      type="input"
+      placeholder="输入的是字符串"
+      transformText="金额转换1"
+      @double-handle="doubleHandle"
+      @change-handle="changeHandle"></jd-input>
+  </div>
+  <div>
+    <jd-input
+      v-model="value"
+      disabled
+      placeholder="输入的是字符串"
+      allInText="额外操作"
+      confirmText="确认"
+      transformText="金额转换"
+      @all-in-handle="allInHandle"
+      @confirm-handle="confirmHandle"
+      @double-handle="doubleHandle"
+      @change-handle="changeHandle"></jd-input>
+  </div>
+  <div>
+    <jd-input
+      v-model="value"
+      disabled
+      type="input"
+      placeholder="输入的是字符串"
+      transformText="金额转换1"
+      @double-handle="doubleHandle"
+      @change-handle="changeHandle"></jd-input>
+  </div>
+</template>
+<script>
+export default {
+  data() {
+    return {
+      value: ''
+    }
+  },
+  methods: {
+    allInHandle() {
+      console.log('额外操作')
+    },
+    confirmHandle() {
+      console.log('确认按钮')
+    },
+    doubleHandle() {
+      console.log('双击输入框')
+    },
+    changeHandle(val) {
+      console.log('输入值变动', val)
+    }
+  }
+}
+</script>
+```
+
 ## props
 
 | 参数 | 说明 | 必填 | 类型 | 可选值 | 默认值 |

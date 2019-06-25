@@ -4,6 +4,25 @@
 
 待处理事项的列表，包含拓展表格
 
+## 示例
+
+::: 基础使用示例
+
+```html
+<template>
+  <div></div>
+</template>
+<script>
+export default {
+  data() {
+    return {
+
+    }
+  }
+}
+</script>
+```
+
 ## props
 
 | 参数 | 说明 | 必填 | 类型 | 可选值 | 默认值 |

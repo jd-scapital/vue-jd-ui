@@ -51,6 +51,9 @@ export default {
   },
   mounted() {
     this.initEcharts()
+    if (this.xData.length) {
+      this.updateEcharts()
+    }
     // this.updateData()
   },
   methods: {
@@ -196,7 +199,8 @@ export default {
             fontSize: 12
           },
           // 额外的浮层样式
-          extraCssText: 'box-shadow: 0 5px 13px 4px rgba(237, 97, 88, 0.23)'
+          // extraCssText: 'box-shadow: 0 5px 13px 4px rgba(237, 97, 88, 0.23)'
+          extraCssText: aibank ? 'box-shadow: 0 5px 13px 4px rgba(64, 158, 255, 0.23)' : 'box-shadow: 0 5px 13px 4px rgba(237, 97, 88, 0.23)'
         },
         series: [{
           data: [],
