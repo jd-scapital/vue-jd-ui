@@ -66,7 +66,3 @@ tabs: [
 
 `jd-tab`
 
-## 样式
-
-- `default`
-![tab](./img/tab.png)

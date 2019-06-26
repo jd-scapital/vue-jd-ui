@@ -47,8 +47,3 @@ export default {
 
 `jd-title`
 
-## 样式
-
-- `title`
-![title](./img/title.png)
-
