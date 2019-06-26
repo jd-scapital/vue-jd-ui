@@ -15,6 +15,18 @@ Vue.use(VerifyCodeSmall)
 <jd-verify-code-small></jd-verify-code-small>
 ```
 
-## props
+## 例子
+::: 基础使用示例
+```html
+<template>
+  <jd-verify-code-small></jd-verify-code-small>
+</template>
+<script>
+export default {
+}
+</script>
+```
 
-## emit
+## Attributes
+
+## Emit

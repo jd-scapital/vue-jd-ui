@@ -38,12 +38,30 @@ banners: [
 ::: 设置是否展示当前step的示例用法
 ```html
 <template>
-
+  <jd-tab-swiper
+    :height="360"
+    :banners.sync="banners">
+    <div class="banner-item" slot="0">产品介绍内容</div>
+    <div class="banner-item" slot="1">风险等级内容</div>
+  </jd-tab-swiper>
 </template>
 <script>
 export default {
   data() {
-    return {}
+    return {
+      banners: [
+        {
+          id: 1,
+          title: '产品介绍',
+          active: true
+        },
+        {
+          id: 2,
+          title: '风险等级',
+          active: false
+        }
+      ]
+    }
   }
 }
 </script>
