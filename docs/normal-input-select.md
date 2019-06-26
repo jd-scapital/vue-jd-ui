@@ -18,9 +18,11 @@ Vue.use(NormalInputSelect)
 </normal-input-select>
 ```
 
-## props
-- `show`: 是否展示
-- `options`: 选项列表
+## Attributes
+| 参数      | 说明          | 类型      | 可选值                           | 默认值  |
+|---------- |-------------- |---------- |--------------------------------  |-------- |
+| show      | 是否展示  | boolean | - | false |
+| options      | 选项列表  | array | - | [] |
 
-## emit
+## Emit
 - `select`: 选中的值回传
