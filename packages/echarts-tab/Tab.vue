@@ -243,7 +243,7 @@ export default {
               formatter: (params) => {
                 return dayjs(params.value).format('YYYY-MM-DD')
               },
-              margin: -235,
+              margin: -135,
               color: '#999',
               fontFamily: 'Helvetica',
               fontSize: 10,
