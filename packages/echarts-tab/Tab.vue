@@ -447,6 +447,7 @@ export default {
       height: 200px;
       width: 470px;
       margin: 0 auto;
+      transform: translateY(10px);
     }
   }
 }
