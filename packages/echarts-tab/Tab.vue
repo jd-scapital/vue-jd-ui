@@ -34,7 +34,7 @@ import echarts from 'echarts'
 import dayjs from 'dayjs'
 import numeral from 'numeral'
 // import { CURRENT_T0 } from 'vue-jd-ui/src/utils/constant'
-const aibankColor = '#02669B'
+const aibankColor = '#1EA6E9'
 export default {
   name: 'JdEchartsTab',
   props: {
@@ -94,21 +94,6 @@ export default {
       // rateList: []
     }
   },
-  // computed: {
-  //   data() {
-  //     switch (this.tabActive) {
-  //       case 0:
-  //         return this.rateList.map(el => el.weekYield)
-  //       case 1:
-  //         return this.rateList.map(el => el.price)
-  //       default:
-  //         return this.rateList.map(el => el.weekYield)
-  //     }
-  //   },
-  //   days() {
-  //     return this.rateList.map(el => dayjs(el.date).format('MM-DD'))
-  //   }
-  // },
   watch: {
     xData(val) {
       this.updateDate(val)
@@ -202,7 +187,7 @@ export default {
     },
     initEcharts() {
       const echartsTab = this.$refs.echartsTab
-      this.echartsInstance = echarts.init(echartsTab, null, { width: 470 })
+      this.echartsInstance = echarts.init(echartsTab, null, { width: 470, height: 230 })
       const aibank = this.aibank
       const options = {
         // x坐标轴
@@ -426,12 +411,16 @@ export default {
     }
   }
   .echart-box {
+    position: relative;
     width: 526px;
     height: 237px;
     border-left: 1px solid $gray-deep;
     border-right: 1px solid $gray-deep;
     border-bottom: 1px solid $gray-deep;
     .date {
+      position: absolute;
+      top: 0;
+      left: 0;
       padding-top: 16px;
       padding-left: 24px;
       ul {
@@ -466,7 +455,7 @@ export default {
       ul {
         li {
           &.active {
-            background-color: $aibank-blue;
+            background-color: #70BDE3;
           }
         }
       }

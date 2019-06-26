@@ -10,13 +10,52 @@
 
 ```html
 <template>
-  <div></div>
+  <div>
+    <jd-table
+      :tableData="tableData"
+      :columns="columns"></jd-table>
+  </div>
 </template>
 <script>
 export default {
   data() {
     return {
-
+      columns: [
+        {
+          label: "一",
+          prop: 'first',
+          width: '100px'
+        },
+        {
+          label: "二",
+          prop: 'second',
+          width: '100px'
+        },
+        {
+          label: "三",
+          prop: 'third',
+          width: '100px'
+        },
+        {
+          label: "四",
+          prop: 'fourth',
+          width: '100px'
+        },
+        {
+          label: "五",
+          prop: 'fiveth',
+          width: '100px'
+        }
+      ],
+      tableData: [
+        {
+          first: 1,
+          second: 2,
+          third: 3,
+          fourth: 4,
+          fiveth: 5
+        }
+      ]
     }
   }
 }
@@ -35,6 +74,7 @@ export default {
 | currentPage | 当前页码 | 否 | Number | - | 1 |
 | total | 总条数 | 否 | Number | - | 1 |
 | pageSize | 一页多少条 | 否 | Number | - | 10 |
+| aibank | 是否是aibank | 否 | Boolean | true/false | false |
 
 ```js
 tableData: [
