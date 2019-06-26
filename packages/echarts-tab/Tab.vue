@@ -421,6 +421,7 @@ export default {
       position: absolute;
       top: 0;
       left: 0;
+      z-index: 2;
       padding-top: 16px;
       padding-left: 24px;
       ul {
