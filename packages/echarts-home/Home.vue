@@ -65,7 +65,7 @@ export default {
   methods: {
     initEcharts() {
       const echartsHome = this.$refs.echartsHome
-      this.echartsInstance = echarts.init(echartsHome)
+      this.echartsInstance = echarts.init(echartsHome, null, { height: 320 })
       const aibank = this.aibank
       const options = {
         // x坐标轴
