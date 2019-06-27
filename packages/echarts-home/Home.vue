@@ -46,13 +46,19 @@ export default {
   },
   watch: {
     xData(val) {
-      this.updateEcharts()
+      this.updateEchartsXData()
+    },
+    yData(val) {
+      this.updateEchartsYData()
     }
   },
   mounted() {
     this.initEcharts()
     if (this.xData.length) {
-      this.updateEcharts()
+      this.updateEchartsXData()
+    }
+    if (this.yData.length) {
+      this.updateEchartsYData()
     }
     // this.updateData()
   },
@@ -246,14 +252,19 @@ export default {
     //   }
     //   this.updateEcharts()
     // },
-    updateEcharts() {
+    updateEchartsXData() {
       const xData = this.xData
-      const yData = this.yData
-      const aibank = this.aibank
       const options = {
         xAxis: {
           data: xData
-        },
+        }
+      }
+      this.echartsInstance.setOption(options)
+    },
+    updateEchartsYData() {
+      const yData = this.yData
+      const aibank = this.aibank
+      const options = {
         series: [{
           data: yData,
           type: 'line',
