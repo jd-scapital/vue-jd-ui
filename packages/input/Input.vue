@@ -160,6 +160,9 @@ export default {
       this.$emit('confirm-handle')
     },
     dblclickHandle() {
+      if (this.disabled) {
+        return false
+      }
       this.$emit('double-handle')
     }
   }
