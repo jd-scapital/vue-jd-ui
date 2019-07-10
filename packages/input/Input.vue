@@ -299,9 +299,11 @@ export default {
   .all-in {
     cursor: not-allowed;
   }
-  .confirm {
-    background-color: gray;
-    cursor: not-allowed;
+  .input-submit {
+    .confirm {
+      background-color: gray;
+      cursor: not-allowed;
+    }
   }
 }
 .jd-input-box.aibank {
