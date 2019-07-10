@@ -277,9 +277,11 @@ export default {
   }
 }
 .jd-input-box.aibank {
-  .input {
-    input {
-      border-color: #002F5F;
+  .input-input {
+    .input {
+      input {
+        border-color: $aibank-blue;
+      }
     }
   }
   .confirm {
