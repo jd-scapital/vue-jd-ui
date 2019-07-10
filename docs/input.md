@@ -21,9 +21,28 @@
       @confirm-handle="confirmHandle"
       @double-handle="doubleHandle"
       @change-handle="changeHandle"></jd-input>
+    <jd-input
+      aibank
+      v-model="value"
+      placeholder="输入的是字符串"
+      allInText="额外操作"
+      confirmText="确认"
+      transformText="金额转换"
+      @all-in-handle="allInHandle"
+      @confirm-handle="confirmHandle"
+      @double-handle="doubleHandle"
+      @change-handle="changeHandle"></jd-input>
   </div>
   <div>
     <jd-input
+      v-model="value"
+      type="input"
+      placeholder="输入的是字符串"
+      transformText="金额转换1"
+      @double-handle="doubleHandle"
+      @change-handle="changeHandle"></jd-input>
+    <jd-input
+      aibank
       v-model="value"
       type="input"
       placeholder="输入的是字符串"

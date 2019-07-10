@@ -16,7 +16,7 @@
       <p class="format">{{transformText}}： {{toChinese}}</p>
       <p class="warning" v-show="warning.show">{{warning.text}}</p>
     </div>
-    <div v-else class="input-input">
+    <div v-else class="input-input" :class="{ 'focus': focus }">
       <div class="input">
         <input
           type="text"
@@ -24,6 +24,8 @@
           :disabled="disabled"
           @change="changeHandle"
           @input="changeHandle"
+          @focus="focusHandle"
+          @blur="blurHandle"
           @dblclick="dblclickHandle">
         <span v-show="showPlaceholder" class="placeholder">{{placeholder}}</span>
       </div>
@@ -99,7 +101,8 @@ export default {
   },
   data() {
     return {
-      showPlaceholder: true
+      showPlaceholder: true,
+      focus: false
     }
   },
   watch: {
@@ -132,6 +135,24 @@ export default {
     }
   },
   methods: {
+    focusHandle() {
+      if (this.disabled) {
+        return false
+      }
+      this.focus = true
+    },
+    blurHandle(e) {
+      if (this.disabled) {
+        return false
+      }
+      const value = e.target.value
+      if (!String(value)) {
+        this.focus = false
+      }
+      else {
+        this.focus = true
+      }
+    },
     changeHandle(e) {
       if (this.disabled) {
         return false
@@ -178,13 +199,20 @@ export default {
     height: 100%;
     width: 100%;
   }
-  /* .input-input {
+  .input-input {
+    &.focus {
+      .input {
+        input {
+          border: 1px solid $button-fill;
+        }
+      }
+    }
     .input {
       input {
         border: 1px solid $gray-11;
       }
     }
-  } */
+  }
   .input {
     display: inline-block;
     position: relative;
@@ -278,9 +306,11 @@ export default {
 }
 .jd-input-box.aibank {
   .input-input {
-    .input {
-      input {
-        border-color: $aibank-blue;
+    &.focus {
+      .input {
+        input {
+          border-color: $aibank-blue;
+        }
       }
     }
   }
