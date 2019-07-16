@@ -25,7 +25,7 @@ module.exports = {
       },
       // 配置全局scss
       sass: {
-        data: '@import "~@/assets/scss/color.scss";@import "~@/../../packages/theme-chalk/src/base.scss";'
+        data: '@import "~@/examples/src/assets/scss/color.scss";@import "~@/packages/theme-chalk/src/base.scss";'
       }
     }
   },
@@ -33,7 +33,8 @@ module.exports = {
     // 1.设置别名
     config.resolve.alias
       .set('vue$', 'vue/dist/vue.esm.js')
-      .set('@@', resolve('../packages/theme-chalk/src'))
+      // packages/theme-chalk/src
+      .set('@', resolve('../'))
       // '@': path.resolve(__dirname, '../packages/theme-chalk/src'),
     // console.log('config.resolve.alias: ', config.resolve.alias)
 

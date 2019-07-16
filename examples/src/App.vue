@@ -15,7 +15,7 @@
  * @description 入口vue文件
  * @createTime 2019年05月29日18:39:09
  */
-import ExMenu from '@/components/Menu.vue'
+import ExMenu from './components/Menu.vue'
 
 export default {
   name: 'App',

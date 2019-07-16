@@ -28,7 +28,7 @@
 import { mapGetters } from 'vuex'
 
 import components from '../../../components.json'
-import { toHump } from '@/utils/tools'
+import { toHump } from '../utils/tools'
 
 export default {
   name: 'Menu',
