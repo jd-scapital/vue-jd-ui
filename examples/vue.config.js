@@ -33,7 +33,8 @@ module.exports = {
     // 1.设置别名
     config.resolve.alias
       .set('vue$', 'vue/dist/vue.esm.js')
-      // .set('vue-jd-ui', resolve('../'))
+      .set('@@', resolve('../packages/theme-chalk/src'))
+      // '@': path.resolve(__dirname, '../packages/theme-chalk/src'),
     // console.log('config.resolve.alias: ', config.resolve.alias)
 
     // 2.调试用, 增加include, babel转换

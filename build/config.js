@@ -34,7 +34,7 @@ externals = [Object.assign({
 exports.externals = externals
 
 exports.alias = {
-  '@': path.resolve(__dirname, '../packages/theme-chalk/src'),
+  '@@': path.resolve(__dirname, '../packages/theme-chalk/src'),
   main: path.resolve(__dirname, '../src'),
   packages: path.resolve(__dirname, '../packages'),
   'vue-jd-ui': path.resolve(__dirname, '../')
