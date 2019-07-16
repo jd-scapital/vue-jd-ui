@@ -13,9 +13,10 @@
     "build:file": "node build/bin/build-entry.js",
     "build:utils": "cross-env BABEL_ENV=utils babel src --out-dir lib --ignore src/index.js",
     "build:base": "node build/bin/gen-cssfile && gulp build --gulpfile packages/theme-chalk/gulpfile.js && cp-cli packages/theme-chalk/lib/base.css lib/theme-chalk/base.css",
+    "build:base-webpack": "node build/bin/gen-cssfile && webpack --config packages/theme-chalk/build/webpack.config.js && cp-cli packages/theme-chalk/lib/base.css lib/theme-chalk/base.css",
     "build:theme-webpack": "cp-cli lib/theme-chalk packages/theme-chalk/lib && cp-cli packages/theme-chalk/src/fonts packages/theme-chalk/lib/fonts && cp-cli packages/theme-chalk/src/fonts lib/theme-chalk/fonts",
     "clean": "rimraf lib && rimraf packages/*/lib && rimraf test/**/coverage",
-    "dist:webpack": "npm run clean && npm run build:file && npm run lint && webpack --config build/webpack.conf.js && webpack --config build/webpack.common.js && webpack --config build/webpack.component.js && npm run build:utils && npm run build:base && npm run build:theme-webpack",
+    "dist:webpack": "npm run clean && npm run build:file && npm run lint && webpack --config build/webpack.conf.js && webpack --config build/webpack.common.js && webpack --config build/webpack.component.js && npm run build:utils && npm run build:base-webpack && npm run build:theme-webpack",
     "lint": "eslint src/**/*.js test/**/*.js packages/**/*.js packages/**/*.vue build/**/*.js --quiet",
     "pub": "npm run bootstrap && sh build/git-release.sh && sh build/release.sh",
     "test": ""

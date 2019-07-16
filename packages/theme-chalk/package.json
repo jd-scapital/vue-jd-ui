@@ -10,7 +10,7 @@
   ],
   "scripts": {
     "build": "gulp build",
-    "b": "webpack --config build/webpack.config.js --progress --profile --colors --display-error-details --display-cached"
+    "build:webpack": "webpack --config build/webpack.config.js --progress --profile --colors --display-error-details --display-cached"
   },
   "keywords": [
     "jd-ui",
