@@ -23,7 +23,10 @@ module.exports = {
     publicPath: '/'
   },
   resolve: {
-    extensions: ['.js', '.scss']
+    extensions: ['.js', '.scss'],
+    alias: {
+      '@': path.resolve(__dirname, '../../../')
+    }
   },
   module: {
     rules: [
