@@ -12,7 +12,7 @@ files.forEach(file => {
   })
 })
 
-console.log('entry: ', entry)
+// console.log('entry: ', entry)
 
 module.exports = {
   mode: 'production',
