@@ -18,3 +18,4 @@ coverage
 .envrc
 packages/theme-chalk/node_modules
 packages/theme-chalk/lib2
+packages/theme-chalk/lib3
