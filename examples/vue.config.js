@@ -1,13 +1,16 @@
 const os = require('os')
 const path = require('path')
+const CompressionPlugin = require('compression-webpack-plugin') // Gzip
 
 function resolve(dir) {
   return path.join(__dirname, dir)
 }
 
+const isProd = process.env.NODE_ENV !== 'production'
+
 module.exports = {
   publicPath: '/',
-  lintOnSave: process.env.NODE_ENV !== 'production',
+  lintOnSave: isProd,
   // 多核编译构建
   parallel: os.cpus().length > 1,
   css: {
@@ -60,5 +63,25 @@ module.exports = {
       .test(/\.md$/)
       .use('text')
       .loader('text-loader')
+  },
+  configureWebpack: config => {
+    const productPlugins = isProd
+      ? [
+        new CompressionPlugin({
+          filename: '[path].gz[query]',
+          algorithm: 'gzip',
+          test: new RegExp('\\.(' + ['js', 'css'].join('|') + ')$'),
+          // gzip bigger than 8kb files
+          threshold: 1024 * 8,
+          minRatio: 0.8
+        })
+      ]
+      : []
+    // 1.gzip compress
+    config.plugins = [
+      // my own plugins list
+      ...productPlugins,
+      ...config.plugins
+    ]
   }
 }
