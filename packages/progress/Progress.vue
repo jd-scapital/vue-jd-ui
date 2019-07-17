@@ -4,7 +4,8 @@
       <li v-for="(item, i) in progress" :key="i">
         <div class="content" :class="{active: contentActive(i) }">
           <div v-if="contentActive(i)" class="icon">
-            <i class="iconfont iconok"></i>
+            <!-- <i class="iconfont iconok"></i> -->
+            <slot></slot>
           </div>
           <div v-else class="icon">{{ i + 1 }}</div>
           <p class="name">{{item.name}}</p>
