@@ -4,7 +4,7 @@
       <li v-for="(item, i) in progress" :key="i">
         <div class="content" :class="{active: contentActive(i) }">
           <div v-if="contentActive(i)" class="icon">
-            <i class="iconfont iconok"></i>
+            <i class="iconfont iconduigou"></i>
           </div>
           <div v-else class="icon">{{ i + 1 }}</div>
           <p class="name">{{item.name}}</p>
@@ -66,7 +66,7 @@ export default {
           .name, .time {
             color: $black-shallow;
           }
-          .iconok {
+          .iconfont {
             color: $green;
             font-size: 54px;
           }
@@ -111,7 +111,7 @@ export default {
   ul li {
     .content {
       &.active {
-        .iconok {
+        .iconfont {
           color: $aibank-blue;
         }
       }
