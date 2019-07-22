@@ -71,9 +71,10 @@ export default {
       if (val) {
         if (this._opening) return
         if (!this.rendered) {
+          const self = this
           this.rendered = true
           Vue.nextTick(function() {
-            this.open()
+            self.open()
           })
         }
         else {

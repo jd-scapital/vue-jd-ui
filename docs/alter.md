@@ -23,8 +23,9 @@ Vue.use(Alter)
 <template>
   <div>
     <jd-button style="width: 120px; height: 40px; line-height: 40px;" @click="toggle">展示弹框</jd-button>
-    <jd-alter v-if="isShow"
+    <jd-alter
       title="示例"
+      :show="isShow"
       :hasCancelButton="true"
       :cancelText="'隐藏弹框'"
       :buttonText="'提交'"
@@ -76,8 +77,9 @@ export default {
 <template>
   <div>
     <jd-button style="width: 120px; height: 40px; line-height: 40px;" @click="toggle">展示弹框</jd-button>
-    <jd-alter v-if="isShow"
+    <jd-alter
       title=""
+      :show="isShow"
       :hasCancelButton="true"
       :cancelText="'隐藏弹框'"
       :buttonText="'提交'"
@@ -129,8 +131,9 @@ export default {
 <template>
   <div>
     <jd-button style="width: 120px; height: 40px; line-height: 40px;" @click="toggle">展示弹框</jd-button>
-    <jd-alter v-if="isShow"
+    <jd-alter
       title="标题"
+      :show="isShow"
       :hasCancelButton="true"
       cancelText="隐藏弹框"
       buttonText=""
@@ -182,9 +185,10 @@ export default {
 <template>
   <div>
     <jd-button style="width: 120px; height: 40px; line-height: 40px;" @click="toggle">展示弹框</jd-button>
-    <jd-alter v-if="isShow"
+    <jd-alter
       title=""
       buttonText=""
+      :show="isShow"
       :width="'500px'"
       :closeOnClickModal="true">
       <div style="padding-top: 10px; padding-bottom: 10px; text-align: center;">内容</div>
@@ -214,7 +218,8 @@ export default {
 <template>
   <div>
     <jd-button style="width: 120px; height: 40px; line-height: 40px;" @click="toggle">展示弹框</jd-button>
-    <jd-alter v-if="isShow"
+    <jd-alter
+      :show="isShow"
       :hasCancelButton="true"
       cancelText="隐藏弹框"
       buttonText="确定"
@@ -268,7 +273,8 @@ export default {
 <template>
   <div>
     <jd-button style="width: 120px; height: 40px; line-height: 40px;" @click="toggle">展示弹框</jd-button>
-    <jd-alter v-if="isShow"
+    <jd-alter
+      :show="isShow"
       title="标题"
       cancelText="隐藏弹框"
       buttonText="确定"

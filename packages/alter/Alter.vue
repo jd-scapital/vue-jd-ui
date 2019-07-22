@@ -7,8 +7,10 @@
     }"
     :width="width"
     :close-on-click-modal="closeOnClickModal"
-    :visible.sync="isShow"
-    :show-close="false">
+    :visible="isShow"
+    :show-close="false"
+    @open="alterOpen"
+    @close="alterClose">
     <div slot="title" class="dialog-header">
       <slot name="alter-header">
         <div class="dialog-header-wrap" v-if="hasTitle">
@@ -113,18 +115,21 @@ export default {
   data() {
     return {
       // 是否展示
-      isShow: true
+      isShow: this.show
     }
   },
   watch: {
-    show(val) {
+    show(val = false) {
+      console.log('show val: ', val)
       this.isShow = val
-    },
-    isShow(val) {
-      if (!val) {
-        this.close()
-      }
     }
+    // ,
+    // isShow(val = false) {
+    //   console.log('isShow val: ', val)
+    //   if (!val) {
+    //     this.close()
+    //   }
+    // }
   },
   methods: {
     // 确定按钮点击事件
@@ -133,17 +138,27 @@ export default {
     },
     // 取消
     cancelClick(...args) {
-      this.$emit('cancel', args)
-      this.close()
+      this.cancel(args)
     },
     // 弹框关闭
     closeDialog(...args) {
+      this.cancel(args)
+    },
+    cancel(args) {
       this.$emit('cancel', args)
       this.close()
     },
     close() {
       this.$emit('update:show', false)
       this.$emit('close-handle')
+    },
+    // 弹框打开事件监听
+    alterOpen() {
+
+    },
+    // 弹框关闭事件监听
+    alterClose() {
+      this.close()
     }
   }
 }
