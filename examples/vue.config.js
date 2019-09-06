@@ -9,7 +9,7 @@ function resolve(dir) {
 const isProd = process.env.NODE_ENV !== 'production'
 
 module.exports = {
-  publicPath: '/',
+  publicPath: 'vue-jd-ui/',
   lintOnSave: isProd,
   // 多核编译构建
   parallel: os.cpus().length > 1,
