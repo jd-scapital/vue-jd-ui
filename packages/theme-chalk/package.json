@@ -46,6 +46,7 @@
   "dependencies": {},
   "resolutions": {
     "browserslist": "4.6.6",
-    "caniuse-lite": "1.0.30000984"
+    "caniuse-lite": "1.0.30000984",
+    "clean-css": ">=4.1.11"
   }
 }
