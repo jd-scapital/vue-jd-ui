@@ -1,4 +1,8 @@
-### 打包构建
+# vue-jd-ui
+
+> 一个部分依赖于element-ui的ui库
+
+## 打包构建
 - 打包: `npm run dist`
 - 命令说明
   - 安装依赖: `npm run bootstrap`
@@ -7,14 +11,14 @@
   - 代码格式检测: `npm run lint`
 - 旧打包文件清除: `npm run clean`
 
-### 文档说明
+## 文档说明
 - [文档目录](./docs/readme.md)
 - 示例代码运行
   ````
   cd examples
   npm run serve
   ````
-### browser
+## browser
   ```
   "browserslist": [
     "> 1%",
@@ -22,5 +26,5 @@
     "not ie <= 8"
   ],
   ```
-### TODO LIST
+## TODO LIST
 - test
