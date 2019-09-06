@@ -2,6 +2,8 @@
 
 > 一个部分依赖于element-ui的ui库
 
+- [vue-jd-ui docs](https://jd-scapital.github.io/vue-jd-ui)
+
 ## 打包构建
 - 打包: `npm run dist:webpack`
 - 命令说明
