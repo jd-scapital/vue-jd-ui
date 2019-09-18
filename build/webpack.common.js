@@ -67,45 +67,45 @@ module.exports = {
           ]
         })
         // loaders: ['style-loader', 'css-loader']
+      },
+      {
+        test: /\.scss$/,
+        loader: ExtractTextPlugin.extract({
+          fallback: 'vue-style-loader',
+          use: [
+            {
+              loader: 'css-loader',
+              options: {
+                importLoaders: 1
+              }
+            },
+            'postcss-loader',
+            'sass-loader',
+            {
+              loader: 'sass-resources-loader',
+              options: {
+                resources: path.resolve(__dirname, '../packages/theme-chalk/src/base.scss')
+              }
+            }
+          ]
+        })
+      },
+      {
+        test: /\.(svg|otf|ttf|woff2?|eot|gif|png|jpe?g)(\?\S*)?$/,
+        loader: 'url-loader',
+        query: {
+          limit: 10000,
+          name: path.posix.join('fonts', '[name].[ext]')
+        }
       }
-      // {
-      //   test: /\.scss$/,
-      //   loader: ExtractTextPlugin.extract({
-      //     fallback: 'vue-style-loader',
-      //     use: [
-      //       {
-      //         loader: 'css-loader',
-      //         options: {
-      //           importLoaders: 1
-      //         }
-      //       },
-      //       'postcss-loader',
-      //       'sass-loader',
-      //       {
-      //         loader: 'sass-resources-loader',
-      //         options: {
-      //           resources: path.resolve(__dirname, '../packages/theme-chalk/src/base.scss')
-      //         }
-      //       }
-      //     ]
-      //   })
-      // },
-      // {
-      //   test: /\.(svg|otf|ttf|woff2?|eot|gif|png|jpe?g)(\?\S*)?$/,
-      //   loader: 'url-loader',
-      //   query: {
-      //     limit: 10000,
-      //     name: path.posix.join('fonts', '[name].[ext]')
-      //   }
-      // }
     ]
   },
   plugins: [
     new ProgressBarPlugin(),
-    new VueLoaderPlugin()
-    // new ExtractTextPlugin({
-    //   filename: 'theme-chalk/[name].css',
-    //   allChunks: true
-    // })
+    new VueLoaderPlugin(),
+    new ExtractTextPlugin({
+      filename: 'theme-chalk/[name].css',
+      allChunks: true
+    })
   ]
 }
