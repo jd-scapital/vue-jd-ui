@@ -93,7 +93,7 @@
     "html-loader": "^0.5.5",
     "json-loader": "^0.5.7",
     "json-templater": "^1.2.0",
-    "node-sass": "^4.12.0",
+    "node-sass": "^7.0.0",
     "postcss-loader": "^3.0.0",
     "postcss-preset-env": "^6.6.0",
     "postcss-salad": "^2.0.1",
